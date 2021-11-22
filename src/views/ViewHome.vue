@@ -1,6 +1,6 @@
 <template>
   <div class="width">
-    <form @submit.prevent="analyze">
+    <form @submit.prevent="lfg">
       <div class="nes-field ">
         <label for="wallet">Wallet address:</label>
         <input type="text" id="wallet" class="nes-input is-dark mt-5 w-full" v-model="address">
@@ -10,7 +10,11 @@
       </button>
     </form>
 
-    <div>
+    <div v-if="err" class="mt-5">
+      <NotifyError>{{err}}</NotifyError>
+    </div>
+
+    <div v-else-if="nfts.length">
       <h1 class="mt-20 text-xl">You've spent a total of
         <span class="text-rb-blue">◎{{ totalSpend.toFixed(2) }}</span> on NFTs.</h1>
       <h1 class="my-10 text-xl">You've earned a total of
@@ -27,7 +31,7 @@
 
       <div class="mb-5 flex flex-row justify-center">
         <button class="nes-btn is-warning mx-5" @click="showOptions = !showOptions">Configure Options</button>
-        <button class="nes-btn is-warning mx-5" @click="showNFTs = !showNFTs">Show Your NFTs</button>
+        <button class="nes-btn is-warning mx-5" @click="showNFTs = !showNFTs">View Your NFTs</button>
       </div>
 
       <div v-if="showOptions" class="mb-5">
@@ -38,10 +42,12 @@
               :sort-by="sortBy"
               :sort-order="sortOrder"
               :offset="offset"
+              :hideSold="hideSold"
               @priceMethod="handleNewMethod"
               @sortBy="handleNewSortBy"
               @sortOrder="handleNewSortOrder"
               @offset="handleNewOffset"
+              @hideSold="handleHideSold"
           />
         </div>
       </div>
@@ -54,8 +60,12 @@
             :price-method="priceMethod"
         />
       </div>
-
     </div>
+
+    <div v-else class="mt-5">
+      <p>or <a href="https://github.com/ilmoi/nftape.me" target="_blank">read how it works</a></p>
+    </div>
+
   </div>
 </template>
 
@@ -66,18 +76,21 @@ import useCluster from "@/composables/cluster";
 import NFTCard from "@/components/NFTCard.vue";
 import {INFTData, PriceMethod} from "@/common/types";
 import ConfigPane from "@/components/ConfigPane.vue";
+import NotifyError from "@/components/notifications/NotifyError.vue";
 
 export default defineComponent({
-  components: {ConfigPane, NFTCard},
+  components: {NotifyError, ConfigPane, NFTCard},
   setup() {
     const address = ref<string>("5u1vB9UeQSCzzwEhmKPhmQH1veWP9KZyZ8xFxFrmj8CK")
     const nfts = ref<INFTData[]>([]);
+    const backupNFTs = ref<INFTData[]>([]);
 
     // config params
     const priceMethod = ref<PriceMethod>(PriceMethod.floor);
     const sortBy = ref<string>("paperhanded")
     const sortOrder = ref<string>("desc")
     const offset = ref<boolean>(false)
+    const hideSold = ref<boolean>(false)
 
     const updateOrder = (sortBy: string, sortOrder: string) => nfts.value.sort((first, second) => {
         // @ts-ignore
@@ -146,13 +159,20 @@ export default defineComponent({
     })
     const totalProfit = computed((): number => totalEarnings.value - totalSpend.value || 0)
 
-    // --------------------------------------- calcs
+    // --------------------------------------- methods
     const {getConnection} = useCluster();
 
-    const analyze = async () => {
+    const err = ref<string | undefined>()
+
+    const lfg = async () => {
       nfts.value = []
+      err.value = undefined
       const nftHandler = new NFTHandler(getConnection('confirmed'))
-      nfts.value = await nftHandler.analyzeAddress(address.value)
+      try {
+        nfts.value = await nftHandler.analyzeAddress(address.value)
+      } catch (e) {
+        err.value = e;
+      }
     }
 
     const handleNewMethod = (newMethod: PriceMethod) => {
@@ -167,6 +187,16 @@ export default defineComponent({
     const handleNewOffset = (newOffset: string) => {
       offset.value = (newOffset === 'true');
     }
+    const handleHideSold = () => {
+      hideSold.value = !hideSold.value;
+      if (hideSold.value) {
+        backupNFTs.value = [...nfts.value]
+        nfts.value = nfts.value.filter(n => n.soldAt === undefined)
+      } else {
+        nfts.value = [...backupNFTs.value]
+        backupNFTs.value = []
+      }
+    }
 
     const neg = (amount: number) => amount < 0
 
@@ -178,6 +208,7 @@ export default defineComponent({
       sortBy,
       sortOrder,
       offset,
+      hideSold,
       // display params
       showOptions,
       showNFTs,
@@ -188,11 +219,13 @@ export default defineComponent({
       totalDiamondhanded,
       totalProfit,
       // methods
-      analyze,
+      err,
+      lfg,
       handleNewMethod,
       handleNewSortBy,
       handleNewSortOrder,
       handleNewOffset,
+      handleHideSold,
       neg,
     }
   }

@@ -12,7 +12,7 @@ export default function useError() {
   const setError = (e: Error) => {
     // todo temp hack before proper error-handling in place
     if (e.message === "Cannot read properties of null (reading '_bn')") {
-      error.value = new Error('Entered bad PK');
+      error.value = new Error('Bad public key entry');
       return;
     }
     error.value = e;

@@ -48,6 +48,14 @@
         </select>
       </div>
     </div>
+
+    <!--hide sold-->
+    <div class="flex-1 flex mt-5">
+      <label>
+        <input type="checkbox" id="hideSold" class="nes-checkbox is-dark" :checked="hideSold" @input="emitEvent"/>
+        <span>Hide sold NFTs</span>
+      </label>
+    </div>
   </div>
 </template>
 
@@ -61,10 +69,11 @@ export default defineComponent({
     sortBy: String,
     sortOrder: String,
     offset: Boolean,
+    hideSold: Boolean,
   },
-  emits: ['priceMethod', 'sortBy', 'sortOrder', 'offset'],
+  emits: ['priceMethod', 'sortBy', 'sortOrder', 'offset', 'hideSold'],
   setup(props, ctx) {
-    const emitEvent = (event:any) => {
+    const emitEvent = (event: any) => {
       ctx.emit(event.srcElement.id, event.target.value)
     }
 
