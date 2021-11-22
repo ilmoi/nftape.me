@@ -5,7 +5,7 @@
         <label for="wallet">Wallet address:</label>
         <input type="text" id="wallet" class="nes-input is-dark mt-5 w-full" v-model="address">
       </div>
-      <button class="nes-btn is-warning mt-5 w-40" type="submit">
+      <button class="nes-btn is-warning mt-5 w-40" type="submit" :class="{ 'is-disabled': isLoading }" :disabled="isLoading">
         LFG
       </button>
     </form>
