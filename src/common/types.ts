@@ -17,6 +17,7 @@ export interface INFTData {
   onchainMetadata?: any;
   externalMetadata?: any;
   currentPrices?: IStats;
-  paperhanded?: number;
-  diamondhanded?: number;
+  paperhanded?: IStats;
+  diamondhanded?: IStats;
+  profit?: number;
 }

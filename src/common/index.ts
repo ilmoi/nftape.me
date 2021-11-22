@@ -69,8 +69,14 @@ export class NFTHandler {
   }
 
   async getTxHistory(address: string) {
-    let txInfos = await this.conn.getSignaturesForAddress(new PublicKey(address));
+    // todo for some reason this works a lot fast with solana's own node
+    const conn = new Connection('https://api.mainnet-beta.solana.com');
+
+    let txInfos = await conn.getSignaturesForAddress(new PublicKey(address));
     console.log(`got ${txInfos.length} txs to process`);
+
+    // todo temp for debugging
+    txInfos = txInfos.splice(0, 200);
 
     // reverse the array, we want to start with historic transactions not other way around
     txInfos = txInfos.reverse();
@@ -86,7 +92,7 @@ export class NFTHandler {
       }
 
       console.log(`processing another ${sigsToProcess.length} sigs`);
-      const txs = await this.conn.getParsedConfirmedTransactions(sigsToProcess);
+      const txs = await conn.getParsedConfirmedTransactions(sigsToProcess);
       console.log('got txs');
       // console.log(txs)
       // writeTxsToDisk('txs', txs)
@@ -143,14 +149,15 @@ export class NFTHandler {
 
   // --------------------------------------- calc paperhands
 
-  populateNFTsWithPapersAndDiamonds(method: PriceMethod) {
+  populateNFTsWithPapersAndDiamonds() {
     for (const nft of this.allNFTs) {
       if (!nft.currentPrices) {
         continue;
       }
-      const [paper, diamond] = calcPaperDiamondHands(nft, method);
+      const [paper, diamond, profit] = calcPaperDiamondHands(nft);
       nft.paperhanded = paper;
       nft.diamondhanded = diamond;
+      nft.profit = profit;
     }
   }
 
@@ -160,8 +167,9 @@ export class NFTHandler {
     await this.getTxHistory(address);
     await this.populateNFTsWithMetadata();
     await this.populateNFTsWithPriceStats();
-    this.populateNFTsWithPapersAndDiamonds(PriceMethod.median);
+    this.populateNFTsWithPapersAndDiamonds();
     console.log(this.allNFTs);
+    return this.allNFTs;
   }
 }
 

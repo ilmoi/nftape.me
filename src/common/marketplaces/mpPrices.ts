@@ -11,11 +11,7 @@ async function fetchSolanartPrices(collection: string) {
   if (!collectionName) return;
   const apiLink = 'https://qzlsklfacc.medianetwork.cloud';
   const link = `${apiLink}/nft_for_sale?collection=${collectionName}`;
-  const headers = {
-    'user-agent':
-      'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36',
-  };
-  const { data } = await axios.get(link, { headers });
+  const { data } = await axios.get(link);
   // console.log(data)
   return data.map((d: any) => d.price);
 }
@@ -25,11 +21,7 @@ async function fetchDigitalEyezPrices(collection: string) {
   if (!collectionName) return;
   const apiLink = 'https://us-central1-digitaleyes-prod.cloudfunctions.net';
   const link = `${apiLink}/offers-retriever?collection=${collectionName}`;
-  const headers = {
-    'user-agent':
-      'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36',
-  };
-  const { data } = await axios.get(link, { headers });
+  const { data } = await axios.get(link);
   // console.log(data)
   return data.offers.map((d: any) => d.price / LAMPORTS_PER_SOL);
 }
@@ -39,11 +31,7 @@ async function fetchMagicEdenPrices(collection: string) {
   if (!collectionName) return;
   const apiLink = 'https://api-mainnet.magiceden.io/rpc';
   const link = `${apiLink}/getListedNFTsByQuery?q=%7B%22$match%22:%7B%22collectionSymbol%22:%22${collectionName}%22%7D,%22$sort%22:%7B%22takerAmount%22:1,%22createdAt%22:-1%7D,%22$skip%22:0,%22$limit%22:20%7D`;
-  const headers = {
-    'user-agent':
-      'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36',
-  };
-  const { data } = await axios.get(link, { headers });
+  const { data } = await axios.get(link);
   // console.log(data)
   return data.results.map((d: any) => d.price);
 }
