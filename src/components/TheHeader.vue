@@ -29,79 +29,79 @@ export default defineComponent( {
 
 @keyframes rainbow-bg{
 		100%,0%{
-			background-color: rgb(255,0,0);
-		}
-		8%{
-			background-color: rgb(255,127,0);
-		}
-		16%{
 			background-color: rgb(255,255,0);
 		}
-		25%{
+		8%{
 			background-color: rgb(127,255,0);
 		}
-		33%{
+		16%{
 			background-color: rgb(0,255,0);
 		}
-		41%{
+		25%{
 			background-color: rgb(0,255,127);
 		}
-		50%{
+		33%{
 			background-color: rgb(0,255,255);
 		}
-		58%{
+		41%{
 			background-color: rgb(0,127,255);
 		}
-		66%{
+		50%{
 			background-color: rgb(0,0,255);
 		}
-		75%{
+		58%{
 			background-color: rgb(127,0,255);
 		}
-		83%{
+		66%{
 			background-color: rgb(255,0,255);
 		}
-		91%{
+		75%{
 			background-color: rgb(255,0,127);
+		}
+		83%{
+      background-color: rgb(255,0,0);
+		}
+		91%{
+      background-color: rgb(255,127,0);
 		}
 }
 
 @keyframes rainbow{
 		100%,0%{
-			color: rgb(255,0,0);
-		}
-		8%{
-			color: rgb(255,127,0);
-		}
-		16%{
 			color: rgb(255,255,0);
 		}
-		25%{
+		8%{
 			color: rgb(127,255,0);
 		}
-		33%{
+		16%{
 			color: rgb(0,255,0);
 		}
-		41%{
+		25%{
 			color: rgb(0,255,127);
 		}
-		50%{
+		33%{
 			color: rgb(0,255,255);
 		}
-		58%{
+		41%{
 			color: rgb(0,127,255);
 		}
-		66%{
+		50%{
 			color: rgb(0,0,255);
 		}
-		75%{
+		58%{
 			color: rgb(127,0,255);
 		}
-		83%{
+		66%{
 			color: rgb(255,0,255);
 		}
-		91%{
+		75%{
 			color: rgb(255,0,127);
+		}
+		83%{
+      color: rgb(255,0,0);
+		}
+		91%{
+      color: rgb(255,127,0);
 		}
 }
 </style>

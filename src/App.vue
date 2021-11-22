@@ -1,16 +1,16 @@
 <template>
   <div class="relative h-full min-h-screen bg-dark">
     <!--navbar + logo-->
-    <TheHeader />
+    <TheHeader/>
 
     <!--body-->
-    <div class="p-20">
-      <router-view />
+    <div class="p-20 flex flex-row justify-center w-screen">
+      <router-view/>
     </div>
 
     <!--cat + footer-->
-    <TheCat />
-    <TheFooter />
+    <TheCat/>
+    <TheFooter/>
   </div>
 </template>
 
@@ -21,7 +21,7 @@ import TheFooter from '@/components/TheFooter.vue';
 import TheCat from '@/components/TheCat.vue';
 
 export default defineComponent({
-  components: { TheCat, TheFooter, TheHeader },
+  components: {TheCat, TheFooter, TheHeader},
   setup() {
     const windowWidth = ref(window.innerWidth);
     const onWidthChange = () => {
@@ -42,6 +42,7 @@ export default defineComponent({
   @apply text-center text-white;
   font-family: 'Press Start 2P', monospace;
 }
+
 a {
   @apply text-rb-yellow !important;
 }
@@ -49,6 +50,7 @@ a {
 a:hover {
   @apply text-rb-blue !important;
 }
+
 .bg-dark {
   background-color: #21252A;
 }

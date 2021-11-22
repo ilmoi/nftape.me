@@ -1,5 +1,5 @@
 <template>
-  <p>View <a class="nes-text is-primary" :href="uri" target="_blank">confirmed transaction</a>.</p>
+  <p>View <a :href="uri" target="_blank">confirmed transaction</a>.</p>
 </template>
 
 <script lang="ts">

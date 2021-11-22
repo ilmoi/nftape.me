@@ -1,25 +1,9 @@
 /* eslint-disable no-use-before-define */
 
 import { PublicKey } from '@solana/web3.js';
-import fs from 'fs';
 import BN from 'bn.js';
-
-export function getEnumKeyByEnumValue(myEnum: any, enumValue: any) {
-  const keys = Object.keys(myEnum).filter((x) => myEnum[x] == enumValue);
-  return keys.length > 0 ? keys[0] : null;
-}
-
-// NOTE: the first array *must* be the longer of the two
-export function joinArraysOnKey(arr1: any[], arr2: any[], key: string) {
-  const merged = [];
-  for (let i = 0; i < arr1.length; i++) {
-    merged.push({
-      ...arr1[i],
-      ...arr2.find((itmInner) => itmInner[key] === arr1[i][key]),
-    });
-  }
-  return merged;
-}
+import bs58 from 'bs58';
+import { INFTData } from '@/common/types';
 
 export async function okToFailAsync(callback: any, args: any[], wantObject = false) {
   try {
@@ -94,21 +78,6 @@ export function parseType<T>(v: T): string {
   return typeof v;
 }
 
-export async function writeToDisk(dir: string, arr: any[]) {
-  if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir);
-  }
-  arr.forEach((i) => {
-    const data = JSON.stringify(i, (k, v) => (v instanceof PublicKey ? v.toBase58() : v), 2);
-    fs.writeFile(`output/nft-${i.mint.toBase58()}.json`, data, (err) => {
-      if (err) {
-        console.log('Write error:', err);
-      }
-    });
-  });
-  console.log('Done writing!');
-}
-
 export async function pause(ms: number) {
   // weird semantics - but needed to work inside jest
   // taken from https://stackoverflow.com/questions/46077176/jest-settimeout-not-pausing-test
@@ -120,39 +89,23 @@ export async function pause(ms: number) {
   );
 }
 
-export function objectOneInsideObjectTwo(o1: any, o2: any): boolean {
-  const jsonObj1 = { ...o1 };
-  const jsonObj2 = { ...o2 };
-  return Object.keys(jsonObj1).every((k1) => {
-    if (parseType(jsonObj1[k1]) === 'boolean') {
-      jsonObj1[k1] = +jsonObj1[k1];
-    }
-    if (parseType(jsonObj1[k1]) === 'dict') {
-      return objectOneInsideObjectTwo(jsonObj1[k1], jsonObj2[k1]);
-    }
-    if (parseType(jsonObj1[k1]) === 'array') {
-      const results: boolean[] = [];
-      jsonObj1[k1].forEach((o: any, i: number) => {
-        if (parseType(o) === 'boolean') {
-          o = +o;
-        }
-        if (parseType(o) === 'dict') {
-          results.push(objectOneInsideObjectTwo(o, jsonObj2[k1][i]));
-        } else {
-          results.push(o === jsonObj2[k1][i]);
-        }
-      });
-      return results.every((r) => r);
-    }
-    return Object.keys(jsonObj2).some((k2) => {
-      if (parseType(jsonObj2[k2]) === 'boolean') {
-        jsonObj2[k2] = +jsonObj2[k2];
-      }
-      return jsonObj1[k1] === jsonObj2[k2];
-    });
-  });
+export function bs58toHex(bString: string): string {
+  const bytes = bs58.decode(bString);
+  return bytes.toString('hex');
 }
 
-export function isIterable(value: any): boolean {
-  return Symbol.iterator in Object(value);
+export function findSigner(accKeys: any[]) {
+  for (const [i, el] of accKeys.entries()) {
+    if (el.signer) {
+      return [i, el.pubkey];
+    }
+  }
+}
+
+export function removeItemOnce(arr: any[], value: number) {
+  const index = arr.indexOf(value);
+  if (index > -1) {
+    arr.splice(index, 1);
+  }
+  return arr;
 }
