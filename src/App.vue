@@ -44,11 +44,11 @@ export default defineComponent({
 }
 
 a {
-  @apply text-rb-yellow !important;
+  @apply text-rb-blue !important;
 }
 
 a:hover {
-  @apply text-rb-blue !important;
+  @apply text-rb-pink !important;
 }
 
 .bg-dark {

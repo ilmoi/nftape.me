@@ -1,7 +1,6 @@
 import { INFTData, IStats, PriceMethod } from '@/common/types';
 
-// todo if someone bought / sold the same nft multiple times, that'd be a problem
-
+// todo currentlty if someone bought / sold their NFT multiple times, only the LAST purchase/sale will be accounted for
 export function calcPaperDiamondHands(
   nft: INFTData
 ): [IStats | undefined, IStats | undefined, number | undefined] {
@@ -9,22 +8,24 @@ export function calcPaperDiamondHands(
   let diamond: IStats | undefined;
   let profit: number | undefined;
 
-  // calculate paperhands amount
-  if (nft.soldAt) {
-    paper = {
-      floor: nft.soldAt - nft.currentPrices!.floor,
-      mean: nft.soldAt - nft.currentPrices!.mean,
-      median: nft.soldAt - nft.currentPrices!.median,
-    };
-  }
+  if (nft.currentPrices) {
+    // calculate paperhands amount
+    if (nft.soldAt) {
+      paper = {
+        floor: nft.currentPrices!.floor - nft.soldAt,
+        mean: nft.currentPrices!.mean - nft.soldAt,
+        median: nft.currentPrices!.median - nft.soldAt,
+      };
+    }
 
-  // calculate diamondhands amount
-  if (nft.boughtAt && !nft.soldAt) {
-    diamond = {
-      floor: nft.currentPrices!.floor - nft.boughtAt!,
-      mean: nft.currentPrices!.mean - nft.boughtAt!,
-      median: nft.currentPrices!.median - nft.boughtAt!,
-    };
+    // calculate diamondhands amount
+    if (nft.boughtAt && !nft.soldAt) {
+      diamond = {
+        floor: nft.currentPrices!.floor - nft.boughtAt!,
+        mean: nft.currentPrices!.mean - nft.boughtAt!,
+        median: nft.currentPrices!.median - nft.boughtAt!,
+      };
+    }
   }
 
   // calculate profit

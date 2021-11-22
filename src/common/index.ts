@@ -17,13 +17,7 @@ const {
 export class NFTHandler {
   conn: Connection;
 
-  currentNFTMints: string[] = [];
-
   allNFTs: INFTData[] = [];
-
-  spent = 0;
-
-  earned = 0;
 
   constructor(conn: Connection) {
     this.conn = conn;
@@ -32,13 +26,14 @@ export class NFTHandler {
   // --------------------------------------- helpers
 
   findOrCreateNFTEntry(mint: string, props: any) {
-    this.allNFTs.forEach((nft) => {
+    for (const nft of this.allNFTs) {
       if (nft.mint === mint) {
         for (const [key, value] of Object.entries(props)) {
           (nft as any)[key] = value;
         }
+        return;
       }
-    });
+    }
     this.allNFTs.push({
       mint,
       ...props,
@@ -57,13 +52,9 @@ export class NFTHandler {
     const buyerSpent = (preBalances[buyerIdx] - postBalances[buyerIdx]) / LAMPORTS_PER_SOL;
     if (buyerAcc.toBase58() === owner) {
       console.log(`Bought ${tokenMint} for ${buyerSpent} SOL on ${exchange}`);
-      this.spent += buyerSpent;
-      this.currentNFTMints.push(tokenMint);
       this.findOrCreateNFTEntry(tokenMint, { boughtAt: buyerSpent });
     } else {
       console.log(`Sold ${tokenMint} for ${buyerSpent} SOL on ${exchange}`);
-      this.earned += buyerSpent;
-      this.currentNFTMints = removeItemOnce(this.currentNFTMints, tokenMint);
       this.findOrCreateNFTEntry(tokenMint, { soldAt: buyerSpent });
     }
   }
@@ -111,13 +102,7 @@ export class NFTHandler {
         }
       });
     }
-
-    console.log('FINALS:');
-    console.log('inventory:', this.currentNFTMints);
-    // console.log('all NFTs:', allNFTs)
-    console.log('spent:', this.spent);
-    console.log('earned:', this.earned);
-    console.log('profit:', this.earned - this.spent);
+    console.log('Tx history pulled!');
   }
 
   // --------------------------------------- fetch prices
@@ -151,14 +136,12 @@ export class NFTHandler {
 
   populateNFTsWithPapersAndDiamonds() {
     for (const nft of this.allNFTs) {
-      if (!nft.currentPrices) {
-        continue;
-      }
       const [paper, diamond, profit] = calcPaperDiamondHands(nft);
       nft.paperhanded = paper;
       nft.diamondhanded = diamond;
       nft.profit = profit;
     }
+    console.log('Papers / diamons / profit calculated!');
   }
 
   // --------------------------------------- play

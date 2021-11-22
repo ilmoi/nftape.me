@@ -82,7 +82,7 @@ export async function fetchAndCalcStats(creator: string): Promise<IStats | undef
         prices.push(...r);
       }
     });
-    console.log(`fetched prices for ${creator} creator are:`, prices);
+    // console.log(`fetched prices for ${creator} creator are:`, prices);
     updateCache(creator, prices);
   }
 

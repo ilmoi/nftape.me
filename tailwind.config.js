@@ -17,7 +17,7 @@ module.exports = {
       },
       colors: {
         rb: {
-          yellow: 'rgb(255,255,0)',
+          yellow: 'rgb(242,196,10)',
           green: 'rgb(0,255,0)',
           blue: 'rgb(0,255,255)',
           pink: 'rgb(255,0,255)',
