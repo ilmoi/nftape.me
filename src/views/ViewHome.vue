@@ -14,6 +14,7 @@
       <NotifyError>{{err}}</NotifyError>
     </div>
 
+    <!--<div>-->
     <div v-else-if="nfts.length">
       <h1 class="mt-20 text-xl">You've spent a total of
         <span class="text-rb-blue">◎{{ totalSpend.toFixed(2) }}</span> on NFTs.</h1>

@@ -1,7 +1,7 @@
 <template>
-  <div class="fixed inset-0 opacity-50 bg-black z400" @click="emitHide"></div>
+  <div class="fixed inset-0 opacity-75 bg-black z400" @click="emitHide"></div>
   <div class="modal" @keydown.esc="emitHide" tabindex="0" id="modal">
-    <div class="nes-container bg-white relative">
+    <div class="nes-container is-dark relative bg-dark">
       <p class="text-lg underline">{{ title }}</p>
       <p class="absolute top-1 right-1" @click="emitHide">X</p>
       <div class="mt-5 text-sm">
@@ -51,5 +51,9 @@ export default defineComponent({
 
 .z400 {
   z-index: 400;
+}
+
+.bg-dark {
+  background-color: #21252A;
 }
 </style>
