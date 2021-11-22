@@ -1,0 +1,98 @@
+{
+  "mint": "3L9ATnqFvL1rdJhkT14v9SRofYzhykGyzCGwpkxtubGK",
+  "boughtAt": 1.290005,
+  "onchainMetadata": {
+    "key": 4,
+    "updateAuthority": "GcrjZXzmNDyGDt646hy4ziWNa5ziGAMNdXGdQcDtnBaV",
+    "mint": "3L9ATnqFvL1rdJhkT14v9SRofYzhykGyzCGwpkxtubGK",
+    "data": {
+      "name": "The Tower #188-18",
+      "symbol": "TWRDAO",
+      "uri": "https://arweave.net/oaRKJYbojJ9vhrvqzSVG5CR4o5012ml0hO3TcuGBcYI",
+      "sellerFeeBasisPoints": 500,
+      "creators": [
+        {
+          "address": "6PTSaVPGLzzgAqw9veQUVKhW2ggsEaV5ghBeLsQn2GVN",
+          "verified": 1,
+          "share": 0
+        },
+        {
+          "address": "FHJKrc5MJJQLhj2FqiTfNnvLj59wEmaXVfozmp7JKj2A",
+          "verified": 1,
+          "share": 100
+        }
+      ]
+    },
+    "primarySaleHappened": 1,
+    "isMutable": 1
+  },
+  "externalMetadata": {
+    "name": "The Tower #188-18",
+    "symbol": "TWRDAO",
+    "description": "Residences inside a futuristic skyscraper in the metaverse. Home of the TowerDAO.",
+    "seller_fee_basis_points": 500,
+    "external_url": "https://towerdao.com/enter-the-tower/188/18",
+    "image": "https://www.arweave.net/F4hOi-WZSGT_GrJIFXTKvS76Sr14OjMw5f1zMjBVMoE?ext=png",
+    "attributes": [
+      {
+        "trait_type": "Story",
+        "value": 188
+      },
+      {
+        "trait_type": "Room",
+        "value": 18
+      },
+      {
+        "trait_type": "Wall",
+        "value": "Lightgray Smooth"
+      },
+      {
+        "trait_type": "Wall Item",
+        "value": "Dartboard"
+      },
+      {
+        "trait_type": "Floor",
+        "value": "Cobblestone"
+      },
+      {
+        "trait_type": "Floor Item",
+        "value": "Fish"
+      },
+      {
+        "trait_type": "Big Item",
+        "value": "Brown Chairwplant"
+      },
+      {
+        "trait_type": "Small Item 1",
+        "value": "Candymachine"
+      },
+      {
+        "trait_type": "View",
+        "value": "Pink"
+      },
+      {
+        "trait_type": "Background",
+        "value": "Pink"
+      }
+    ],
+    "collection": {
+      "name": "The Tower",
+      "family": "TowerDAO"
+    },
+    "properties": {
+      "category": "image",
+      "files": [
+        {
+          "uri": "https://www.arweave.net/F4hOi-WZSGT_GrJIFXTKvS76Sr14OjMw5f1zMjBVMoE?ext=png",
+          "type": "image/png"
+        }
+      ],
+      "creators": [
+        {
+          "address": "FHJKrc5MJJQLhj2FqiTfNnvLj59wEmaXVfozmp7JKj2A",
+          "share": 100
+        }
+      ]
+    }
+  }
+}

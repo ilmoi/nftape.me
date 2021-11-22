@@ -1,0 +1,77 @@
+{
+  "mint": "3sMEXaoy1BLQh4u6rUwmuRqARMK3Q1kmqojttYSXXaHR",
+  "soldAt": 6.99204428,
+  "onchainMetadata": {
+    "key": 4,
+    "updateAuthority": "F5FKqzjucNDYymjHLxMR2uBT43QmaqBAMJwjwkvRRw4A",
+    "mint": "3sMEXaoy1BLQh4u6rUwmuRqARMK3Q1kmqojttYSXXaHR",
+    "data": {
+      "name": "SolPunk_#7796",
+      "symbol": "SolPunks",
+      "uri": "https://arweave.net/LYBNGqOupMG-krvavNNBxup7Ono2kqppdoU7srIh390",
+      "sellerFeeBasisPoints": 500,
+      "creators": [
+        {
+          "address": "F5FKqzjucNDYymjHLxMR2uBT43QmaqBAMJwjwkvRRw4A",
+          "verified": 1,
+          "share": 100
+        }
+      ]
+    },
+    "primarySaleHappened": 0,
+    "isMutable": 1
+  },
+  "externalMetadata": {
+    "name": "SolPunk #7796",
+    "symbol": "",
+    "description": "SolPunk #7796 - Male",
+    "seller_fee_basis_points": 500,
+    "image": "https://arweave.net/XA5IgXpT0qCie84Y4j2Q_0CZMJEwSV_jFWYaioZiGJI",
+    "external_url": "https://solpunks.com",
+    "attributes": [
+      {
+        "trait_type": "Rank",
+        "value": 8684
+      },
+      {
+        "trait_type": "Skin",
+        "value": "Light"
+      },
+      {
+        "trait_type": "Type",
+        "value": "Male"
+      },
+      {
+        "trait_type": "Attribute 1",
+        "value": "Crazy hair"
+      },
+      {
+        "trait_type": "Attribute 2",
+        "value": "Classic Shades"
+      },
+      {
+        "trait_type": "Attribute 3",
+        "value": "Shadow Beard"
+      },
+      {
+        "trait_type": "Attribute Count",
+        "value": 3
+      }
+    ],
+    "properties": {
+      "creators": [
+        {
+          "address": "punknPuatYGcB6EM4Mt7q1qxz1PKhNiTmd1We1Srt9d",
+          "verified": true,
+          "share": 100
+        }
+      ]
+    }
+  },
+  "currentPrices": {
+    "floor": 7,
+    "mean": 898.7470215175254,
+    "median": 42
+  },
+  "paperhanded": -891.7549772375254
+}

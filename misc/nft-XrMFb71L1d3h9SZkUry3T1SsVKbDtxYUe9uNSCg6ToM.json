@@ -1,0 +1,120 @@
+{
+  "mint": "XrMFb71L1d3h9SZkUry3T1SsVKbDtxYUe9uNSCg6ToM",
+  "soldAt": 0.70204428,
+  "onchainMetadata": {
+    "key": 4,
+    "updateAuthority": "BNi8NV97p2J41wnK9amVpaXD43dZzLpDDZyAsQwuNXps",
+    "mint": "XrMFb71L1d3h9SZkUry3T1SsVKbDtxYUe9uNSCg6ToM",
+    "data": {
+      "name": "SaibaGang #1106",
+      "symbol": "SBAGNG",
+      "uri": "https://arweave.net/bwe5VHM3TXCmnQRxjjjLbuEUDVJ63qm0YDWEW-Lr_6A",
+      "sellerFeeBasisPoints": 500,
+      "creators": [
+        {
+          "address": "BHVPUojZvH2mWo5T6ZCJQnyqMTe4McHsXGSJutezTPGE",
+          "verified": 1,
+          "share": 0
+        },
+        {
+          "address": "61fgi854Kqmb1FNJCesw1ne5XAbNyYZve8zsRZ8RFvay",
+          "verified": 0,
+          "share": 70
+        },
+        {
+          "address": "71uN5389zcq9P8BwarSPZoaV1vrfBg79yjCRGCP6xwP6",
+          "verified": 0,
+          "share": 20
+        },
+        {
+          "address": "9dFxBPegtpQ6JamTY5DJxU4Cxwdp6jDXLZjspXM98DfZ",
+          "verified": 0,
+          "share": 5
+        },
+        {
+          "address": "3EXmFGDjNANrxievsT4wdhKfYSZd3BNpn4B7qfPZquq9",
+          "verified": 0,
+          "share": 5
+        }
+      ]
+    },
+    "primarySaleHappened": 1,
+    "isMutable": 1
+  },
+  "externalMetadata": {
+    "image": "https://www.arweave.net/HAJeAwnuCd9J0SH2vZXU7hqRK5JZjI3BDHHP44Zzwco?ext=png",
+    "name": "SaibaGang #1106",
+    "symbol": "SBAGNG",
+    "collection": {
+      "name": "SaibaGang",
+      "family": "SaibaGang"
+    },
+    "attributes": [
+      {
+        "trait_type": "division",
+        "value": "dregs"
+      },
+      {
+        "trait_type": "extra",
+        "value": "black katana"
+      },
+      {
+        "trait_type": "skin",
+        "value": "implants"
+      },
+      {
+        "trait_type": "outfit",
+        "value": "robo arms"
+      },
+      {
+        "trait_type": "accessories",
+        "value": "red neon bars"
+      },
+      {
+        "trait_type": "eyes",
+        "value": "neon blue"
+      },
+      {
+        "trait_type": "hair",
+        "value": "middle part black"
+      },
+      {
+        "trait_type": "mouth",
+        "value": "cyber vampire"
+      }
+    ],
+    "seller_fee_basis_points": 500,
+    "properties": {
+      "creators": [
+        {
+          "address": "61fgi854Kqmb1FNJCesw1ne5XAbNyYZve8zsRZ8RFvay",
+          "share": 70
+        },
+        {
+          "address": "71uN5389zcq9P8BwarSPZoaV1vrfBg79yjCRGCP6xwP6",
+          "share": 20
+        },
+        {
+          "address": "9dFxBPegtpQ6JamTY5DJxU4Cxwdp6jDXLZjspXM98DfZ",
+          "share": 5
+        },
+        {
+          "address": "3EXmFGDjNANrxievsT4wdhKfYSZd3BNpn4B7qfPZquq9",
+          "share": 5
+        }
+      ],
+      "files": [
+        {
+          "uri": "https://www.arweave.net/HAJeAwnuCd9J0SH2vZXU7hqRK5JZjI3BDHHP44Zzwco?ext=png",
+          "type": "image/png"
+        }
+      ]
+    }
+  },
+  "currentPrices": {
+    "floor": 0.41,
+    "mean": 156.32034268571428,
+    "median": 1.8399999999999999
+  },
+  "paperhanded": -155.61829840571428
+}

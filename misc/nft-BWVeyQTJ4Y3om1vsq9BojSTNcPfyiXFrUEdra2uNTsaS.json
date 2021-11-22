@@ -1,0 +1,93 @@
+{
+  "mint": "BWVeyQTJ4Y3om1vsq9BojSTNcPfyiXFrUEdra2uNTsaS",
+  "boughtAt": 729.00204428,
+  "onchainMetadata": {
+    "key": 4,
+    "updateAuthority": "9uBX3ASjxWvNBAD1xjbVaKA74mWGZys3RGSF7DdeDD3F",
+    "mint": "BWVeyQTJ4Y3om1vsq9BojSTNcPfyiXFrUEdra2uNTsaS",
+    "data": {
+      "name": "SMB #226",
+      "symbol": "SMB",
+      "uri": "https://arweave.net/mayIbqECPJjXyety5qvRBGgHPxfR6vNqHq_zI_lwr-A",
+      "sellerFeeBasisPoints": 500,
+      "creators": [
+        {
+          "address": "9uBX3ASjxWvNBAD1xjbVaKA74mWGZys3RGSF7DdeDD3F",
+          "verified": 1,
+          "share": 100
+        }
+      ]
+    },
+    "primarySaleHappened": 1,
+    "isMutable": 1
+  },
+  "externalMetadata": {
+    "name": "SMB #226",
+    "symbol": "SMB",
+    "description": "SMB is a collection of 5000 randomly generated 24x24 pixels NFTs on the Solana Blockchain. Each SolanaMonkey is unique and comes with different type and attributes varying in rarity.",
+    "seller_fee_basis_points": 500,
+    "image": "https://arweave.net/WGfWsKhph_jpNgAlnea1DNT8jvy04wWflEJWSJid93Q",
+    "external_url": "https://solanamonkey.business/",
+    "collection": {
+      "name": "SMB Gen2",
+      "family": "SMB"
+    },
+    "attributes": [
+      {
+        "trait_type": "Attributes Count",
+        "value": 5
+      },
+      {
+        "trait_type": "Type",
+        "value": "Purple"
+      },
+      {
+        "trait_type": "Clothes",
+        "value": "Biker Vest"
+      },
+      {
+        "trait_type": "Ears",
+        "value": "Silver Earring"
+      },
+      {
+        "trait_type": "Mouth",
+        "value": "Cigarette"
+      },
+      {
+        "trait_type": "Eyes",
+        "value": "Purple Glasses"
+      },
+      {
+        "trait_type": "Hat",
+        "value": "Thief Hat"
+      }
+    ],
+    "properties": {
+      "files": [
+        {
+          "uri": "https://arweave.net/WGfWsKhph_jpNgAlnea1DNT8jvy04wWflEJWSJid93Q",
+          "type": "image/png"
+        },
+        {
+          "uri": "https://cdn.solanamonkey.business/gen2/226.png",
+          "type": "image/png",
+          "cdn": true
+        }
+      ],
+      "category": "image",
+      "creators": [
+        {
+          "address": "9uBX3ASjxWvNBAD1xjbVaKA74mWGZys3RGSF7DdeDD3F",
+          "verified": true,
+          "share": 100
+        }
+      ]
+    }
+  },
+  "currentPrices": {
+    "floor": 250,
+    "mean": 458.9166666666667,
+    "median": 412.5
+  },
+  "diamondhanded": -270.08537761333326
+}

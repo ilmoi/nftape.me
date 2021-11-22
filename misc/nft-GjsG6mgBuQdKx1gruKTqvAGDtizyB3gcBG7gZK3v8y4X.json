@@ -1,0 +1,81 @@
+{
+  "mint": "GjsG6mgBuQdKx1gruKTqvAGDtizyB3gcBG7gZK3v8y4X",
+  "soldAt": 7.50204428,
+  "onchainMetadata": {
+    "key": 4,
+    "updateAuthority": "F5FKqzjucNDYymjHLxMR2uBT43QmaqBAMJwjwkvRRw4A",
+    "mint": "GjsG6mgBuQdKx1gruKTqvAGDtizyB3gcBG7gZK3v8y4X",
+    "data": {
+      "name": "SolPunk_#2815",
+      "symbol": "SolPunks",
+      "uri": "https://arweave.net/4MbzgZPBxWvoprkn8694HwsOin-WZM7yGumfpqQFLPE",
+      "sellerFeeBasisPoints": 500,
+      "creators": [
+        {
+          "address": "F5FKqzjucNDYymjHLxMR2uBT43QmaqBAMJwjwkvRRw4A",
+          "verified": 1,
+          "share": 100
+        }
+      ]
+    },
+    "primarySaleHappened": 0,
+    "isMutable": 1
+  },
+  "externalMetadata": {
+    "name": "SolPunk #2815",
+    "symbol": "",
+    "description": "SolPunk #2815 - Female",
+    "seller_fee_basis_points": 500,
+    "image": "https://arweave.net/PWC_9cU5Rg_Qge_i5CBrQjAAmMsoJ2yNZLa2Sjd0I1E",
+    "external_url": "https://solpunks.com",
+    "attributes": [
+      {
+        "trait_type": "Rank",
+        "value": 2827
+      },
+      {
+        "trait_type": "Skin",
+        "value": "Light"
+      },
+      {
+        "trait_type": "Type",
+        "value": "Female"
+      },
+      {
+        "trait_type": "Attribute 1",
+        "value": "Straight Hair"
+      },
+      {
+        "trait_type": "Attribute 2",
+        "value": "Nerd Glasses"
+      },
+      {
+        "trait_type": "Attribute 3",
+        "value": "Purple Lipstick"
+      },
+      {
+        "trait_type": "Attribute 4",
+        "value": "Earring"
+      },
+      {
+        "trait_type": "Attribute Count",
+        "value": 4
+      }
+    ],
+    "properties": {
+      "creators": [
+        {
+          "address": "punknPuatYGcB6EM4Mt7q1qxz1PKhNiTmd1We1Srt9d",
+          "verified": true,
+          "share": 100
+        }
+      ]
+    }
+  },
+  "currentPrices": {
+    "floor": 7,
+    "mean": 898.7470215175254,
+    "median": 42
+  },
+  "paperhanded": -891.2449772375254
+}

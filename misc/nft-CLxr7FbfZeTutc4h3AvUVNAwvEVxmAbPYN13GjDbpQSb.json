@@ -1,0 +1,112 @@
+{
+  "mint": "CLxr7FbfZeTutc4h3AvUVNAwvEVxmAbPYN13GjDbpQSb",
+  "soldAt": 0.990005,
+  "onchainMetadata": {
+    "key": 4,
+    "updateAuthority": "9FbJbUvqD5C7NxUVzfy6sZ7NigMBUvsPG9TojjDnaGfH",
+    "mint": "CLxr7FbfZeTutc4h3AvUVNAwvEVxmAbPYN13GjDbpQSb",
+    "data": {
+      "name": "Furious Flower #1212",
+      "symbol": "FF",
+      "uri": "https://arweave.net/yQUD_KditDdO-MqdoEoKmM7dPS73Z29knh9_lTWKv2w",
+      "sellerFeeBasisPoints": 500,
+      "creators": [
+        {
+          "address": "2A4QFRwGQiX23rYqFJicaMRYRus3daJ4ayJu21ZZANrp",
+          "verified": 1,
+          "share": 0
+        },
+        {
+          "address": "9FbJbUvqD5C7NxUVzfy6sZ7NigMBUvsPG9TojjDnaGfH",
+          "verified": 1,
+          "share": 33
+        },
+        {
+          "address": "13RiW8iqQgKnHXUSyb2Pu8otBjgsxxSB2YQ3WfgU4Y6i",
+          "verified": 0,
+          "share": 34
+        },
+        {
+          "address": "A8yAGy6svM7rV9CF35fG3Ktf9QUkZEZdEHK3qNJC2pQ4",
+          "verified": 0,
+          "share": 33
+        }
+      ]
+    },
+    "primarySaleHappened": 1,
+    "isMutable": 1
+  },
+  "externalMetadata": {
+    "name": "Furious Flower #1212",
+    "description": "5000 Furious Flowers, who are fed up with humanity, are about to take back planet earth!",
+    "image": "https://www.arweave.net/_J6443RrjdJXqLehCWSVk6wGPWTbJVboujy4b1rvC30?ext=png",
+    "symbol": "FF",
+    "seller_fee_basis_points": 500,
+    "edition": "Furious Flowers 2021",
+    "attributes": [
+      {
+        "trait_type": "FACE",
+        "value": "Doot"
+      },
+      {
+        "trait_type": "ARMS",
+        "value": "Tiny"
+      },
+      {
+        "trait_type": "PETALS",
+        "value": "Curly"
+      },
+      {
+        "trait_type": "STEM",
+        "value": "Alien Liane"
+      },
+      {
+        "trait_type": "TEETH",
+        "value": "Pointy Diamond"
+      },
+      {
+        "trait_type": "BACKGROUND",
+        "value": "Crimson"
+      },
+      {
+        "trait_type": "PETAL MATERIAL",
+        "value": "Azure"
+      },
+      {
+        "trait_type": "FACE MATERIAL",
+        "value": "Purple"
+      },
+      {
+        "trait_type": "TRIBE",
+        "value": "Clay"
+      }
+    ],
+    "collection": {
+      "name": "Furious Flowers",
+      "family": "Furious Flowers"
+    },
+    "properties": {
+      "category": "image",
+      "files": [
+        {
+          "uri": "https://www.arweave.net/_J6443RrjdJXqLehCWSVk6wGPWTbJVboujy4b1rvC30?ext=png",
+          "type": "image/png"
+        }
+      ],
+      "creators": [
+        {
+          "address": "9FbJbUvqD5C7NxUVzfy6sZ7NigMBUvsPG9TojjDnaGfH",
+          "share": 33
+        },
+        {
+          "address": "13RiW8iqQgKnHXUSyb2Pu8otBjgsxxSB2YQ3WfgU4Y6i",
+          "share": 34
+        },
+        {
+          "address": "A8yAGy6svM7rV9CF35fG3Ktf9QUkZEZdEHK3qNJC2pQ4",
+          "share": 33
+        }
+      ]
+    }
+  }
+}

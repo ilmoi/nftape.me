@@ -1,0 +1,131 @@
+{
+  "mint": "AmqaBmyZgnedmKi3MaSMfzrHbCrXX9Wq46d3xzCKkhGe",
+  "boughtAt": 0.60204428,
+  "onchainMetadata": {
+    "key": 4,
+    "updateAuthority": "Sku1HPHt6DE5Qz9q6zFV4MGNPxEJB8sbqXYdPou5PKG",
+    "mint": "AmqaBmyZgnedmKi3MaSMfzrHbCrXX9Wq46d3xzCKkhGe",
+    "data": {
+      "name": "SKULL #4550",
+      "symbol": "SKULL",
+      "uri": "https://arweave.net/lhoNOsmEgJdgbl02o4Elz_F8kg-WBqyRmZN2eLMyXGQ",
+      "sellerFeeBasisPoints": 800,
+      "creators": [
+        {
+          "address": "Bhr9iWx7vAZ4JDD5DVSdHxQLqG9RvCLCSXvu6yC4TF6c",
+          "verified": 1,
+          "share": 0
+        },
+        {
+          "address": "4cUyDakNPeMEZtJPDJGNujWLGF1XNH7WbQnheUEfD2xX",
+          "verified": 0,
+          "share": 48
+        },
+        {
+          "address": "3K4ivsHb5HEz2PWKtBEPCT99eSvLb27Bucd22kq43Udq",
+          "verified": 0,
+          "share": 3
+        },
+        {
+          "address": "5awsmonFXxL4xCNQTYVgw8zGWXEzAcoTbirxYEYqxwh3",
+          "verified": 0,
+          "share": 48
+        },
+        {
+          "address": "3bDeiqroEHSuWM5AenRNDevoNWpC1FtWvdxdfRt6D4Hg",
+          "verified": 0,
+          "share": 1
+        }
+      ]
+    },
+    "primarySaleHappened": 1,
+    "isMutable": 1
+  },
+  "externalMetadata": {
+    "name": "SKULL #4550",
+    "symbol": "SKULL",
+    "description": "6,666 algorithmically generated, unique and spooky skulls.",
+    "seller_fee_basis_points": 800,
+    "external_url": "https://skeletoncrew.rip/skulls/4550",
+    "image": "https://www.arweave.net/tzG9CaiKJly0_rCHEJEje7UupNS8ZbHmfy7CP3uvmA0?ext=png",
+    "attributes": [
+      {
+        "trait_type": "Background",
+        "value": "Seafoam Green"
+      },
+      {
+        "trait_type": "Neck",
+        "value": "None"
+      },
+      {
+        "trait_type": "Skull",
+        "value": "Teal Bucket"
+      },
+      {
+        "trait_type": "Lines",
+        "value": "None"
+      },
+      {
+        "trait_type": "Expression",
+        "value": "Deadpan"
+      },
+      {
+        "trait_type": "Face",
+        "value": "Mango Hammer"
+      },
+      {
+        "trait_type": "Eyes",
+        "value": "Matches"
+      },
+      {
+        "trait_type": "Headgear",
+        "value": "None"
+      },
+      {
+        "trait_type": "Extras",
+        "value": "None"
+      },
+      {
+        "trait_type": "Name",
+        "value": "Hugo the Unphased"
+      }
+    ],
+    "collection": {
+      "name": "First Shift",
+      "family": "Skeleton Crew Skulls"
+    },
+    "properties": {
+      "category": "image",
+      "files": [
+        {
+          "uri": "https://www.arweave.net/tzG9CaiKJly0_rCHEJEje7UupNS8ZbHmfy7CP3uvmA0?ext=png",
+          "type": "image/png"
+        }
+      ],
+      "creators": [
+        {
+          "address": "4cUyDakNPeMEZtJPDJGNujWLGF1XNH7WbQnheUEfD2xX",
+          "share": 48
+        },
+        {
+          "address": "3K4ivsHb5HEz2PWKtBEPCT99eSvLb27Bucd22kq43Udq",
+          "share": 3
+        },
+        {
+          "address": "5awsmonFXxL4xCNQTYVgw8zGWXEzAcoTbirxYEYqxwh3",
+          "share": 48
+        },
+        {
+          "address": "3bDeiqroEHSuWM5AenRNDevoNWpC1FtWvdxdfRt6D4Hg",
+          "share": 1
+        }
+      ]
+    }
+  },
+  "currentPrices": {
+    "floor": 0.45,
+    "mean": 12.12752893683947,
+    "median": 3.5
+  },
+  "diamondhanded": 11.52548465683947
+}

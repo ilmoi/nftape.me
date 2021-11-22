@@ -1,0 +1,112 @@
+{
+  "mint": "BEhCaqvR3jzjpKco5tFr8LskcVhyqECmBbiqQr7Q9Wqv",
+  "boughtAt": 119.000005,
+  "onchainMetadata": {
+    "key": 4,
+    "updateAuthority": "AvkbtawpmMSy571f71WsWEn41ATHg5iHw27LoYJdk8QA",
+    "mint": "BEhCaqvR3jzjpKco5tFr8LskcVhyqECmBbiqQr7Q9Wqv",
+    "data": {
+      "name": "THUG #2318",
+      "symbol": "",
+      "uri": "https://arweave.net/kez2b0hDnmOX7Ro4hZ6vrIfbt9FZ5hvIfbwd_KKR_T8",
+      "sellerFeeBasisPoints": 500,
+      "creators": [
+        {
+          "address": "AvkbtawpmMSy571f71WsWEn41ATHg5iHw27LoYJdk8QA",
+          "verified": 1,
+          "share": 100
+        }
+      ]
+    },
+    "primarySaleHappened": 0,
+    "isMutable": 0
+  },
+  "externalMetadata": {
+    "name": "THUG #2318",
+    "symbol": "",
+    "description": "You hold in your possession an OG thugbird. It was created with love for the Solana community by 0x_thug",
+    "seller_fee_basis_points": 500,
+    "external_url": "https://www.thugbirdz.com/",
+    "attributes": [
+      {
+        "trait_type": "Type",
+        "value": "normal"
+      },
+      {
+        "trait_type": "Background Color",
+        "value": "aquamarine"
+      },
+      {
+        "trait_type": "Head Color",
+        "value": "oldlace"
+      },
+      {
+        "trait_type": "Neck Color",
+        "value": "gray"
+      },
+      {
+        "trait_type": "Shades",
+        "value": "standard"
+      },
+      {
+        "trait_type": "Chain",
+        "value": "none"
+      },
+      {
+        "trait_type": "Face Tattoo",
+        "value": "none"
+      },
+      {
+        "trait_type": "Ear-ring",
+        "value": "none"
+      },
+      {
+        "trait_type": "Beak Color",
+        "value": "gray"
+      },
+      {
+        "trait_type": "Smoking",
+        "value": "none"
+      },
+      {
+        "trait_type": "Position in gang",
+        "value": "thug"
+      },
+      {
+        "trait_type": "Favourite rapper",
+        "value": "jay-z"
+      },
+      {
+        "trait_type": "Head accessories",
+        "value": "beanie"
+      }
+    ],
+    "collection": {
+      "name": "OG Collection",
+      "family": "thugbirdz"
+    },
+    "properties": {
+      "files": [
+        {
+          "uri": "https://arweave.net/FefF9H9JW3Vmi-8sbTnqjsxzXSfYxYLKm2Hv3roM4ho",
+          "type": "image/png"
+        }
+      ],
+      "category": "image",
+      "maxSupply": 0,
+      "creators": [
+        {
+          "address": "CzrE3LhijwcmvsXZa8YavqgR9EzW3UGqoSWZKwGpZVqM",
+          "share": 100
+        }
+      ]
+    },
+    "image": "https://arweave.net/FefF9H9JW3Vmi-8sbTnqjsxzXSfYxYLKm2Hv3roM4ho"
+  },
+  "currentPrices": {
+    "floor": 59.99,
+    "mean": 238.13040844366193,
+    "median": 149.9850005
+  },
+  "diamondhanded": 119.13040344366193
+}

@@ -1,0 +1,120 @@
+{
+  "mint": "AJkVvBcra17gn6r3szfo3gBrG4pivFb3FYXDnUBHSwGj",
+  "soldAt": 0.79204428,
+  "onchainMetadata": {
+    "key": 4,
+    "updateAuthority": "BNi8NV97p2J41wnK9amVpaXD43dZzLpDDZyAsQwuNXps",
+    "mint": "AJkVvBcra17gn6r3szfo3gBrG4pivFb3FYXDnUBHSwGj",
+    "data": {
+      "name": "SaibaGang #1092",
+      "symbol": "SBAGNG",
+      "uri": "https://arweave.net/8whZDfMHsuPdZpbr_qKomrxbzjk9OQIjYmjrWLZr9-U",
+      "sellerFeeBasisPoints": 500,
+      "creators": [
+        {
+          "address": "BHVPUojZvH2mWo5T6ZCJQnyqMTe4McHsXGSJutezTPGE",
+          "verified": 1,
+          "share": 0
+        },
+        {
+          "address": "61fgi854Kqmb1FNJCesw1ne5XAbNyYZve8zsRZ8RFvay",
+          "verified": 0,
+          "share": 70
+        },
+        {
+          "address": "71uN5389zcq9P8BwarSPZoaV1vrfBg79yjCRGCP6xwP6",
+          "verified": 0,
+          "share": 20
+        },
+        {
+          "address": "9dFxBPegtpQ6JamTY5DJxU4Cxwdp6jDXLZjspXM98DfZ",
+          "verified": 0,
+          "share": 5
+        },
+        {
+          "address": "3EXmFGDjNANrxievsT4wdhKfYSZd3BNpn4B7qfPZquq9",
+          "verified": 0,
+          "share": 5
+        }
+      ]
+    },
+    "primarySaleHappened": 1,
+    "isMutable": 1
+  },
+  "externalMetadata": {
+    "image": "https://www.arweave.net/qdxAz-Ir4c0d9d_r-r1FCZAl9XNjKGBccbJ68XWxCWo?ext=png",
+    "name": "SaibaGang #1092",
+    "symbol": "SBAGNG",
+    "collection": {
+      "name": "SaibaGang",
+      "family": "SaibaGang"
+    },
+    "attributes": [
+      {
+        "trait_type": "division",
+        "value": "portside"
+      },
+      {
+        "trait_type": "extra",
+        "value": "double black katana"
+      },
+      {
+        "trait_type": "skin",
+        "value": "cyan"
+      },
+      {
+        "trait_type": "outfit",
+        "value": "saiba hoodie"
+      },
+      {
+        "trait_type": "accessories",
+        "value": "studs"
+      },
+      {
+        "trait_type": "eyes",
+        "value": "neon blue"
+      },
+      {
+        "trait_type": "hair",
+        "value": "short red and black"
+      },
+      {
+        "trait_type": "mouth",
+        "value": "radioactive mask"
+      }
+    ],
+    "seller_fee_basis_points": 500,
+    "properties": {
+      "creators": [
+        {
+          "address": "61fgi854Kqmb1FNJCesw1ne5XAbNyYZve8zsRZ8RFvay",
+          "share": 70
+        },
+        {
+          "address": "71uN5389zcq9P8BwarSPZoaV1vrfBg79yjCRGCP6xwP6",
+          "share": 20
+        },
+        {
+          "address": "9dFxBPegtpQ6JamTY5DJxU4Cxwdp6jDXLZjspXM98DfZ",
+          "share": 5
+        },
+        {
+          "address": "3EXmFGDjNANrxievsT4wdhKfYSZd3BNpn4B7qfPZquq9",
+          "share": 5
+        }
+      ],
+      "files": [
+        {
+          "uri": "https://www.arweave.net/qdxAz-Ir4c0d9d_r-r1FCZAl9XNjKGBccbJ68XWxCWo?ext=png",
+          "type": "image/png"
+        }
+      ]
+    }
+  },
+  "currentPrices": {
+    "floor": 0.41,
+    "mean": 156.32034268571428,
+    "median": 1.8399999999999999
+  },
+  "paperhanded": -155.52829840571428
+}

@@ -1,0 +1,87 @@
+{
+  "mint": "AYkooU9eM8sr2s2Xn5rAbGNLtFDokTEV78c6bfU7CRru",
+  "boughtAt": 150.000005,
+  "onchainMetadata": {
+    "key": 4,
+    "updateAuthority": "DRGNjvBvnXNiQz9dTppGk1tAsVxtJsvhEmojEfBU3ezf",
+    "mint": "AYkooU9eM8sr2s2Xn5rAbGNLtFDokTEV78c6bfU7CRru",
+    "data": {
+      "name": "Boryoku Dragonz #997",
+      "symbol": "BORYOKU",
+      "uri": "https://arweave.net/J_A-kaElWMhtYwARcxdPMuQcjpVHjwujnvou2BOk9PM",
+      "sellerFeeBasisPoints": 500,
+      "creators": [
+        {
+          "address": "DRGNjvBvnXNiQz9dTppGk1tAsVxtJsvhEmojEfBU3ezf",
+          "verified": 1,
+          "share": 100
+        }
+      ]
+    },
+    "primarySaleHappened": 1,
+    "isMutable": 1
+  },
+  "externalMetadata": {
+    "name": "Boryoku Dragonz #997",
+    "symbol": "BORYOKU",
+    "description": "Bōryoku Dragonz is an exclusive collection of 1,111 Dragon NFTs on the Solana blockchain.",
+    "seller_fee_basis_points": 500,
+    "image": "https://arweave.net/51hC91DajICBiehD11GCgMpdQG_r7tkKkyAyxqCuarc?ext=png",
+    "external_url": "https://boryokudragonz.io",
+    "attributes": [
+      {
+        "trait_type": "Generation",
+        "value": "Genesis"
+      },
+      {
+        "trait_type": "Type",
+        "value": "Iron Yellow"
+      },
+      {
+        "trait_type": "Head",
+        "value": "None"
+      },
+      {
+        "trait_type": "Eyes",
+        "value": "Laser Eyes"
+      },
+      {
+        "trait_type": "Mouth",
+        "value": "Ice Breath"
+      },
+      {
+        "trait_type": "Neck",
+        "value": "None"
+      },
+      {
+        "trait_type": "Background",
+        "value": "Pink"
+      }
+    ],
+    "collection": {
+      "name": "Genesis",
+      "family": "Boryoku Dragonz"
+    },
+    "properties": {
+      "files": [
+        {
+          "uri": "https://arweave.net/51hC91DajICBiehD11GCgMpdQG_r7tkKkyAyxqCuarc?ext=png",
+          "type": "image/png"
+        }
+      ],
+      "category": "image",
+      "creators": [
+        {
+          "address": "DRGNjvBvnXNiQz9dTppGktAsVxtJsvhEmojEfBU3ezf",
+          "share": 100
+        }
+      ]
+    }
+  },
+  "currentPrices": {
+    "floor": 125,
+    "mean": 144.82350000000002,
+    "median": 144.94
+  },
+  "diamondhanded": -5.176504999999963
+}

@@ -1,0 +1,99 @@
+{
+  "mint": "HciAfkiBDqq9d71WnacRLfz4rYVCv84ANHaVn3kHtGCR",
+  "boughtAt": 0.02204928,
+  "onchainMetadata": {
+    "key": 4,
+    "updateAuthority": "9cowbWYHWq26KQE34uZzvZv2s8XGCF7uCEVrbXTtHryc",
+    "mint": "HciAfkiBDqq9d71WnacRLfz4rYVCv84ANHaVn3kHtGCR",
+    "data": {
+      "name": "Solana Koala #3238",
+      "symbol": "SKoala",
+      "uri": "https://arweave.net/zsyAeDPVOjxENX6MHy0GLdO4aw3Cc3CTA7uriDqFuzg",
+      "sellerFeeBasisPoints": 500,
+      "creators": [
+        {
+          "address": "3wZjizRuRmr5hUi1sMUirETJ4KDaDeRseAgs3gdpx2JH",
+          "verified": 1,
+          "share": 0
+        },
+        {
+          "address": "AiKNJWRq4HMaQkQ7jY55PEjTngGmfLb6C5mi4MUXg1rx",
+          "verified": 0,
+          "share": 40
+        },
+        {
+          "address": "EQg3qLcQSEgpB1g7NQEkET6Wv5exNyqsWDzddBRP9fxS",
+          "verified": 0,
+          "share": 30
+        },
+        {
+          "address": "j4PmQCpWBsENotsfd12xixqesCHP2irSSSmGpMKHVfE",
+          "verified": 0,
+          "share": 30
+        }
+      ]
+    },
+    "primarySaleHappened": 1,
+    "isMutable": 1
+  },
+  "externalMetadata": {
+    "name": "Solana Koala #3238",
+    "description": "We found these koalas straight from Australia and you should take a look at them. 5555 amazing koalas finding their new home. This an endangered species of rare koalas is waiting for you help. Let's do it together!",
+    "image": "https://www.arweave.net/lqQuFsGriDppJUepWxV3Vy0p6wLVKnL3PCHUg3N17IQ?ext=png",
+    "symbol": "SKoala",
+    "attributes": [
+      {
+        "trait_type": "BACKGROUND",
+        "value": "Blue"
+      },
+      {
+        "trait_type": "SKINS",
+        "value": "Red"
+      },
+      {
+        "trait_type": "FACES",
+        "value": "Pink gum"
+      },
+      {
+        "trait_type": "HANDS",
+        "value": "Banana"
+      },
+      {
+        "trait_type": "HATS",
+        "value": "Blue hat"
+      },
+      {
+        "trait_type": "STICK",
+        "value": "Green stick"
+      }
+    ],
+    "collection": {
+      "name": "Solana Koala",
+      "family": "Solana Koala"
+    },
+    "properties": {
+      "category": "image",
+      "files": [
+        {
+          "uri": "https://www.arweave.net/lqQuFsGriDppJUepWxV3Vy0p6wLVKnL3PCHUg3N17IQ?ext=png",
+          "type": "image/png"
+        }
+      ],
+      "creators": [
+        {
+          "address": "AiKNJWRq4HMaQkQ7jY55PEjTngGmfLb6C5mi4MUXg1rx",
+          "share": 40
+        },
+        {
+          "address": "EQg3qLcQSEgpB1g7NQEkET6Wv5exNyqsWDzddBRP9fxS",
+          "share": 30
+        },
+        {
+          "address": "j4PmQCpWBsENotsfd12xixqesCHP2irSSSmGpMKHVfE",
+          "share": 30
+        }
+      ]
+    },
+    "seller_fee_basis_points": 500
+  }
+}
