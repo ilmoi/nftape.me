@@ -3,7 +3,7 @@
     <div v-if="showText" class="nes-balloon from-right balloon">
       <p class="text-black">Fork me on Github</p>
     </div>
-    <a href="https://github.com/ilmoi/paperhands.is" target="_blank" class="cat">
+    <a href="https://github.com/ilmoi/nftape.me" target="_blank" class="cat">
       <i
         @mouseover="showText = true"
         @mouseleave="showText = false"

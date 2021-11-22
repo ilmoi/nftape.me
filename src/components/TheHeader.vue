@@ -1,13 +1,14 @@
 <template>
   <nav class="flex flex-row justify-center align-middle rainbow-bg">
-    <a class="menu-item" href="https://www.nftarmory.me/view" target="_blank">⚔️</a>
-    <h1 class="menu-item bg-none text-black">paperhands.is</h1>
-    <a class="menu-item" href="https://github.com/ilmoi/awesome-solana-nfts" target="_blank">🔗</a>
+    <a class="menu-item text-2xl" href="https://www.nftarmory.me/view" target="_blank">⚔️</a>
+    <h1 class="menu-item bg-none text-black text-2xl">NFT<span class="text-3xl">🍌</span>APE</h1>
+    <a class="menu-item text-2xl" href="https://github.com/ilmoi/awesome-solana-nfts" target="_blank">🔗</a>
   </nav>
 </template>
 
 <script lang="ts">
 import {defineComponent} from "vue";
+
 export default defineComponent( {
   setup() {
     return {

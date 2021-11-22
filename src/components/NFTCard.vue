@@ -20,7 +20,7 @@
           <p v-if="nft.paperhanded" class="text">Paperhanded worth: <span :class="neg(nft.paperhanded[priceMethod]) ? 'text-rb-green' : 'text-rb-pink'">◎{{ nft.paperhanded[priceMethod].toFixed(2) }}</span></p>
           <p v-if="nft.diamondhanded" class="text">Diamondhanding worth: <span :class="neg(nft.diamondhanded[priceMethod]) ? 'text-rb-pink' : 'text-rb-green'">◎{{ nft.diamondhanded[priceMethod].toFixed(2) }}</span></p>
           <p v-if="!nft.currentPrices" class="text text-gray-400">This NFT collection is missing prices :( Fix by
-            <a href="https://github.com/ilmoi/paperhands.is" target="_blank">sending a PR</a> (~2min)</p>
+            <a href="https://github.com/ilmoi/nftape.me" target="_blank">sending a PR</a> (~2min)</p>
         </div>
       </div>
     </div>
