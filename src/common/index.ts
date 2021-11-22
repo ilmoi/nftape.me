@@ -1,5 +1,6 @@
 import { Connection, LAMPORTS_PER_SOL, PublicKey } from '@solana/web3.js';
 import { programs } from '@metaplex/js';
+import axios from 'axios';
 import { findSigner, removeItemOnce } from './util';
 import { INFTData, PriceMethod } from '@/common/types';
 import { calcPaperDiamondHands } from '@/common/paperhands';
@@ -20,6 +21,8 @@ export class NFTHandler {
   conn: Connection;
 
   allNFTs: INFTData[] = [];
+
+  solPrice?: number;
 
   constructor(conn: Connection) {
     this.conn = conn;
@@ -146,6 +149,20 @@ export class NFTHandler {
     console.log('Papers / diamons / profit calculated!');
   }
 
+  // --------------------------------------- get sol price
+
+  async fetchSolPrice() {
+    const headers = {
+      Accepts: 'application/json',
+    };
+    const { data } = await axios.get(
+      `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=solana`,
+      { headers: headers as any }
+    );
+    console.log('sol price is', data[0].current_price);
+    this.solPrice = data[0].current_price;
+  }
+
   // --------------------------------------- play
 
   async analyzeAddress(address: string) {
@@ -153,26 +170,20 @@ export class NFTHandler {
 
     EE.emit('loading', {
       newStatus: LoadStatus.Loading,
-      newProgress: 25,
-      maxProgress: 50,
+      newProgress: 35,
+      maxProgress: 70,
       newText: `Preparing NFT metadata..`,
     } as IUpdateLoadingParams);
     await this.populateNFTsWithMetadata();
 
     EE.emit('loading', {
       newStatus: LoadStatus.Loading,
-      newProgress: 50,
-      maxProgress: 75,
+      newProgress: 70,
+      maxProgress: 100,
       newText: `Fetching prices from marketplaces..`,
     } as IUpdateLoadingParams);
     await this.populateNFTsWithPriceStats();
-
-    EE.emit('loading', {
-      newStatus: LoadStatus.Loading,
-      newProgress: 75,
-      maxProgress: 100,
-      newText: `Calculating paper-/diamond-hands..`,
-    } as IUpdateLoadingParams);
+    await this.fetchSolPrice();
     this.populateNFTsWithPapersAndDiamonds();
     console.log(this.allNFTs);
     return this.allNFTs;

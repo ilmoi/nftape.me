@@ -19,21 +19,23 @@
     <!--<div>-->
     <div v-else-if="nfts.length">
       <h1 class="mt-20 text-xl">You've spent a total of
-        <span class="text-rb-blue">◎{{ totalSpend.toFixed(2) }}</span> on NFTs.</h1>
+        <span class="text-rb-blue">{{ isSol ? '◎' : '$' }}{{ totalSpend.toFixed(2) }}</span> on NFTs.
+      </h1>
       <h1 class="my-10 text-xl">You've earned a total of
-        <span class="text-rb-blue">◎{{ totalEarnings.toFixed(2) }}</span> from NFTs.</h1>
+        <span class="text-rb-blue">{{ isSol ? '◎' : '$' }}{{ totalEarnings.toFixed(2) }}</span> from NFTs.
+      </h1>
       <h1 class="my-10 text-xl">Your total {{ neg(totalProfit) ? 'loss' : 'profit' }} is
-        <span :class="neg(totalProfit) ? 'text-rb-pink' : 'text-rb-green'">◎{{ totalProfit.toFixed(2) }}</span>.
+        <span :class="neg(totalProfit) ? 'text-rb-pink' : 'text-rb-green'">{{ isSol ? '◎' : '$' }}{{ totalProfit.toFixed(2) }}</span>.
       </h1>
       <h1 class="my-10 text-xl">You've paperhanded a total of
-        <span :class="neg(totalPaperhanded) ? 'text-rb-green' : 'text-rb-pink'">◎{{ totalPaperhanded.toFixed(2) }}</span>.
+        <span :class="neg(totalPaperhanded) ? 'text-rb-green' : 'text-rb-pink'">{{ isSol ? '◎' : '$' }}{{ totalPaperhanded.toFixed(2) }}</span>.
       </h1>
       <h1 class="mb-20 text-xl">You're diamondhanding a total of
-        <span :class="neg(totalDiamondhanded) ? 'text-rb-pink' : 'text-rb-green'">◎{{ totalDiamondhanded.toFixed(2) }}</span>.
+        <span :class="neg(totalDiamondhanded) ? 'text-rb-pink' : 'text-rb-green'">{{ isSol ? '◎' : '$' }}{{ totalDiamondhanded.toFixed(2) }}</span>.
       </h1>
 
       <div class="mb-5 flex flex-row justify-center">
-        <button class="nes-btn is-warning mx-5" @click="showOptions = !showOptions">Configure Options</button>
+        <button class="nes-btn is-warning mx-5" @click="showOptions = !showOptions">Show Options</button>
         <button class="nes-btn is-warning mx-5" @click="showNFTs = !showNFTs">View Your NFTs</button>
       </div>
 
@@ -46,11 +48,13 @@
               :sort-order="sortOrder"
               :offset="offset"
               :hideSold="hideSold"
+              :currency="currency"
               @priceMethod="handleNewMethod"
               @sortBy="handleNewSortBy"
               @sortOrder="handleNewSortOrder"
               @offset="handleNewOffset"
               @hideSold="handleHideSold"
+              @currency="handleNewCurrency"
           />
         </div>
       </div>
@@ -61,6 +65,8 @@
             :key="nft.mint"
             :nft="nft"
             :price-method="priceMethod"
+            :is-sol="isSol"
+            :hidden="hideSold && nft.soldAt !== undefined"
         />
       </div>
     </div>
@@ -89,14 +95,66 @@ export default defineComponent({
   setup() {
     const address = ref<string>("5u1vB9UeQSCzzwEhmKPhmQH1veWP9KZyZ8xFxFrmj8CK")
     const nfts = ref<INFTData[]>([]);
-    const backupNFTs = ref<INFTData[]>([]);
 
-    // config params
+    // --------------------------------------- config params & their watchers
     const priceMethod = ref<PriceMethod>(PriceMethod.floor);
     const sortBy = ref<string>("paperhanded")
     const sortOrder = ref<string>("desc")
     const offset = ref<boolean>(false)
     const hideSold = ref<boolean>(false)
+    const currency = ref<string>("sol")
+    let solPrice: number | undefined;
+
+    /* eslint-disable no-param-reassign */
+    const isSol = computed(() => currency.value === 'sol')
+    watch(currency, (newCur: string) => {
+      console.log('currency changed to ', newCur)
+      if (newCur === 'usd') {
+        nfts.value = nfts.value.map(nft => {
+          nft.soldAt = nft.soldAt ? nft.soldAt * solPrice! : undefined;
+          nft.boughtAt = nft.boughtAt ? nft.boughtAt * solPrice! : undefined;
+          nft.currentPrices = nft.currentPrices ? {
+            floor: nft.currentPrices.floor * solPrice!,
+            mean: nft.currentPrices.mean * solPrice!,
+            median: nft.currentPrices.median * solPrice!,
+          } : undefined;
+          nft.paperhanded = nft.paperhanded ? {
+            floor: nft.paperhanded.floor * solPrice!,
+            mean: nft.paperhanded.mean * solPrice!,
+            median: nft.paperhanded.median * solPrice!,
+          } : undefined;
+          nft.diamondhanded = nft.diamondhanded ? {
+            floor: nft.diamondhanded.floor * solPrice!,
+            mean: nft.diamondhanded.mean * solPrice!,
+            median: nft.diamondhanded.median * solPrice!,
+          } : undefined;
+          nft.profit = nft.profit ? nft.profit * solPrice! : undefined;
+          return nft
+        })
+      } else {
+        nfts.value = nfts.value.map(nft => {
+          nft.soldAt = nft.soldAt ? nft.soldAt / solPrice! : undefined;
+          nft.boughtAt = nft.boughtAt ? nft.boughtAt / solPrice! : undefined;
+          nft.currentPrices = nft.currentPrices ? {
+            floor: nft.currentPrices.floor / solPrice!,
+            mean: nft.currentPrices.mean / solPrice!,
+            median: nft.currentPrices.median / solPrice!,
+          } : undefined;
+          nft.paperhanded = nft.paperhanded ? {
+            floor: nft.paperhanded.floor / solPrice!,
+            mean: nft.paperhanded.mean / solPrice!,
+            median: nft.paperhanded.median / solPrice!,
+          } : undefined;
+          nft.diamondhanded = nft.diamondhanded ? {
+            floor: nft.diamondhanded.floor / solPrice!,
+            mean: nft.diamondhanded.mean / solPrice!,
+            median: nft.diamondhanded.median / solPrice!,
+          } : undefined;
+          nft.profit = nft.profit ? nft.profit / solPrice! : undefined;
+          return nft
+        })
+      }
+    })
 
     const updateOrder = (sortBy: string, sortOrder: string) => nfts.value.sort((first, second) => {
       // @ts-ignore
@@ -180,13 +238,9 @@ export default defineComponent({
     }
     const handleHideSold = () => {
       hideSold.value = !hideSold.value;
-      if (hideSold.value) {
-        backupNFTs.value = [...nfts.value]
-        nfts.value = nfts.value.filter(n => n.soldAt === undefined)
-      } else {
-        nfts.value = [...backupNFTs.value]
-        backupNFTs.value = []
-      }
+    }
+    const handleNewCurrency = (newCurrency: string) => {
+      currency.value = newCurrency;
     }
     const neg = (amount: number) => amount < 0
 
@@ -220,6 +274,7 @@ export default defineComponent({
         EE.on('loading', updateLoading);
 
         nfts.value = await nftHandler.analyzeAddress(address.value)
+        solPrice = nftHandler.solPrice;
         updateLoadingStdWin()
       } catch (e) {
         err.value = e;
@@ -236,6 +291,8 @@ export default defineComponent({
       sortOrder,
       offset,
       hideSold,
+      currency,
+      isSol,
       // display params
       showOptions,
       showNFTs,
@@ -251,6 +308,7 @@ export default defineComponent({
       handleNewSortOrder,
       handleNewOffset,
       handleHideSold,
+      handleNewCurrency,
       neg,
       // lfg
       err,
