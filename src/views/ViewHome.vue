@@ -11,8 +11,10 @@
     </form>
 
     <div v-if="err" class="mt-5">
-      <NotifyError>{{err}}</NotifyError>
+      <NotifyError>{{ err }}</NotifyError>
     </div>
+
+    <LoadingBar v-else-if="isLoading" class="mt-5" :text="text" :progress="progress"></LoadingBar>
 
     <!--<div>-->
     <div v-else-if="nfts.length">
@@ -78,9 +80,12 @@ import NFTCard from "@/components/NFTCard.vue";
 import {INFTData, PriceMethod} from "@/common/types";
 import ConfigPane from "@/components/ConfigPane.vue";
 import NotifyError from "@/components/notifications/NotifyError.vue";
+import useLoading, {LoadStatus} from "@/composables/loading";
+import LoadingBar from "@/components/LoadingBar.vue";
+import {EE} from "@/globals";
 
 export default defineComponent({
-  components: {NotifyError, ConfigPane, NFTCard},
+  components: {LoadingBar, NotifyError, ConfigPane, NFTCard},
   setup() {
     const address = ref<string>("5u1vB9UeQSCzzwEhmKPhmQH1veWP9KZyZ8xFxFrmj8CK")
     const nfts = ref<INFTData[]>([]);
@@ -94,29 +99,29 @@ export default defineComponent({
     const hideSold = ref<boolean>(false)
 
     const updateOrder = (sortBy: string, sortOrder: string) => nfts.value.sort((first, second) => {
-        // @ts-ignore
-        if (!first[sortBy]) {
-          return 1
-        }
-        // @ts-ignore
-        if (!second[sortBy]) {
-          return -1
-        }
-        if (sortOrder === 'asc') {
-          if (sortBy === 'paperhanded' || sortBy === 'diamondhanded') {
-            // @ts-ignore
-            return first[sortBy][priceMethod.value] - second[sortBy][priceMethod.value]
-          }
-          // @ts-ignore
-          return first[sortBy] - second[sortBy]
-        }
+      // @ts-ignore
+      if (!first[sortBy]) {
+        return 1
+      }
+      // @ts-ignore
+      if (!second[sortBy]) {
+        return -1
+      }
+      if (sortOrder === 'asc') {
         if (sortBy === 'paperhanded' || sortBy === 'diamondhanded') {
           // @ts-ignore
-          return second[sortBy][priceMethod.value] - first[sortBy][priceMethod.value]
+          return first[sortBy][priceMethod.value] - second[sortBy][priceMethod.value]
         }
         // @ts-ignore
-        return second[sortBy] - first[sortBy]
-      })
+        return first[sortBy] - second[sortBy]
+      }
+      if (sortBy === 'paperhanded' || sortBy === 'diamondhanded') {
+        // @ts-ignore
+        return second[sortBy][priceMethod.value] - first[sortBy][priceMethod.value]
+      }
+      // @ts-ignore
+      return second[sortBy] - first[sortBy]
+    })
     watch(nfts, () => {
       updateOrder(sortBy.value, sortOrder.value)
     })
@@ -160,22 +165,7 @@ export default defineComponent({
     })
     const totalProfit = computed((): number => totalEarnings.value - totalSpend.value || 0)
 
-    // --------------------------------------- methods
-    const {getConnection} = useCluster();
-
-    const err = ref<string | undefined>()
-
-    const lfg = async () => {
-      nfts.value = []
-      err.value = undefined
-      const nftHandler = new NFTHandler(getConnection('confirmed'))
-      try {
-        nfts.value = await nftHandler.analyzeAddress(address.value)
-      } catch (e) {
-        err.value = e;
-      }
-    }
-
+    // --------------------------------------- handlers
     const handleNewMethod = (newMethod: PriceMethod) => {
       priceMethod.value = newMethod;
     }
@@ -198,8 +188,44 @@ export default defineComponent({
         backupNFTs.value = []
       }
     }
-
     const neg = (amount: number) => amount < 0
+
+    // --------------------------------------- lfg
+    const {getConnection} = useCluster();
+    const err = ref<string | undefined>()
+
+    const {
+      progress,
+      text,
+      isLoading,
+      isError,
+      updateLoading,
+      updateLoadingStdErr,
+      updateLoadingStdWin,
+    } = useLoading();
+
+    const lfg = async () => {
+      nfts.value = []
+      err.value = undefined
+      const nftHandler = new NFTHandler(getConnection('confirmed'))
+      try {
+        // prep loading bar before calling the function
+        updateLoading({
+          newStatus: LoadStatus.Loading,
+          newProgress: 0,
+          maxProgress: 25,
+          newText: 'Fetching transaction history..',
+        });
+        EE.removeAllListeners();
+        EE.on('loading', updateLoading);
+
+        nfts.value = await nftHandler.analyzeAddress(address.value)
+        updateLoadingStdWin()
+      } catch (e) {
+        err.value = e;
+        updateLoadingStdErr(e)
+      }
+    }
 
     return {
       address,
@@ -219,15 +245,19 @@ export default defineComponent({
       totalPaperhanded,
       totalDiamondhanded,
       totalProfit,
-      // methods
-      err,
-      lfg,
+      // handlers
       handleNewMethod,
       handleNewSortBy,
       handleNewSortOrder,
       handleNewOffset,
       handleHideSold,
       neg,
+      // lfg
+      err,
+      lfg,
+      isLoading,
+      text,
+      progress,
     }
   }
 })

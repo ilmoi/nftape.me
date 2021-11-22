@@ -40,7 +40,7 @@ export default function useLoading() {
         if (progress.value > max || passedVersion !== currentVersion) {
           return;
         }
-        progress.value += 2;
+        progress.value += 5;
       },
       // this ensures we stop after required number of times
       { count: Math.max(max - progress.value, 0) }

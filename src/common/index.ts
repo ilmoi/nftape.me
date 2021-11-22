@@ -6,6 +6,8 @@ import { calcPaperDiamondHands } from '@/common/paperhands';
 import { triageTxByExchange } from '@/common/marketplaces/mpTransactions';
 import { fetchAndCalcStats } from '@/common/marketplaces/mpPrices';
 import { fetchNFTMetadata } from '@/common/metadata';
+import { EE } from '@/globals';
+import { IUpdateLoadingParams, LoadStatus } from '@/composables/loading';
 
 const {
   metaplex: { Store, AuctionManager },
@@ -148,8 +150,29 @@ export class NFTHandler {
 
   async analyzeAddress(address: string) {
     await this.getTxHistory(address);
+
+    EE.emit('loading', {
+      newStatus: LoadStatus.Loading,
+      newProgress: 25,
+      maxProgress: 50,
+      newText: `Preparing NFT metadata..`,
+    } as IUpdateLoadingParams);
     await this.populateNFTsWithMetadata();
+
+    EE.emit('loading', {
+      newStatus: LoadStatus.Loading,
+      newProgress: 50,
+      maxProgress: 75,
+      newText: `Fetching prices from marketplaces..`,
+    } as IUpdateLoadingParams);
     await this.populateNFTsWithPriceStats();
+
+    EE.emit('loading', {
+      newStatus: LoadStatus.Loading,
+      newProgress: 75,
+      maxProgress: 100,
+      newText: `Calculating paper-/diamond-hands..`,
+    } as IUpdateLoadingParams);
     this.populateNFTsWithPapersAndDiamonds();
     console.log(this.allNFTs);
     return this.allNFTs;
