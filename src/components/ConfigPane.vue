@@ -29,8 +29,8 @@
       <label for="sortBy" class="text-left">Sort by:</label>
       <div class="nes-select is-dark ml-5">
         <select required id="sortBy" @input="emitEvent">
-          <option value="paper">amount paperhanded</option>
-          <option value="diamond">amount diamondhanded</option>
+          <option value="paperhanded">amount paperhanded</option>
+          <option value="diamondhanded">amount diamondhanded</option>
           <option value="profit">profit/loss</option>
           <option value="boughtAt">purchase price</option>
           <option value="soldAt">sale price</option>
