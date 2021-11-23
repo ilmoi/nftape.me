@@ -3,9 +3,9 @@
     <form @submit.prevent="lfg">
       <div class="nes-field ">
         <label for="wallet">Wallet address:</label>
-        <input type="text" id="wallet" class="nes-input is-dark mt-5 w-full" v-model="address">
+        <input type="text" id="wallet" class="nes-input is-dark mt-5 w-full" v-model="address" placeholder="5u1vB9UeQSCzzwEhmKPhmQH1veWP9KZyZ8xFxFrmj8CK">
       </div>
-      <button class="nes-btn is-warning mt-5 w-40" type="submit" :class="{ 'is-disabled': isLoading }" :disabled="isLoading">
+      <button class="nes-btn is-warning mt-5 w-40" type="submit" :class="{ 'is-disabled': isLoading || !address }" :disabled="isLoading  || !address">
         LFG
       </button>
     </form>
@@ -14,7 +14,7 @@
         class="nes-btn is-primary twitter-button"
         href="https://twitter.com/intent/tweet?text=hello%20world%20%40_ilmoi%20%23yoyo&url=https%3A%2F%2Fi.ibb.co%2FWN9XNpF%2Fnft-ape-logo.png"
         target="_blank"
-    >Share on Twitter</a>
+    >Tweet it!</a>
 
     <div v-if="err" class="mt-5">
       <NotifyError>{{ err }}</NotifyError>
@@ -90,7 +90,7 @@
 </template>
 
 <script lang="ts">
-import {computed, defineComponent, onMounted, ref, watch} from "vue";
+import {computed, defineComponent, onBeforeMount, onMounted, ref, watch} from "vue";
 import {useRoute} from "vue-router";
 import {NFTHandler} from "@/common";
 import useCluster from "@/composables/cluster";
@@ -110,8 +110,21 @@ export default defineComponent({
     TheAdvancedOptions,
     TheViewOptions, TheCurrencySlider, LoadingBar, NotifyError, NFTCard
   },
+  head: {
+    meta: window.location.pathname.split('/').at(1) === 'addr'? [
+      {name: "twitter:card", content: "summary_large_image"},
+      {name: "twitter:title", content: `${window.location.pathname.split('/').at(-1)!.substr(0, 5)}... NFT🍌APE report`},
+      {name: "twitter:image", content: "https://gateway.pinata.cloud/ipfs/QmVMGYTs4mWmCRuW22AmARgWVYrhhydSkznyXw9jEFm4qo"},
+    ] : [
+      {name: 'twitter:card', content: "summary"},
+      {name: 'twitter:site', content: "@_ilmoi"},
+      {name: 'twitter:title', content: "Ape into NFTs a lot? Get your stats."},
+      {name: 'twitter:description', content: "Get your total spend, earnings, P&L & how much you've paperhanded / diamondhanded!"},
+      {name: 'twitter:image', content: "https://i.ibb.co/xC3bB5N/nft-ape-logo2.png"},
+    ]
+  },
   setup() {
-    const address = ref<string>("5u1vB9UeQSCzzwEhmKPhmQH1veWP9KZyZ8xFxFrmj8CK")
+    const address = ref<string>()
     const nfts = ref<INFTData[]>([]);
 
     // display params
@@ -278,7 +291,7 @@ export default defineComponent({
         EE.removeAllListeners();
         EE.on('loading', updateLoading);
 
-        nfts.value = await nftHandler.analyzeAddress(address.value)
+        nfts.value = await nftHandler.analyzeAddress(address.value!)
         solPrice = nftHandler.solPrice;
         updateLoadingStdWin()
       } catch (e) {
@@ -297,6 +310,9 @@ export default defineComponent({
     };
 
     onMounted(async () => {
+      console.log(window.location.pathname)
+      console.log(window.location.pathname.split('/').at(1))
+      console.log(window.location.pathname.split('/').at(-1))
       const route = useRoute();
       const {addr} = route.params;
       if (addr) {
