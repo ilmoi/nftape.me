@@ -21,6 +21,7 @@ module.exports = {
           green: 'rgb(0,255,0)',
           blue: 'rgb(0,255,255)',
           pink: 'rgb(255,0,255)',
+          dark: '#21252A',
         },
         rarity: {
           legendary: '#fda219',

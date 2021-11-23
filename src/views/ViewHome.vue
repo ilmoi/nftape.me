@@ -38,30 +38,33 @@
       </h1>
 
       <div class="mb-5 flex flex-row justify-center">
-        <button class="nes-btn is-warning mx-5" @click="showOptions = !showOptions">Show Options</button>
-        <button class="nes-btn is-warning mx-5" @click="showNFTs = !showNFTs">View Your NFTs</button>
-        <button class="nes-btn is-warning mx-5" @click="showNFTs = !showNFTs">Share via Link</button>
+        <button class="nes-btn is-warning mx-5" @click="showNFTs = !showNFTs">View by NFT</button>
+        <button class="nes-btn is-warning mx-5" :class="{'is-disabled': copyInProgress}" :disabled="copyInProgress" @click="copyShareLink">{{ copyText }}</button>
+        <button class="nes-btn is-warning mx-5" @click="showOptions = !showOptions">Advanced</button>
       </div>
 
       <div v-if="showOptions" class="mb-5">
         <div class="nes-container is-dark with-title">
-          <p class="title">Options</p>
-          <ConfigPane
+          <p class="title">Advanced Options</p>
+          <TheAdvancedOptions
               :price-method="priceMethod"
-              :sort-by="sortBy"
-              :sort-order="sortOrder"
               :offset="offset"
-              :hideSold="hideSold"
               @priceMethod="handleNewMethod"
-              @sortBy="handleNewSortBy"
-              @sortOrder="handleNewSortOrder"
               @offset="handleNewOffset"
-              @hideSold="handleHideSold"
           />
         </div>
       </div>
 
       <div v-if="showNFTs">
+        <TheViewOptions
+            class="mt-5"
+            :sort-by="sortBy"
+            :sort-order="sortOrder"
+            :hideSold="hideSold"
+            @sortBy="handleNewSortBy"
+            @sortOrder="handleNewSortOrder"
+            @hideSold="handleHideSold"
+        />
         <NFTCard
             v-for="nft in nfts"
             :key="nft.mint"
@@ -81,20 +84,26 @@
 </template>
 
 <script lang="ts">
-import {computed, defineComponent, ref, watch} from "vue";
+import {computed, defineComponent, onMounted, ref, watch} from "vue";
+import {useRoute} from "vue-router";
 import {NFTHandler} from "@/common";
 import useCluster from "@/composables/cluster";
 import NFTCard from "@/components/NFTCard.vue";
 import {INFTData, PriceMethod} from "@/common/types";
-import ConfigPane from "@/components/ConfigPane.vue";
 import NotifyError from "@/components/notifications/NotifyError.vue";
 import useLoading, {LoadStatus} from "@/composables/loading";
 import LoadingBar from "@/components/LoadingBar.vue";
 import {EE} from "@/globals";
 import TheCurrencySlider from "@/components/TheCurrencySlider.vue";
+import TheViewOptions from "@/components/TheViewOptions.vue";
+import TheAdvancedOptions from "@/components/TheAdvancedOptions.vue";
+import useCopy from "@/composables/copy";
 
 export default defineComponent({
-  components: {TheCurrencySlider, LoadingBar, NotifyError, ConfigPane, NFTCard},
+  components: {
+    TheAdvancedOptions,
+    TheViewOptions, TheCurrencySlider, LoadingBar, NotifyError, NFTCard
+  },
   setup() {
     const address = ref<string>("5u1vB9UeQSCzzwEhmKPhmQH1veWP9KZyZ8xFxFrmj8CK")
     const nfts = ref<INFTData[]>([]);
@@ -272,6 +281,24 @@ export default defineComponent({
       }
     }
 
+    // --------------------------------------- sharable links
+    const { copyText, copyInProgress, setCopyText, doCopy } = useCopy();
+
+    setCopyText('Share a Link');
+    const copyShareLink = async () => {
+      const host = window.location.origin;
+      await doCopy(`${host}/addr/${address.value!}`);
+    };
+
+    onMounted(async () => {
+      const route = useRoute();
+      const {addr} = route.params;
+      if (addr) {
+        address.value = addr as any;
+        await lfg()
+      }
+    })
+
     return {
       address,
       nfts,
@@ -305,6 +332,10 @@ export default defineComponent({
       isLoading,
       text,
       progress,
+      // sharing
+      copyText,
+      copyShareLink,
+      copyInProgress,
     }
   }
 })
@@ -312,6 +343,6 @@ export default defineComponent({
 
 <style scoped>
 .width {
-  width: 900px;
+  max-width: 900px;
 }
 </style>

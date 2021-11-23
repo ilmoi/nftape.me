@@ -1,10 +1,15 @@
-import {createRouter, createWebHistory, RouteRecordRaw} from 'vue-router';
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import ViewHome from '@/views/ViewHome.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    name: 'Home',
+    name: 'NFT APE',
+    component: ViewHome,
+  },
+  {
+    path: '/addr/:addr',
+    name: 'NFT APE2',
     component: ViewHome,
   },
 ];

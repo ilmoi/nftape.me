@@ -25,39 +25,6 @@
       </div>
     </div>
 
-    <!--sort by-->
-    <div class="flex-1 flex mt-5">
-      <label for="sortBy" class="text-left">Sort by:</label>
-      <div class="nes-select is-dark ml-5">
-        <select required id="sortBy" @input="emitEvent">
-          <option value="paperhanded">amount paperhanded</option>
-          <option value="diamondhanded">amount diamondhanded</option>
-          <option value="profit">profit/loss</option>
-          <option value="boughtAt">purchase price</option>
-          <option value="soldAt">sale price</option>
-        </select>
-      </div>
-    </div>
-
-    <!--sort order-->
-    <div class="flex-1 flex mt-5">
-      <label for="sortOrder" class="text-left">Sort order:</label>
-      <div class="nes-select is-dark ml-5">
-        <select required id="sortOrder" @input="emitEvent">
-          <option value="desc">descending</option>
-          <option value="asc">ascending</option>
-        </select>
-      </div>
-    </div>
-
-    <!--hide sold-->
-    <div class="flex-1 flex mt-5">
-      <label>
-        <input type="checkbox" id="hideSold" class="nes-checkbox is-dark" :checked="hideSold" @input="emitEvent"/>
-        <span>Hide sold NFTs</span>
-      </label>
-    </div>
-
     <!--modals-->
     <ModalWindow
         v-if="isModalVisible('tooltipPrices')"
@@ -88,12 +55,9 @@ export default defineComponent({
   components: {ContentTooltipOffset, ContentTooltipPrices, ModalWindow},
   props: {
     priceMethod: String,
-    sortBy: String,
-    sortOrder: String,
     offset: Boolean,
-    hideSold: Boolean,
   },
-  emits: ['priceMethod', 'sortBy', 'sortOrder', 'offset', 'hideSold'],
+  emits: ['priceMethod', 'offset'],
   setup(props, ctx) {
     const emitEvent = (event: any) => {
       ctx.emit(event.srcElement.id, event.target.value)
