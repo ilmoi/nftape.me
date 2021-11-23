@@ -90,8 +90,5 @@ export async function fetchAndCalcStats(creator: string): Promise<IStats | undef
   if (!prices.length) {
     return;
   }
-
-  const stats = calcStats(prices);
-  console.log(`final stats for ${creator} creator are:`, stats);
-  return stats;
+  return calcStats(prices);
 }

@@ -34,10 +34,10 @@
           <span :class="neg(totalProfit) ? 'text-rb-pink' : 'text-rb-green'">{{ isSol ? '◎' : '$' }}{{ totalProfit.toFixed(2) }}</span>.
         </h1>
         <h1 class="my-10 w500:text-xl">You've paperhanded a total of
-          <span :class="neg(totalPaperhanded) ? 'text-rb-green' : 'text-rb-pink'">{{ isSol ? '◎' : '$' }}{{ totalPaperhanded.toFixed(2) }}</span>.
+          <span :class="neg(totalPaperhanded) ? 'text-rb-green' : 'text-rb-pink'">{{ isSol ? '◎' : '$' }}{{ totalPaperhanded.toFixed(2) }}</span> (via {{paperSales}} sales).
         </h1>
-        <h1 class="mb-20 w500:text-xl">You're diamondhanding a total of
-          <span :class="neg(totalDiamondhanded) ? 'text-rb-pink' : 'text-rb-green'">{{ isSol ? '◎' : '$' }}{{ totalDiamondhanded.toFixed(2) }}</span>.
+        <h1 class="mb-10 w500:text-xl">You're diamondhanding a total of
+          <span :class="neg(totalDiamondhanded) ? 'text-rb-pink' : 'text-rb-green'">{{ isSol ? '◎' : '$' }}{{ totalDiamondhanded.toFixed(2) }}</span> (via {{nfts.length}} NFTs).
         </h1>
       </div>
 
@@ -215,16 +215,25 @@ export default defineComponent({
       const validNFTs = nfts.value.filter(n => !!n.soldAt).map(n => n.soldAt!)
       return validNFTs.length ? validNFTs.reduce(adder) : 0
     })
+
+    const paperSalesOffset = ref<number | undefined>();
+    const paperSalesNoOffset = ref<number | undefined>();
+
     const totalPaperhandedOffset = computed((): number => {
       const validNFTs = nfts.value.filter(n => !!n.paperhanded).map(n => n.paperhanded![priceMethod.value])
+      paperSalesOffset.value = validNFTs.length;
       return validNFTs.length ? validNFTs.reduce(adder) : 0
     })
     // if offset is turned off, then we're only looking at positive paperhands events
     const totalPaperhandedNoOffset = computed((): number => {
       const validNFTs = nfts.value.filter(n => !!n.paperhanded).map(n => n.paperhanded![priceMethod.value]).filter(p => p > 0)
+      paperSalesNoOffset.value = validNFTs.length;
       return validNFTs.length ? validNFTs.reduce(adder) : 0
     })
+
     const totalPaperhanded = computed((): number => offset.value ? totalPaperhandedOffset.value : totalPaperhandedNoOffset.value)
+    const paperSales = computed(():number => offset.value ? paperSalesOffset.value! : paperSalesNoOffset.value!)
+
     const totalDiamondhanded = computed((): number => {
       const validNFTs = nfts.value.filter(n => !!n.diamondhanded).map(n => n.diamondhanded![priceMethod.value])
       return validNFTs.length ? validNFTs.reduce(adder) : 0
@@ -271,20 +280,13 @@ export default defineComponent({
       err.value = undefined
       const nftHandler = new NFTHandler(getConnection('confirmed'))
       try {
-        // prep loading bar before calling the function
-        updateLoading({
-          newStatus: LoadStatus.Loading,
-          newProgress: 0,
-          maxProgress: 35,
-          newText: 'Fetching transaction history...',
-        });
         EE.removeAllListeners();
         EE.on('loading', updateLoading);
-
         nfts.value = await nftHandler.analyzeAddress(address.value!)
         solPrice = nftHandler.solPrice;
         updateLoadingStdWin()
       } catch (e) {
+        console.log('stack', e.stack)
         err.value = e;
         updateLoadingStdErr(e)
       }
@@ -332,6 +334,7 @@ export default defineComponent({
       totalSpend,
       totalEarnings,
       totalPaperhanded,
+      paperSales,
       totalDiamondhanded,
       totalProfit,
       // handlers

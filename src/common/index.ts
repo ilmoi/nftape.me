@@ -1,21 +1,14 @@
 import { Connection, LAMPORTS_PER_SOL, PublicKey } from '@solana/web3.js';
-import { programs } from '@metaplex/js';
 import axios from 'axios';
-import { findSigner, removeItemOnce } from './util';
-import { INFTData, PriceMethod } from '@/common/types';
+import { findSigner, okToFailAsync } from './util';
+import { INFTData } from '@/common/types';
 import { calcPaperDiamondHands } from '@/common/paperhands';
 import { triageTxByExchange } from '@/common/marketplaces/mpTransactions';
 import { fetchAndCalcStats } from '@/common/marketplaces/mpPrices';
 import { fetchNFTMetadata } from '@/common/metadata';
 import { EE } from '@/globals';
 import { IUpdateLoadingParams, LoadStatus } from '@/composables/loading';
-
-const {
-  metaplex: { Store, AuctionManager },
-  metadata: { Metadata },
-  auction: { Auction },
-  vault: { Vault },
-} = programs;
+import { getNFTsByOwner } from '@/common/nftsByOwner';
 
 export class NFTHandler {
   conn: Connection;
@@ -65,7 +58,7 @@ export class NFTHandler {
   }
 
   async getTxHistory(address: string) {
-    // todo for some reason this works a lot fast with solana's own node
+    // (!) for some reason this works a lot fast with solana's own node
     const conn = new Connection('https://api.mainnet-beta.solana.com');
 
     let txInfos = await conn.getSignaturesForAddress(new PublicKey(address));
@@ -87,66 +80,90 @@ export class NFTHandler {
         break;
       }
 
-      console.log(`processing another ${sigsToProcess.length} sigs`);
+      // intentionally not parallelizing this - we're using the public node and this would lead to 429s
       const txs = await conn.getParsedConfirmedTransactions(sigsToProcess);
-      console.log('got txs');
-      // console.log(txs)
-      // writeTxsToDisk('txs', txs)
+      console.log(`processing another ${sigsToProcess.length} sigs`);
       txs.forEach((tx) => {
         try {
-          console.log(`triaging ${i} of ${txInfos.length}`);
-          // console.log('selected tx', t)
+          // console.log(`triaging ${i} of ${txInfos.length}`);
           const exchange = triageTxByExchange(tx);
           if (exchange) {
             this.parseTx(tx, address, exchange);
           }
         } catch (e) {
-          console.log('uh oh', e);
+          // console.log('uh oh', e);
         } finally {
           i += 1;
         }
       });
     }
-    console.log('Tx history pulled!');
+    console.log(`Analyzed a total of ${txInfos.length} txs.`);
   }
 
-  // --------------------------------------- fetch prices
+  // --------------------------------------- get NFTs by owner
 
-  async populateNFTsWithPriceStats() {
-    const promises: any[] = [];
-    this.allNFTs.forEach((nft) =>
-      promises.push(fetchAndCalcStats(nft.onchainMetadata.data.creators[0].address))
-    );
-    const responses = await Promise.all(promises);
-    responses.forEach((r, i) => {
-      this.allNFTs[i].currentPrices = r;
+  async getNFTsByOwner(address: string) {
+    const newNFTs = await getNFTsByOwner(new PublicKey(address), this.conn);
+    newNFTs.forEach((nft) => {
+      this.findOrCreateNFTEntry(nft, {});
     });
-    console.log('Price Stats populated!');
+    console.log(`Fetched a total of ${newNFTs.length} potential NFT mints`);
   }
 
   // --------------------------------------- get NFT metadata
 
   async populateNFTsWithMetadata() {
     const promises: any[] = [];
-    this.allNFTs.forEach((nft) => promises.push(fetchNFTMetadata(nft.mint, this.conn)));
+    this.allNFTs.forEach((nft) =>
+      promises.push(okToFailAsync(fetchNFTMetadata, [nft.mint, this.conn]))
+    );
     const responses = await Promise.all(promises);
     responses.forEach((r, i) => {
-      this.allNFTs[i].onchainMetadata = r.onchainMetadata;
-      this.allNFTs[i].externalMetadata = r.externalMetadata;
+      if (r) {
+        this.allNFTs[i].onchainMetadata = r.onchainMetadata;
+        this.allNFTs[i].externalMetadata = r.externalMetadata;
+      }
     });
-    console.log('Metadata populated!');
+    console.log(`Populated metadata for a total of ${this.allNFTs.length} NFTs`);
+  }
+
+  removeTokensWithoutMetadata() {
+    this.allNFTs = this.allNFTs.filter(
+      (nft) =>
+        nft.onchainMetadata &&
+        nft.externalMetadata &&
+        nft.onchainMetadata.data.creators &&
+        nft.onchainMetadata.data.creators.length
+    );
+    console.log(`Actual NFTs remaining, after metadata clean: ${this.allNFTs.length}`);
+  }
+
+  // --------------------------------------- fetch prices
+
+  async populateNFTsWithPriceStats() {
+    const promises: any[] = [];
+    this.allNFTs.forEach((nft) => {
+      promises.push(
+        okToFailAsync(fetchAndCalcStats, [nft.onchainMetadata.data.creators[0].address])
+      );
+    });
+    const responses = await Promise.all(promises);
+    responses.forEach((r, i) => {
+      this.allNFTs[i].currentPrices = r;
+    });
+    console.log(`Populated price stats for a total of ${this.allNFTs.length} NFTs`);
   }
 
   // --------------------------------------- calc paperhands
 
-  populateNFTsWithPapersAndDiamonds() {
+  populateWithProfitPapersDiamonds() {
     for (const nft of this.allNFTs) {
-      const [paper, diamond, profit] = calcPaperDiamondHands(nft);
-      nft.paperhanded = paper;
-      nft.diamondhanded = diamond;
+      const { paperhanded, diamondhanded, profit } = calcPaperDiamondHands(nft);
+      nft.paperhanded = paperhanded;
+      nft.diamondhanded = diamondhanded;
       nft.profit = profit;
     }
-    console.log('Papers / diamons / profit calculated!');
+    console.log(`Calculated profit/paper/diamondhands for a total of ${this.allNFTs.length} NFTs`);
   }
 
   // --------------------------------------- get sol price
@@ -159,23 +176,37 @@ export class NFTHandler {
       `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=solana`,
       { headers: headers as any }
     );
-    console.log('sol price is', data[0].current_price);
     this.solPrice = data[0].current_price;
+    console.log('Fetched current SOL price:', data[0].current_price);
   }
 
-  // --------------------------------------- play
+  // --------------------------------------- analyze
 
   async analyzeAddress(address: string) {
-    await this.getTxHistory(address);
-
+    // ---------- STEP 1: find relevant tokens in 2 ways:
     EE.emit('loading', {
       newStatus: LoadStatus.Loading,
-      newProgress: 35,
+      newProgress: 0,
+      maxProgress: 50,
+      newText: 'Fetching transaction history...',
+    });
+    // 1) from tx history (captures sold ones)
+    await this.getTxHistory(address);
+    // 2) from currently held tokens (captures NFTs that weren't bought, but rather received/minted)
+    await this.getNFTsByOwner(address);
+
+    // ---------- STEP 2: fetch metadata + filter out non-NFTs
+    EE.emit('loading', {
+      newStatus: LoadStatus.Loading,
+      newProgress: 50,
       maxProgress: 70,
       newText: `Preparing NFT metadata...`,
     } as IUpdateLoadingParams);
     await this.populateNFTsWithMetadata();
+    // no metadata = not a real NFT, remove
+    this.removeTokensWithoutMetadata();
 
+    // ---------- STEP 3: fetch prices from marketplaces and sol PRice
     EE.emit('loading', {
       newStatus: LoadStatus.Loading,
       newProgress: 70,
@@ -184,10 +215,11 @@ export class NFTHandler {
     } as IUpdateLoadingParams);
     await this.populateNFTsWithPriceStats();
     await this.fetchSolPrice();
-    this.populateNFTsWithPapersAndDiamonds();
+
+    // ---------- STEP 4: calc paper/diamond hands
+    this.populateWithProfitPapersDiamonds();
+
     console.log(this.allNFTs);
     return this.allNFTs;
   }
 }
-
-// play();
