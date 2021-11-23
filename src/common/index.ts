@@ -142,14 +142,19 @@ export class NFTHandler {
 
   async populateNFTsWithPriceStats() {
     const promises: any[] = [];
-    this.allNFTs.forEach((nft) => {
-      promises.push(
-        okToFailAsync(fetchAndCalcStats, [nft.onchainMetadata.data.creators[0].address])
-      );
-    });
+    const creators = this.allNFTs.map((nft) => nft.onchainMetadata.data.creators[0].address);
+    const dedupedCreators = [...new Set(creators)];
+
+    dedupedCreators.forEach((c) => promises.push(okToFailAsync(fetchAndCalcStats, [c])));
     const responses = await Promise.all(promises);
-    responses.forEach((r, i) => {
-      this.allNFTs[i].currentPrices = r;
+    responses.forEach((r) => {
+      if (r) {
+        this.allNFTs.forEach((nft) => {
+          if (nft.onchainMetadata.data.creators[0].address === r.creator) {
+            nft.currentPrices = r;
+          }
+        });
+      }
     });
     console.log(`Populated price stats for a total of ${this.allNFTs.length} NFTs`);
   }

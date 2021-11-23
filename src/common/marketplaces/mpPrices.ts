@@ -68,11 +68,8 @@ function calcStats(prices: number[]): IStats {
 
 // --------------------------------------- interface
 
-// todo find a way to cache marketplace fetches -
-//  challenge is that this fn itself called w/o waiting for Promise resolution
-export async function fetchAndCalcStats(creator: string): Promise<IStats | undefined> {
+export async function fetchAndCalcStats(creator: string) {
   const prices: number[] = [];
-
   const responses = await Promise.all([
     okToFailAsync(fetchSolanartPrices, [creator]),
     okToFailAsync(fetchDigitalEyezPrices, [creator]),
@@ -83,10 +80,13 @@ export async function fetchAndCalcStats(creator: string): Promise<IStats | undef
       prices.push(...r);
     }
   });
-
   // if we failed to get prices from cache AND failed to get from mps - quit
   if (!prices.length) {
     return;
   }
-  return calcStats(prices);
+  const stats = calcStats(prices);
+  return {
+    creator,
+    ...stats,
+  };
 }
