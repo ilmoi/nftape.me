@@ -14,11 +14,13 @@ export function calcPaperDiamondHands(nft: INFTData) {
         median: nft.currentPrices!.median - nft.soldAt,
       };
     }
-    diamondhanded = {
-      floor: nft.currentPrices!.floor,
-      mean: nft.currentPrices!.mean,
-      median: nft.currentPrices!.median,
-    };
+    if (!nft.soldAt) {
+      diamondhanded = {
+        floor: nft.currentPrices!.floor,
+        mean: nft.currentPrices!.mean,
+        median: nft.currentPrices!.median,
+      };
+    }
   }
 
   if (nft.boughtAt && nft.soldAt) {

@@ -37,7 +37,7 @@
           <span :class="neg(totalPaperhanded) ? 'text-rb-green' : 'text-rb-pink'">{{ isSol ? '◎' : '$' }}{{ totalPaperhanded.toFixed(2) }}</span> (via {{paperSales}} sales).
         </h1>
         <h1 class="mb-10 w500:text-xl">You're diamondhanding a total of
-          <span :class="neg(totalDiamondhanded) ? 'text-rb-pink' : 'text-rb-green'">{{ isSol ? '◎' : '$' }}{{ totalDiamondhanded.toFixed(2) }}</span> (via {{nfts.length}} NFTs).
+          <span :class="neg(totalDiamondhanded) ? 'text-rb-pink' : 'text-rb-green'">{{ isSol ? '◎' : '$' }}{{ totalDiamondhanded.toFixed(2) }}</span> (via {{diamondNFTs}} NFTs).
         </h1>
       </div>
 
@@ -99,7 +99,7 @@ import useCluster from "@/composables/cluster";
 import NFTCard from "@/components/NFTCard.vue";
 import {INFTData, PriceMethod} from "@/common/types";
 import NotifyError from "@/components/notifications/NotifyError.vue";
-import useLoading, {LoadStatus} from "@/composables/loading";
+import useLoading from "@/composables/loading";
 import LoadingBar from "@/components/LoadingBar.vue";
 import {EE} from "@/globals";
 import TheCurrencySlider from "@/components/TheCurrencySlider.vue";
@@ -216,28 +216,27 @@ export default defineComponent({
       return validNFTs.length ? validNFTs.reduce(adder) : 0
     })
 
-    const paperSalesOffset = ref<number | undefined>();
-    const paperSalesNoOffset = ref<number | undefined>();
-
+    // paper
     const totalPaperhandedOffset = computed((): number => {
       const validNFTs = nfts.value.filter(n => !!n.paperhanded).map(n => n.paperhanded![priceMethod.value])
-      paperSalesOffset.value = validNFTs.length;
       return validNFTs.length ? validNFTs.reduce(adder) : 0
     })
     // if offset is turned off, then we're only looking at positive paperhands events
     const totalPaperhandedNoOffset = computed((): number => {
       const validNFTs = nfts.value.filter(n => !!n.paperhanded).map(n => n.paperhanded![priceMethod.value]).filter(p => p > 0)
-      paperSalesNoOffset.value = validNFTs.length;
       return validNFTs.length ? validNFTs.reduce(adder) : 0
     })
-
     const totalPaperhanded = computed((): number => offset.value ? totalPaperhandedOffset.value : totalPaperhandedNoOffset.value)
-    const paperSales = computed(():number => offset.value ? paperSalesOffset.value! : paperSalesNoOffset.value!)
+    const paperSales = computed(() => (nfts.value.filter(n => n.soldAt)).length);
 
+    // diamonds
     const totalDiamondhanded = computed((): number => {
       const validNFTs = nfts.value.filter(n => !!n.diamondhanded).map(n => n.diamondhanded![priceMethod.value])
       return validNFTs.length ? validNFTs.reduce(adder) : 0
     })
+    const diamondNFTs = computed(() => (nfts.value.filter(n => !n.soldAt)).length);
+
+    // profit
     const totalProfit = computed((): number => totalEarnings.value - totalSpend.value || 0)
 
     // --------------------------------------- handlers
@@ -269,7 +268,6 @@ export default defineComponent({
       progress,
       text,
       isLoading,
-      isError,
       updateLoading,
       updateLoadingStdErr,
       updateLoadingStdWin,
@@ -336,6 +334,7 @@ export default defineComponent({
       totalPaperhanded,
       paperSales,
       totalDiamondhanded,
+      diamondNFTs,
       totalProfit,
       // handlers
       handleNewMethod,

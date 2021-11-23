@@ -62,8 +62,8 @@ Steps to follow:
   },
 ```
 Where do you get the first creator's address?
-- Take any example token mint, eg [Degen Ape 9161](https://explorer.solana.com/address/GUFMMLQ2tAaf4aLgzSvFQLvQhKD2jY22XmGZuPLEwvM3)
-- Click on "creators", then copy the first address
+- Get your token's mint and open it in explorer, eg [Degen Ape 9161](https://explorer.solana.com/address/GUFMMLQ2tAaf4aLgzSvFQLvQhKD2jY22XmGZuPLEwvM3)
+- Click on "creators", then copy the FIRST address (has to be the FIRST!)
 
 Now where do you get those slugs? They're hidden inside URLs. Eg for degen apes:
 - [Solanart url](https://solanart.io/collections/degenape). Slug = `degenape`
