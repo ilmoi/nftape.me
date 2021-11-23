@@ -47,6 +47,7 @@ Limitations
 - Currently 6 marketplaces only (MagicEden, SolanArt, DigitalEyes, Alpha Art, Exchange.Art, SolSea)
 - Because NFTs are by definition non-fungible, to be able to calculate paper/diamond-hands amount it needs to choose a proxy for your NFT's current price. The app let's you choose between floor / median / mean prices - but ultimately they're all proxies. Your specific NFT might have a different value.
 - New collections need to be added manually (see below). It's not a lot of work - 1-2min per collection, but it's work:)
+- Certain NFTs are excluded, if they don't follow the modern Metaplex standard (eg if they don't have at least a single Creator listed)
 
 # (!) IMPORTANT - Adding NFT Collections
 Unfortunately new collections need to be added manually to the app. This is because each marketplace uses a different "slug" to represent the collection, and I couldn't think of a programmatic way of getting those.

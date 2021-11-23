@@ -3,7 +3,8 @@
 import { PublicKey } from '@solana/web3.js';
 import BN from 'bn.js';
 import bs58 from 'bs58';
-import { INFTData } from '@/common/types';
+
+const numeral = require('numeral');
 
 export async function okToFailAsync(callback: any, args: any[], wantObject = false) {
   try {
@@ -108,4 +109,9 @@ export function removeItemOnce(arr: any[], value: number) {
     arr.splice(index, 1);
   }
   return arr;
+}
+
+// short name to save space in html
+export function f(n: number) {
+  return numeral(n).format('0,0.0');
 }

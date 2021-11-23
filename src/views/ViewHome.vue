@@ -25,19 +25,19 @@
 
       <div>
         <h1 class="mt-10 w500:text-xl">You've spent a total of
-          <span class="text-rb-blue">{{ isSol ? '◎' : '$' }}{{ totalSpend.toFixed(2) }}</span> on NFTs.
+          <span class="text-rb-blue">{{ isSol ? '◎' : '$' }}{{ f(totalSpend) }}</span> on NFTs.
         </h1>
         <h1 class="my-10 w500:text-xl">You've earned a total of
-          <span class="text-rb-blue">{{ isSol ? '◎' : '$' }}{{ totalEarnings.toFixed(2) }}</span> from NFTs.
+          <span class="text-rb-blue">{{ isSol ? '◎' : '$' }}{{ f(totalEarnings) }}</span> from NFTs.
         </h1>
         <h1 class="my-10 w500:text-xl">Your total {{ neg(totalProfit) ? 'loss' : 'profit' }} is
-          <span :class="neg(totalProfit) ? 'text-rb-pink' : 'text-rb-green'">{{ isSol ? '◎' : '$' }}{{ totalProfit.toFixed(2) }}</span>.
+          <span :class="neg(totalProfit) ? 'text-rb-pink' : 'text-rb-green'">{{ isSol ? '◎' : '$' }}{{ f(totalProfit) }}</span>.
         </h1>
         <h1 class="my-10 w500:text-xl">You've paperhanded a total of
-          <span :class="neg(totalPaperhanded) ? 'text-rb-green' : 'text-rb-pink'">{{ isSol ? '◎' : '$' }}{{ totalPaperhanded.toFixed(2) }}</span> (via {{paperSales}} sales).
+          <span :class="neg(totalPaperhanded) ? 'text-rb-green' : 'text-rb-pink'">{{ isSol ? '◎' : '$' }}{{ f(totalPaperhanded) }}</span> (via {{paperSales}} sales).
         </h1>
-        <h1 class="mb-10 w500:text-xl">You're diamondhanding a total of
-          <span :class="neg(totalDiamondhanded) ? 'text-rb-pink' : 'text-rb-green'">{{ isSol ? '◎' : '$' }}{{ totalDiamondhanded.toFixed(2) }}</span> (via {{diamondNFTs}} NFTs).
+        <h1 class="mb-20 w500:text-xl">You're diamondhanding a total of
+          <span :class="neg(totalDiamondhanded) ? 'text-rb-pink' : 'text-rb-green'">{{ isSol ? '◎' : '$' }}{{ f(totalDiamondhanded) }}</span> (via {{diamondNFTs}} NFTs).
         </h1>
       </div>
 
@@ -106,6 +106,7 @@ import TheCurrencySlider from "@/components/TheCurrencySlider.vue";
 import TheViewOptions from "@/components/TheViewOptions.vue";
 import TheAdvancedOptions from "@/components/TheAdvancedOptions.vue";
 import TheSolanaLogo from "@/components/TheSolanaLogo.vue";
+import {f} from '@/common/util';
 
 export default defineComponent({
   components: {
@@ -300,7 +301,7 @@ export default defineComponent({
 
     const shareText = computed(() => {
       const host = window.location.origin;
-      const text = encodeURI(`I aped🍌 into ${isSol.value ? '◎' : '$'}${totalSpend.value.toFixed(2)} worth of NFTs, paperhanded🧻 ${isSol.value ? '◎' : '$'}${totalPaperhanded.value.toFixed(2)}, and am diamondhanding💎 ${isSol.value ? '◎' : '$'}${totalDiamondhanded.value.toFixed(2)}.`)
+      const text = encodeURI(`I aped🍌 into ${isSol.value ? '◎' : '$'}${f(totalSpend.value)} worth of NFTs, paperhanded🧻 ${isSol.value ? '◎' : '$'}${f(totalPaperhanded.value)}, and am diamondhanding💎 ${isSol.value ? '◎' : '$'}${f(totalDiamondhanded.value)}.`)
       const url = encodeURI(`${host}/addr/${address.value!}`)
       const hashtags = encodeURI('NFTs,Solana')
       return `text=${text}&url=${url}&hashtags=${hashtags}`
@@ -352,6 +353,7 @@ export default defineComponent({
       progress,
       // sharing
       shareText,
+      f,
     }
   }
 })

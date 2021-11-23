@@ -13,12 +13,12 @@
             <a class="ml-5" :href="`https://explorer.solana.com/address/${nft.mint}`" target="_blank">🔗</a>
           </div>
 
-          <p v-if="nft.boughtAt" class="text">Bought for: <span class="text-rb-blue">{{ isSol ? '◎' : '$' }}{{ nft.boughtAt.toFixed(2) }}</span></p>
-          <p v-if="nft.soldAt" class="text">Sold for: <span class="text-rb-blue">{{ isSol ? '◎' : '$' }}{{nft.soldAt.toFixed(2)}}</span></p>
-          <p v-if="nft.currentPrices" class="text">Current {{priceMethod}}: <span class="text-rb-blue">{{ isSol ? '◎' : '$' }}{{nft.currentPrices[priceMethod].toFixed(2)}}</span></p>
-          <p v-if="nft.profit" class="text">{{neg(nft.profit) ? 'Loss' : 'Profit'}} from sale: <span :class="neg(nft.profit) ? 'text-rb-pink' : 'text-rb-green'">{{ isSol ? '◎' : '$' }}{{ nft.profit.toFixed(2) }}</span></p>
-          <p v-if="nft.paperhanded" class="text">Paperhanded worth: <span :class="neg(nft.paperhanded[priceMethod]) ? 'text-rb-green' : 'text-rb-pink'">{{ isSol ? '◎' : '$' }}{{ nft.paperhanded[priceMethod].toFixed(2) }}</span></p>
-          <p v-if="nft.diamondhanded" class="text">Diamondhanding worth: <span :class="neg(nft.diamondhanded[priceMethod]) ? 'text-rb-pink' : 'text-rb-green'">{{ isSol ? '◎' : '$' }}{{ nft.diamondhanded[priceMethod].toFixed(2) }}</span></p>
+          <p v-if="nft.boughtAt" class="text">Bought for: <span class="text-rb-blue">{{ isSol ? '◎' : '$' }}{{ f(nft.boughtAt) }}</span></p>
+          <p v-if="nft.soldAt" class="text">Sold for: <span class="text-rb-blue">{{ isSol ? '◎' : '$' }}{{ f(nft.soldAt) }}</span></p>
+          <p v-if="nft.currentPrices" class="text">Current {{priceMethod}}: <span class="text-rb-blue">{{ isSol ? '◎' : '$' }}{{ f(nft.currentPrices[priceMethod]) }}</span></p>
+          <p v-if="nft.profit" class="text">{{neg(nft.profit) ? 'Loss' : 'Profit'}} from sale: <span :class="neg(nft.profit) ? 'text-rb-pink' : 'text-rb-green'">{{ isSol ? '◎' : '$' }}{{ f(nft.profit) }}</span></p>
+          <p v-if="nft.paperhanded" class="text">Paperhanded worth: <span :class="neg(nft.paperhanded[priceMethod]) ? 'text-rb-green' : 'text-rb-pink'">{{ isSol ? '◎' : '$' }}{{ f(nft.paperhanded[priceMethod]) }}</span></p>
+          <p v-if="nft.diamondhanded" class="text">Diamondhanding worth: <span :class="neg(nft.diamondhanded[priceMethod]) ? 'text-rb-pink' : 'text-rb-green'">{{ isSol ? '◎' : '$' }}{{ f(nft.diamondhanded[priceMethod]) }}</span></p>
           <p v-if="!nft.currentPrices" class="text text-gray-400">This NFT collection is missing prices:( Fix by
             <a href="https://github.com/ilmoi/nftape.me#-important---adding-nft-collections" target="_blank">sending a PR</a> (~2min)</p>
         </div>
@@ -29,6 +29,7 @@
 
 <script lang="ts">
 import {defineComponent} from "vue";
+import {f} from '@/common/util'
 
 export default defineComponent({
   props: {
@@ -38,7 +39,7 @@ export default defineComponent({
   },
   setup() {
     const neg = (amount: number) => amount < 0
-    return {neg}
+    return {neg, f}
   }
 })
 </script>
