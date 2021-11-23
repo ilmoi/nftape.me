@@ -86,13 +86,13 @@
     </div>
 
     <div v-else class="mt-5">
-      <p>or <a href="https://github.com/ilmoi/nftape.me" target="_blank">read how it works</a></p>
+      <p>or <a href="https://github.com/ilmoi/nftape.me#intro" target="_blank">read how it works</a></p>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import {computed, defineComponent, onBeforeMount, onMounted, ref, watch} from "vue";
+import {computed, defineComponent, onMounted, ref, watch} from "vue";
 import {useRoute} from "vue-router";
 import {NFTHandler} from "@/common";
 import useCluster from "@/composables/cluster";
@@ -105,7 +105,6 @@ import {EE} from "@/globals";
 import TheCurrencySlider from "@/components/TheCurrencySlider.vue";
 import TheViewOptions from "@/components/TheViewOptions.vue";
 import TheAdvancedOptions from "@/components/TheAdvancedOptions.vue";
-import useCopy from "@/composables/copy";
 import TheSolanaLogo from "@/components/TheSolanaLogo.vue";
 
 export default defineComponent({
