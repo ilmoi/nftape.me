@@ -1,5 +1,7 @@
 <template>
   <div class="width">
+    <div class="mb-10 text-3xl">Get your NFT stats, 1 click</div>
+
     <form @submit.prevent="lfg">
       <div class="nes-field ">
         <div class="flex justify-center">
