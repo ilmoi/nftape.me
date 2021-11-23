@@ -4,9 +4,12 @@
     <TheHeader/>
 
     <!--body-->
-    <div class="p-20 flex flex-row justify-center w-screen">
+    <div class="py-20 px-5 flex flex-row justify-center w-screen">
       <router-view/>
     </div>
+
+    <!--padder-->
+    <div class="p-10"></div>
 
     <!--cat + footer-->
     <TheCat/>

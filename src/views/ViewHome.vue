@@ -3,7 +3,7 @@
     <form @submit.prevent="lfg">
       <div class="nes-field ">
         <label for="wallet">Wallet address:</label>
-        <input type="text" id="wallet" class="nes-input is-dark mt-5 w-full" v-model="address">
+        <input type="text" id="wallet" class="nes-input is-dark mt-5" v-model="address">
       </div>
       <button class="nes-btn is-warning mt-5 w-40" type="submit" :class="{ 'is-disabled': isLoading }" :disabled="isLoading">
         LFG
@@ -16,28 +16,27 @@
 
     <LoadingBar v-else-if="isLoading" class="mt-5" :text="text" :progress="progress"></LoadingBar>
 
-    <div>
-      <!--<div v-else-if="nfts.length">-->
-
+    <!--<div>-->
+    <div v-else-if="nfts.length">
       <TheCurrencySlider class="mt-20" :currency="currency" @currency="handleNewCurrency"/>
 
-      <h1 class="mt-10 text-xl">You've spent a total of
+      <h1 class="mt-10 w500:text-xl">You've spent a total of
         <span class="text-rb-blue">{{ isSol ? '◎' : '$' }}{{ totalSpend.toFixed(2) }}</span> on NFTs.
       </h1>
-      <h1 class="my-10 text-xl">You've earned a total of
+      <h1 class="my-10 w500:text-xl">You've earned a total of
         <span class="text-rb-blue">{{ isSol ? '◎' : '$' }}{{ totalEarnings.toFixed(2) }}</span> from NFTs.
       </h1>
-      <h1 class="my-10 text-xl">Your total {{ neg(totalProfit) ? 'loss' : 'profit' }} is
+      <h1 class="my-10 w500:text-xl">Your total {{ neg(totalProfit) ? 'loss' : 'profit' }} is
         <span :class="neg(totalProfit) ? 'text-rb-pink' : 'text-rb-green'">{{ isSol ? '◎' : '$' }}{{ totalProfit.toFixed(2) }}</span>.
       </h1>
-      <h1 class="my-10 text-xl">You've paperhanded a total of
+      <h1 class="my-10 w500:text-xl">You've paperhanded a total of
         <span :class="neg(totalPaperhanded) ? 'text-rb-green' : 'text-rb-pink'">{{ isSol ? '◎' : '$' }}{{ totalPaperhanded.toFixed(2) }}</span>.
       </h1>
-      <h1 class="mb-20 text-xl">You're diamondhanding a total of
+      <h1 class="mb-20 w500:text-xl">You're diamondhanding a total of
         <span :class="neg(totalDiamondhanded) ? 'text-rb-pink' : 'text-rb-green'">{{ isSol ? '◎' : '$' }}{{ totalDiamondhanded.toFixed(2) }}</span>.
       </h1>
 
-      <div class="mb-5 flex flex-row justify-center">
+      <div class="mb-5 flex flex-col w700:flex-row justify-center">
         <button class="nes-btn is-warning mx-5" @click="showNFTs = !showNFTs">View by NFT</button>
         <button class="nes-btn is-warning mx-5" :class="{'is-disabled': copyInProgress}" :disabled="copyInProgress" @click="copyShareLink">{{ copyText }}</button>
         <button class="nes-btn is-warning mx-5" @click="showOptions = !showOptions">Advanced</button>
@@ -79,7 +78,6 @@
     <div v-else class="mt-5">
       <p>or <a href="https://github.com/ilmoi/nftape.me" target="_blank">read how it works</a></p>
     </div>
-
   </div>
 </template>
 

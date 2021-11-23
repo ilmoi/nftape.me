@@ -1,7 +1,7 @@
 <template>
-  <div class="flex flex-row justify-between">
+  <div class="flex flex-col w700:flex-row justify-between">
     <!--sort by-->
-    <div class="mx-2 text-left flex-grow">
+    <div class="w700:mx-2 my-2 w700:my-0 text-left flex-grow">
       <label for="sortBy" class="text-left">Sort by:</label>
       <div class="nes-select is-dark">
         <select required id="sortBy" @input="emitEvent">
@@ -15,7 +15,7 @@
     </div>
 
     <!--sort order-->
-    <div class="mx-2 text-left flex-grow">
+    <div class="w700:mx-2 my-2 w700:my-0 text-left flex-grow">
       <label for="sortOrder" class="text-left">Sort order:</label>
       <div class="nes-select is-dark">
         <select required id="sortOrder" @input="emitEvent">
@@ -26,7 +26,7 @@
     </div>
 
     <!--hide sold-->
-    <div class="mx-2 mt-10 w-40 flex-shrink">
+    <div class="w700:mx-2 my-2 w700:my-0 w700:mt-10 w700:w-40 flex-shrink">
       <label>
         <input type="checkbox" id="hideSold" class="nes-checkbox is-dark" :checked="hideSold" @input="emitEvent"/>
         <span>Hide sold NFTs</span>

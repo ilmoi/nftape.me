@@ -1,10 +1,10 @@
 <template>
   <div class="fixed inset-0 opacity-75 bg-black z400" @click="emitHide"></div>
-  <div class="modal" @keydown.esc="emitHide" tabindex="0" id="modal">
+  <div class="modal w-full" @keydown.esc="emitHide" tabindex="0" id="modal">
     <div class="nes-container is-dark relative bg-dark">
       <p class="text-lg underline">{{ title }}</p>
       <p class="absolute top-1 right-1" @click="emitHide">X</p>
-      <div class="mt-5 text-sm">
+      <div class="mt-5 w500:text-sm text-xs">
         <slot />
       </div>
     </div>
@@ -37,12 +37,11 @@ export default defineComponent({
 
 <style scoped>
 .modal {
-  @apply m-10;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 600px;
+  max-width: 600px;
   overflow: auto;
   max-height: calc(100vh - 50px);
   z-index: 500;

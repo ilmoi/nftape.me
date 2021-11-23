@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center fork">
+  <div class="flex justify-center fork hidden w700:block">
     <div v-if="showText" class="nes-balloon from-right balloon">
       <p class="text-black">Fork me on Github</p>
     </div>

@@ -12,9 +12,9 @@ export default {};
 
 <style scoped>
 .footer {
-  @apply w-full flex justify-center align-middle text-center;
+  @apply w-full flex justify-center align-middle text-center pb-5;
   position: absolute;
   bottom: 0px;
-  height: 40px;
+  /*height: 40px;*/
 }
 </style>

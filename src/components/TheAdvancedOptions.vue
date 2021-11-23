@@ -1,10 +1,12 @@
 <template>
   <div class="flex flex-col">
     <!--price method-->
-    <div class="flex-1 flex mt-5">
-      <label for="priceMethod" class="text-left">Compare prices to:</label>
-      <a class="ml-1 mt-3" @click="showModal('tooltipPrices')">(?)</a>
-      <div class="nes-select is-dark ml-5">
+    <div class="flex-1 flex flex-col w700:flex-row mt-5">
+      <div class="flex">
+        <label for="priceMethod" class="text-left">Compare prices to:</label>
+        <a class="ml-1 w700:mt-3" @click="showModal('tooltipPrices')">(?)</a>
+      </div>
+      <div class="nes-select is-dark w700:ml-5">
         <select required id="priceMethod" @input="emitEvent">
           <option :value="PriceMethod.floor">floor</option>
           <option :value="PriceMethod.median">median</option>
@@ -14,10 +16,12 @@
     </div>
 
     <!--offsetting-->
-    <div class="flex-1 flex mt-5">
-      <label for="offset" class="text-left">Treat negatives:</label>
-      <a class="ml-1 mt-3" @click="showModal('tooltipOffset')">(?)</a>
-      <div class="nes-select is-dark ml-5">
+    <div class="flex-1 flex flex-col w700:flex-row mt-5">
+      <div class="flex">
+        <label for="offset" class="text-left">Treat negatives:</label>
+        <a class="ml-1 w700:mt-3" @click="showModal('tooltipOffset')">(?)</a>
+      </div>
+      <div class="nes-select is-dark w700:ml-5">
         <select required id="offset" @input="emitEvent">
           <option :value="false">ignore</option>
           <option :value="true">use as offset</option>

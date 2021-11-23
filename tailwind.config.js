@@ -3,17 +3,16 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
-      width: {
-        550: '550px',
-      },
-      maxWidth: {
-        550: '550px',
-      },
       screens: {
-        fivefifty: '550px',
-        fiveh: '500px',
-        fourh: '400px',
-        threeh: '300px',
+        w700: '700px',
+        w650: '650px',
+        w600: '600px',
+        w550: '550px',
+        w500: '500px',
+        w450: '450px',
+        w400: '400px',
+        w350: '350px',
+        w300: '300px',
       },
       colors: {
         rb: {

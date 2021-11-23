@@ -1,8 +1,8 @@
 <template>
   <nav class="flex flex-row justify-center align-middle rainbow-bg">
-    <a class="menu-item text-2xl" href="https://www.nftarmory.me/view" target="_blank">⚔️</a>
-    <h1 class="menu-item bg-none text-black text-2xl">NFT<span class="text-3xl">🍌</span>APE</h1>
-    <a class="menu-item text-2xl" href="https://github.com/ilmoi/awesome-solana-nfts" target="_blank">🔗</a>
+    <a class="menu-item text-2xl self-center" href="https://www.nftarmory.me/view" target="_blank">⚔️</a>
+    <h1 class="menu-item bg-none text-black text-2xl self-center">NFT<span class="text-3xl">🍌</span>APE</h1>
+    <a class="menu-item text-2xl self-center" href="https://github.com/ilmoi/awesome-solana-nfts" target="_blank">🔗</a>
   </nav>
 </template>
 
