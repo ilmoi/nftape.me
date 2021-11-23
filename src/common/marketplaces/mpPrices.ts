@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { LAMPORTS_PER_SOL } from '@solana/web3.js';
 import { okToFailAsync } from '@/common/util';
-import { collections, initPricesFromCache, updateCache } from '@/common/marketplaces/mpCollections';
+import { collections } from '@/common/marketplaces/mpCollections';
 import { IStats } from '@/common/types';
 
 // --------------------------------------- mp-specific fetchers
@@ -68,23 +68,21 @@ function calcStats(prices: number[]): IStats {
 
 // --------------------------------------- interface
 
+// todo find a way to cache marketplace fetches -
+//  challenge is that this fn itself called w/o waiting for Promise resolution
 export async function fetchAndCalcStats(creator: string): Promise<IStats | undefined> {
-  const prices: number[] = initPricesFromCache(creator);
+  const prices: number[] = [];
 
-  if (!prices.length) {
-    const responses = await Promise.all([
-      okToFailAsync(fetchSolanartPrices, [creator]),
-      okToFailAsync(fetchDigitalEyezPrices, [creator]),
-      okToFailAsync(fetchMagicEdenPrices, [creator]),
-    ]);
-    responses.forEach((r) => {
-      if (r) {
-        prices.push(...r);
-      }
-    });
-    // console.log(`fetched prices for ${creator} creator are:`, prices);
-    updateCache(creator, prices);
-  }
+  const responses = await Promise.all([
+    okToFailAsync(fetchSolanartPrices, [creator]),
+    okToFailAsync(fetchDigitalEyezPrices, [creator]),
+    okToFailAsync(fetchMagicEdenPrices, [creator]),
+  ]);
+  responses.forEach((r) => {
+    if (r) {
+      prices.push(...r);
+    }
+  });
 
   // if we failed to get prices from cache AND failed to get from mps - quit
   if (!prices.length) {

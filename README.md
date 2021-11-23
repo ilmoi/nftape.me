@@ -31,8 +31,8 @@ Once done, you can share with your fellow Apes🍌 on Twitter with 1 click! 🚀
 
 # How does it work?
 TLDR:
-1. It fetches all transactions that mention your wallet's address
-2. It filters out the ones that involve NFT marketplaces
+1. It fetches all transactions that mention your wallet's address and looks for those involving marketplaces. This gives us historic sales
+2. It fetches all current tokens in your wallet and filters for NFTs
 3. It fetches NFT metadata, prices, and other stuff to be able to calculate the stats you care about
 
 Limitations
@@ -45,6 +45,7 @@ Limitations
     - More generally, if you sent your NFT to a different wallet, it will think you still own it (since it has no idea why/whom you sent it to)
 - Currently Solana only
 - Currently 6 marketplaces only (MagicEden, SolanArt, DigitalEyes, Alpha Art, Exchange.Art, SolSea)
+- Currently, if you bought / sold the same NFT (same mint) multiple times, only the last sale will be accounted for
 - Because NFTs are by definition non-fungible, to be able to calculate paper/diamond-hands amount it needs to choose a proxy for your NFT's current price. The app let's you choose between floor / median / mean prices - but ultimately they're all proxies. Your specific NFT might have a different value.
 - New collections need to be added manually (see below). It's not a lot of work - 1-2min per collection, but it's work:)
 - Certain NFTs are excluded, if they don't follow the modern Metaplex standard (eg if they don't have at least a single Creator listed)

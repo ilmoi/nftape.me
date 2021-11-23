@@ -127,17 +127,3 @@ export const collections = {
   //   ME: '',
   // },
 };
-
-export const collectionCache = {};
-
-export function initPricesFromCache(creator: string) {
-  const existingCache = (collectionCache as any)[creator];
-  if (existingCache) {
-    console.log('hitting existing cache for creator', creator);
-  }
-  return existingCache ?? [];
-}
-
-export function updateCache(creator: string, prices: number[]) {
-  (collectionCache as any)[creator] = prices;
-}
