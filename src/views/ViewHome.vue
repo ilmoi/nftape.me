@@ -16,9 +16,12 @@
 
     <LoadingBar v-else-if="isLoading" class="mt-5" :text="text" :progress="progress"></LoadingBar>
 
-    <!--<div>-->
-    <div v-else-if="nfts.length">
-      <h1 class="mt-20 text-xl">You've spent a total of
+    <div>
+      <!--<div v-else-if="nfts.length">-->
+
+      <TheCurrencySlider class="mt-20" :currency="currency" @currency="handleNewCurrency"/>
+
+      <h1 class="mt-10 text-xl">You've spent a total of
         <span class="text-rb-blue">{{ isSol ? '◎' : '$' }}{{ totalSpend.toFixed(2) }}</span> on NFTs.
       </h1>
       <h1 class="my-10 text-xl">You've earned a total of
@@ -37,6 +40,7 @@
       <div class="mb-5 flex flex-row justify-center">
         <button class="nes-btn is-warning mx-5" @click="showOptions = !showOptions">Show Options</button>
         <button class="nes-btn is-warning mx-5" @click="showNFTs = !showNFTs">View Your NFTs</button>
+        <button class="nes-btn is-warning mx-5" @click="showNFTs = !showNFTs">Share via Link</button>
       </div>
 
       <div v-if="showOptions" class="mb-5">
@@ -48,13 +52,11 @@
               :sort-order="sortOrder"
               :offset="offset"
               :hideSold="hideSold"
-              :currency="currency"
               @priceMethod="handleNewMethod"
               @sortBy="handleNewSortBy"
               @sortOrder="handleNewSortOrder"
               @offset="handleNewOffset"
               @hideSold="handleHideSold"
-              @currency="handleNewCurrency"
           />
         </div>
       </div>
@@ -89,12 +91,17 @@ import NotifyError from "@/components/notifications/NotifyError.vue";
 import useLoading, {LoadStatus} from "@/composables/loading";
 import LoadingBar from "@/components/LoadingBar.vue";
 import {EE} from "@/globals";
+import TheCurrencySlider from "@/components/TheCurrencySlider.vue";
 
 export default defineComponent({
-  components: {LoadingBar, NotifyError, ConfigPane, NFTCard},
+  components: {TheCurrencySlider, LoadingBar, NotifyError, ConfigPane, NFTCard},
   setup() {
     const address = ref<string>("5u1vB9UeQSCzzwEhmKPhmQH1veWP9KZyZ8xFxFrmj8CK")
     const nfts = ref<INFTData[]>([]);
+
+    // display params
+    const showOptions = ref<boolean>(false);
+    const showNFTs = ref<boolean>(false);
 
     // --------------------------------------- config params & their watchers
     const priceMethod = ref<PriceMethod>(PriceMethod.floor);
@@ -103,58 +110,6 @@ export default defineComponent({
     const offset = ref<boolean>(false)
     const hideSold = ref<boolean>(false)
     const currency = ref<string>("sol")
-    let solPrice: number | undefined;
-
-    /* eslint-disable no-param-reassign */
-    const isSol = computed(() => currency.value === 'sol')
-    watch(currency, (newCur: string) => {
-      console.log('currency changed to ', newCur)
-      if (newCur === 'usd') {
-        nfts.value = nfts.value.map(nft => {
-          nft.soldAt = nft.soldAt ? nft.soldAt * solPrice! : undefined;
-          nft.boughtAt = nft.boughtAt ? nft.boughtAt * solPrice! : undefined;
-          nft.currentPrices = nft.currentPrices ? {
-            floor: nft.currentPrices.floor * solPrice!,
-            mean: nft.currentPrices.mean * solPrice!,
-            median: nft.currentPrices.median * solPrice!,
-          } : undefined;
-          nft.paperhanded = nft.paperhanded ? {
-            floor: nft.paperhanded.floor * solPrice!,
-            mean: nft.paperhanded.mean * solPrice!,
-            median: nft.paperhanded.median * solPrice!,
-          } : undefined;
-          nft.diamondhanded = nft.diamondhanded ? {
-            floor: nft.diamondhanded.floor * solPrice!,
-            mean: nft.diamondhanded.mean * solPrice!,
-            median: nft.diamondhanded.median * solPrice!,
-          } : undefined;
-          nft.profit = nft.profit ? nft.profit * solPrice! : undefined;
-          return nft
-        })
-      } else {
-        nfts.value = nfts.value.map(nft => {
-          nft.soldAt = nft.soldAt ? nft.soldAt / solPrice! : undefined;
-          nft.boughtAt = nft.boughtAt ? nft.boughtAt / solPrice! : undefined;
-          nft.currentPrices = nft.currentPrices ? {
-            floor: nft.currentPrices.floor / solPrice!,
-            mean: nft.currentPrices.mean / solPrice!,
-            median: nft.currentPrices.median / solPrice!,
-          } : undefined;
-          nft.paperhanded = nft.paperhanded ? {
-            floor: nft.paperhanded.floor / solPrice!,
-            mean: nft.paperhanded.mean / solPrice!,
-            median: nft.paperhanded.median / solPrice!,
-          } : undefined;
-          nft.diamondhanded = nft.diamondhanded ? {
-            floor: nft.diamondhanded.floor / solPrice!,
-            mean: nft.diamondhanded.mean / solPrice!,
-            median: nft.diamondhanded.median / solPrice!,
-          } : undefined;
-          nft.profit = nft.profit ? nft.profit / solPrice! : undefined;
-          return nft
-        })
-      }
-    })
 
     const updateOrder = (sortBy: string, sortOrder: string) => nfts.value.sort((first, second) => {
       // @ts-ignore
@@ -193,9 +148,44 @@ export default defineComponent({
       updateOrder(sortBy.value, newSortOrder)
     })
 
-    // display params
-    const showOptions = ref<boolean>(false);
-    const showNFTs = ref<boolean>(false);
+    // --------------------------------------- sol <--> usd
+    let solPrice: number | undefined;
+    const isSol = computed(() => currency.value === 'sol')
+
+    const mult = (a: number, b: number) => a * b
+    const div = (a: number, b: number) => a / b
+
+    /* eslint-disable no-param-reassign */
+    const updatePrices = (cb: any) => {
+      nfts.value = nfts.value.map(nft => {
+        nft.soldAt = nft.soldAt ? cb(nft.soldAt, solPrice!) : undefined;
+        nft.boughtAt = nft.boughtAt ? cb(nft.boughtAt, solPrice!) : undefined;
+        nft.currentPrices = nft.currentPrices ? {
+          floor: cb(nft.currentPrices.floor, solPrice!),
+          mean: cb(nft.currentPrices.mean, solPrice!),
+          median: cb(nft.currentPrices.median, solPrice!),
+        } : undefined;
+        nft.paperhanded = nft.paperhanded ? {
+          floor: cb(nft.paperhanded.floor, solPrice!),
+          mean: cb(nft.paperhanded.mean, solPrice!),
+          median: cb(nft.paperhanded.median, solPrice!),
+        } : undefined;
+        nft.diamondhanded = nft.diamondhanded ? {
+          floor: cb(nft.diamondhanded.floor, solPrice!),
+          mean: cb(nft.diamondhanded.mean, solPrice!),
+          median: cb(nft.diamondhanded.median, solPrice!),
+        } : undefined;
+        nft.profit = nft.profit ? cb(nft.profit, solPrice!) : undefined;
+        return nft
+      })
+    }
+    watch(currency, (newCur: string) => {
+      if (newCur === 'usd') {
+        updatePrices(mult)
+      } else {
+        updatePrices(div)
+      }
+    })
 
     // --------------------------------------- calcs
     const adder = (prev: number, next: number) => prev + next;
@@ -285,6 +275,8 @@ export default defineComponent({
     return {
       address,
       nfts,
+      showOptions,
+      showNFTs,
       // config params
       priceMethod,
       sortBy,
@@ -293,9 +285,6 @@ export default defineComponent({
       hideSold,
       currency,
       isSol,
-      // display params
-      showOptions,
-      showNFTs,
       // calcs
       totalSpend,
       totalEarnings,

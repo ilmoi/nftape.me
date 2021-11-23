@@ -1,16 +1,5 @@
 <template>
   <div class="flex flex-col">
-    <!--crurrency-->
-    <div class="flex-1 flex">
-      <label for="currency" class="text-left">Display currency:</label>
-      <div class="nes-select is-dark ml-5">
-        <select required id="currency" @input="emitEvent">
-          <option value="sol">◎ SOL</option>
-          <option value="usd">$ USD</option>
-        </select>
-      </div>
-    </div>
-
     <!--price method-->
     <div class="flex-1 flex mt-5">
       <label for="priceMethod" class="text-left">Compare prices to:</label>
@@ -104,7 +93,7 @@ export default defineComponent({
     offset: Boolean,
     hideSold: Boolean,
   },
-  emits: ['currency', 'priceMethod', 'sortBy', 'sortOrder', 'offset', 'hideSold'],
+  emits: ['priceMethod', 'sortBy', 'sortOrder', 'offset', 'hideSold'],
   setup(props, ctx) {
     const emitEvent = (event: any) => {
       ctx.emit(event.srcElement.id, event.target.value)
