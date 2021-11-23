@@ -72,7 +72,7 @@ export class NFTHandler {
     console.log(`got ${txInfos.length} txs to process`);
 
     // todo temp for debugging
-    txInfos = txInfos.splice(0, 200);
+    // txInfos = txInfos.splice(0, 200);
 
     // reverse the array, we want to start with historic transactions not other way around
     txInfos = txInfos.reverse();

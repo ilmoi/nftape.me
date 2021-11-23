@@ -6,7 +6,7 @@
           <TheSolanaLogo/>
           <label class="ml-5" for="wallet">Wallet Address:</label>
         </div>
-        <input type="text" id="wallet" class="nes-input is-dark mt-4 w-full" v-model="address" placeholder="5u1vB9UeQSCzzwEhmKPhmQH1veWP9KZyZ8xFxFrmj8CK">
+        <input type="text" id="wallet" class="nes-input is-dark mt-4 w-full" v-model="address" placeholder="AEahaRpDFzg74t7NtWoruabo2fPJQjKFM9kQJNjH7obK">
       </div>
       <button class="nes-btn is-warning mt-5 w-40" type="submit" :class="{ 'is-disabled': isLoading || !address }" :disabled="isLoading  || !address">
         LFG

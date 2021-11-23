@@ -21,9 +21,9 @@ export function calcPaperDiamondHands(
     // calculate diamondhands amount
     if (nft.boughtAt && !nft.soldAt) {
       diamond = {
-        floor: nft.currentPrices!.floor - nft.boughtAt!,
-        mean: nft.currentPrices!.mean - nft.boughtAt!,
-        median: nft.currentPrices!.median - nft.boughtAt!,
+        floor: nft.currentPrices!.floor,
+        mean: nft.currentPrices!.mean,
+        median: nft.currentPrices!.median,
       };
     }
   }
