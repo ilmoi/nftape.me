@@ -1,6 +1,6 @@
 <template>
   <div class="width">
-    <div class="mb-10 text-3xl">Get your NFT stats, 1 click</div>
+    <div class="mb-10 text-3xl">Get your wallet's NFT stats</div>
 
     <form @submit.prevent="lfg">
       <div class="nes-field ">
