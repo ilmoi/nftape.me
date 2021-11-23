@@ -1,4 +1,6 @@
-# NFT🍌APE 
+# NFT🍌APE
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/43f18aba-ab21-4650-b280-f4540836deb9/deploy-status)](https://app.netlify.com/sites/eloquent-nightingale-fb73a6/deploys)
 
 Welcome fellow Ape 👋
 

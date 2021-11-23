@@ -12,7 +12,7 @@
 
     <a
         class="nes-btn is-primary twitter-button"
-        href="https://twitter.com/intent/tweet?text=hello%20world%20%40_ilmoi%20%23yoyo&url=https%2F%2Fwww.google.com"
+        href="https://twitter.com/intent/tweet?text=hello%20world%20%40_ilmoi%20%23yoyo&url=https%3A%2F%2Fi.ibb.co%2FWN9XNpF%2Fnft-ape-logo.png"
         target="_blank"
     >Share on Twitter</a>
 
@@ -22,8 +22,8 @@
 
     <LoadingBar v-else-if="isLoading" class="mt-5" :text="text" :progress="progress"></LoadingBar>
 
-    <div>
-      <!--<div v-else-if="nfts.length">-->
+    <!--<div>-->
+    <div v-else-if="nfts.length">
       <TheCurrencySlider class="mt-20" :currency="currency" @currency="handleNewCurrency"/>
 
       <div>
