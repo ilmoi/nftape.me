@@ -2,19 +2,16 @@
   <div class="width">
     <form @submit.prevent="lfg">
       <div class="nes-field ">
-        <label for="wallet">Wallet address:</label>
-        <input type="text" id="wallet" class="nes-input is-dark mt-5 w-full" v-model="address" placeholder="5u1vB9UeQSCzzwEhmKPhmQH1veWP9KZyZ8xFxFrmj8CK">
+        <div class="flex justify-center">
+          <TheSolanaLogo/>
+          <label class="ml-5" for="wallet">Wallet Address:</label>
+        </div>
+        <input type="text" id="wallet" class="nes-input is-dark mt-4 w-full" v-model="address" placeholder="5u1vB9UeQSCzzwEhmKPhmQH1veWP9KZyZ8xFxFrmj8CK">
       </div>
       <button class="nes-btn is-warning mt-5 w-40" type="submit" :class="{ 'is-disabled': isLoading || !address }" :disabled="isLoading  || !address">
         LFG
       </button>
     </form>
-
-    <a
-        class="nes-btn is-primary twitter-button"
-        href="https://twitter.com/intent/tweet?text=hello%20world%20%40_ilmoi%20%23yoyo&url=https%3A%2F%2Fi.ibb.co%2FWN9XNpF%2Fnft-ape-logo.png"
-        target="_blank"
-    >Tweet it!</a>
 
     <div v-if="err" class="mt-5">
       <NotifyError>{{ err }}</NotifyError>
@@ -46,8 +43,13 @@
 
       <div class="mb-5 flex flex-col w700:flex-row justify-center">
         <button class="nes-btn is-warning mx-5" @click="showNFTs = !showNFTs">View by NFT</button>
-        <button class="nes-btn is-warning mx-5" :class="{'is-disabled': copyInProgress}" :disabled="copyInProgress" @click="copyShareLink">{{ copyText }}</button>
         <button class="nes-btn is-warning mx-5" @click="showOptions = !showOptions">Advanced</button>
+        <!--<button class="nes-btn is-warning mx-5" :class="{'is-disabled': copyInProgress}" :disabled="copyInProgress" @click="copyShareLink">{{ copyText }}</button>-->
+            <a
+        class="nes-btn is-primary twitter-button mx-5"
+        :href="`https://twitter.com/intent/tweet?${shareText}`"
+        target="_blank"
+    >Tweet it!</a>
       </div>
 
       <div v-if="showOptions" class="mb-5">
@@ -104,24 +106,13 @@ import TheCurrencySlider from "@/components/TheCurrencySlider.vue";
 import TheViewOptions from "@/components/TheViewOptions.vue";
 import TheAdvancedOptions from "@/components/TheAdvancedOptions.vue";
 import useCopy from "@/composables/copy";
+import TheSolanaLogo from "@/components/TheSolanaLogo.vue";
 
 export default defineComponent({
   components: {
+    TheSolanaLogo,
     TheAdvancedOptions,
     TheViewOptions, TheCurrencySlider, LoadingBar, NotifyError, NFTCard
-  },
-  head: {
-    meta: window.location.pathname.split('/').at(1) === 'addr'? [
-      {name: "twitter:card", content: "summary_large_image"},
-      {name: "twitter:title", content: `${window.location.pathname.split('/').at(-1)!.substr(0, 5)}... NFT🍌APE report`},
-      {name: "twitter:image", content: "https://gateway.pinata.cloud/ipfs/QmVMGYTs4mWmCRuW22AmARgWVYrhhydSkznyXw9jEFm4qo"},
-    ] : [
-      {name: 'twitter:card', content: "summary"},
-      {name: 'twitter:site', content: "@_ilmoi"},
-      {name: 'twitter:title', content: "Ape into NFTs a lot? Get your stats."},
-      {name: 'twitter:description', content: "Get your total spend, earnings, P&L & how much you've paperhanded / diamondhanded!"},
-      {name: 'twitter:image', content: "https://i.ibb.co/xC3bB5N/nft-ape-logo2.png"},
-    ]
   },
   setup() {
     const address = ref<string>()
@@ -300,19 +291,23 @@ export default defineComponent({
       }
     }
 
-    // --------------------------------------- sharable links
-    const {copyText, copyInProgress, setCopyText, doCopy} = useCopy();
+    // --------------------------------------- sharing
+    // const {copyText, copyInProgress, setCopyText, doCopy} = useCopy();
+    // setCopyText('Share a Link');
+    // const copyShareLink = async () => {
+    //   const host = window.location.origin;
+    //   await doCopy(`${host}/addr/${address.value!}`);
+    // };
 
-    setCopyText('Share a Link');
-    const copyShareLink = async () => {
+    const shareText = computed(() => {
       const host = window.location.origin;
-      await doCopy(`${host}/addr/${address.value!}`);
-    };
+      const text = encodeURI(`I aped🍌 into ${isSol.value ? '◎' : '$'}${totalSpend.value.toFixed(2)} worth of NFTs, paperhanded🧻 ${isSol.value ? '◎' : '$'}${totalPaperhanded.value.toFixed(2)}, and am diamondhanding💎 ${isSol.value ? '◎' : '$'}${totalDiamondhanded.value.toFixed(2)}.`)
+      const url = encodeURI(`${host}/addr/${address.value!}`)
+      const hashtags = encodeURI('NFTs,Solana')
+      return `text=${text}&url=${url}&hashtags=${hashtags}`
+    })
 
     onMounted(async () => {
-      console.log(window.location.pathname)
-      console.log(window.location.pathname.split('/').at(1))
-      console.log(window.location.pathname.split('/').at(-1))
       const route = useRoute();
       const {addr} = route.params;
       if (addr) {
@@ -355,9 +350,7 @@ export default defineComponent({
       text,
       progress,
       // sharing
-      copyText,
-      copyShareLink,
-      copyInProgress,
+      shareText,
     }
   }
 })
@@ -367,6 +360,7 @@ export default defineComponent({
 .width {
   width: 900px;
 }
+
 .twitter-button {
   @apply text-white hover:text-white !important;
 }
