@@ -3,12 +3,18 @@
     <form @submit.prevent="lfg">
       <div class="nes-field ">
         <label for="wallet">Wallet address:</label>
-        <input type="text" id="wallet" class="nes-input is-dark mt-5" v-model="address">
+        <input type="text" id="wallet" class="nes-input is-dark mt-5 w-full" v-model="address">
       </div>
       <button class="nes-btn is-warning mt-5 w-40" type="submit" :class="{ 'is-disabled': isLoading }" :disabled="isLoading">
         LFG
       </button>
     </form>
+
+    <a
+        class="nes-btn is-primary twitter-button"
+        href="https://twitter.com/intent/tweet?text=hello%20world%20%40_ilmoi%20%23yoyo&url=https%2F%2Fwww.google.com"
+        target="_blank"
+    >Share on Twitter</a>
 
     <div v-if="err" class="mt-5">
       <NotifyError>{{ err }}</NotifyError>
@@ -16,25 +22,27 @@
 
     <LoadingBar v-else-if="isLoading" class="mt-5" :text="text" :progress="progress"></LoadingBar>
 
-    <!--<div>-->
-    <div v-else-if="nfts.length">
+    <div>
+      <!--<div v-else-if="nfts.length">-->
       <TheCurrencySlider class="mt-20" :currency="currency" @currency="handleNewCurrency"/>
 
-      <h1 class="mt-10 w500:text-xl">You've spent a total of
-        <span class="text-rb-blue">{{ isSol ? '◎' : '$' }}{{ totalSpend.toFixed(2) }}</span> on NFTs.
-      </h1>
-      <h1 class="my-10 w500:text-xl">You've earned a total of
-        <span class="text-rb-blue">{{ isSol ? '◎' : '$' }}{{ totalEarnings.toFixed(2) }}</span> from NFTs.
-      </h1>
-      <h1 class="my-10 w500:text-xl">Your total {{ neg(totalProfit) ? 'loss' : 'profit' }} is
-        <span :class="neg(totalProfit) ? 'text-rb-pink' : 'text-rb-green'">{{ isSol ? '◎' : '$' }}{{ totalProfit.toFixed(2) }}</span>.
-      </h1>
-      <h1 class="my-10 w500:text-xl">You've paperhanded a total of
-        <span :class="neg(totalPaperhanded) ? 'text-rb-green' : 'text-rb-pink'">{{ isSol ? '◎' : '$' }}{{ totalPaperhanded.toFixed(2) }}</span>.
-      </h1>
-      <h1 class="mb-20 w500:text-xl">You're diamondhanding a total of
-        <span :class="neg(totalDiamondhanded) ? 'text-rb-pink' : 'text-rb-green'">{{ isSol ? '◎' : '$' }}{{ totalDiamondhanded.toFixed(2) }}</span>.
-      </h1>
+      <div>
+        <h1 class="mt-10 w500:text-xl">You've spent a total of
+          <span class="text-rb-blue">{{ isSol ? '◎' : '$' }}{{ totalSpend.toFixed(2) }}</span> on NFTs.
+        </h1>
+        <h1 class="my-10 w500:text-xl">You've earned a total of
+          <span class="text-rb-blue">{{ isSol ? '◎' : '$' }}{{ totalEarnings.toFixed(2) }}</span> from NFTs.
+        </h1>
+        <h1 class="my-10 w500:text-xl">Your total {{ neg(totalProfit) ? 'loss' : 'profit' }} is
+          <span :class="neg(totalProfit) ? 'text-rb-pink' : 'text-rb-green'">{{ isSol ? '◎' : '$' }}{{ totalProfit.toFixed(2) }}</span>.
+        </h1>
+        <h1 class="my-10 w500:text-xl">You've paperhanded a total of
+          <span :class="neg(totalPaperhanded) ? 'text-rb-green' : 'text-rb-pink'">{{ isSol ? '◎' : '$' }}{{ totalPaperhanded.toFixed(2) }}</span>.
+        </h1>
+        <h1 class="mb-20 w500:text-xl">You're diamondhanding a total of
+          <span :class="neg(totalDiamondhanded) ? 'text-rb-pink' : 'text-rb-green'">{{ isSol ? '◎' : '$' }}{{ totalDiamondhanded.toFixed(2) }}</span>.
+        </h1>
+      </div>
 
       <div class="mb-5 flex flex-col w700:flex-row justify-center">
         <button class="nes-btn is-warning mx-5" @click="showNFTs = !showNFTs">View by NFT</button>
@@ -264,8 +272,8 @@ export default defineComponent({
         updateLoading({
           newStatus: LoadStatus.Loading,
           newProgress: 0,
-          maxProgress: 25,
-          newText: 'Fetching transaction history..',
+          maxProgress: 35,
+          newText: 'Fetching transaction history...',
         });
         EE.removeAllListeners();
         EE.on('loading', updateLoading);
@@ -280,7 +288,7 @@ export default defineComponent({
     }
 
     // --------------------------------------- sharable links
-    const { copyText, copyInProgress, setCopyText, doCopy } = useCopy();
+    const {copyText, copyInProgress, setCopyText, doCopy} = useCopy();
 
     setCopyText('Share a Link');
     const copyShareLink = async () => {
@@ -341,6 +349,9 @@ export default defineComponent({
 
 <style scoped>
 .width {
-  max-width: 900px;
+  width: 900px;
+}
+.twitter-button {
+  @apply text-white hover:text-white !important;
 }
 </style>

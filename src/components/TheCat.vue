@@ -1,20 +1,22 @@
 <template>
-  <div class="flex justify-center fork hidden w700:block">
-    <div v-if="showText" class="nes-balloon from-right balloon">
-      <p class="text-black">Fork me on Github</p>
+  <div class="hidden w700:block">
+    <div class="flex justify-center fork">
+      <div v-if="showText" class="nes-balloon from-right balloon">
+        <p class="text-black">Fork me on Github</p>
+      </div>
+      <a href="https://github.com/ilmoi/nftape.me" target="_blank" class="cat">
+        <i
+            @mouseover="showText = true"
+            @mouseleave="showText = false"
+            class="nes-octocat animate"
+        ></i>
+      </a>
     </div>
-    <a href="https://github.com/ilmoi/nftape.me" target="_blank" class="cat">
-      <i
-        @mouseover="showText = true"
-        @mouseleave="showText = false"
-        class="nes-octocat animate"
-      ></i>
-    </a>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import {defineComponent, ref} from 'vue';
 
 export default defineComponent({
   setup() {

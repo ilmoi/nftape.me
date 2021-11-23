@@ -172,7 +172,7 @@ export class NFTHandler {
       newStatus: LoadStatus.Loading,
       newProgress: 35,
       maxProgress: 70,
-      newText: `Preparing NFT metadata..`,
+      newText: `Preparing NFT metadata...`,
     } as IUpdateLoadingParams);
     await this.populateNFTsWithMetadata();
 
@@ -180,7 +180,7 @@ export class NFTHandler {
       newStatus: LoadStatus.Loading,
       newProgress: 70,
       maxProgress: 100,
-      newText: `Fetching prices from marketplaces..`,
+      newText: `Fetching prices from marketplaces...`,
     } as IUpdateLoadingParams);
     await this.populateNFTsWithPriceStats();
     await this.fetchSolPrice();
