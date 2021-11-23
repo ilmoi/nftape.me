@@ -121,6 +121,64 @@ export const collections = {
     DE: 'BONEWORLD',
     ME: 'boneworld',
   },
+  AhMebvPBpYiZCLk7QiRn6cHWwyrGLKw4QKTAWRrNGsoL: {
+    ME: 'ggsg_enigma_crystals',
+  },
+  FNjSes2HqQn6tREnUauGdgzdBorbkzc1L7jeFZVM9aNy: {
+    SA: 'genopeteggs',
+    ME: 'genopet_eggs',
+  },
+  PENGSryHTUSG1tZ9LWFC4GEexY37xDSAfTQ8YEBFbyv: {
+    SA: 'flippies',
+    DE: 'Flippies',
+    ME: 'flippies',
+  },
+  '5ujZ8BBFXpcByNbQdxANxbydxUhz5hVavpapvrEUc2Da': {
+    SA: 'junglecats',
+    ME: 'jungle_cats',
+  },
+  '4xESs1McQbwhXhWjpVBZ7Tb6gXNqH7grVbwTKZNjjk6V': {
+    SA: 'redpandasquad',
+    DE: 'Red%20Panda%20Squad',
+    ME: 'red_panda_squad',
+  },
+  '5j8KoG8CAQ8AJCdMKFj6qTdmiYGwCvo8VRDs1kmtW3ZN': {
+    SA: 'cryptocubs',
+    DE: 'CryptoCubs',
+    ME: 'crypto_cubs',
+  },
+  '8H65txacY9uvzzbrhY1gpVxkRLX8rweqqe6FQPnTv8JW': {
+    SA: 'infinitylabs',
+    ME: 'infinity_labs',
+  },
+  LamapQPXuMYEuvsyZqK2UPqn1XCT2sW1soURj7ZJkZF: {
+    SA: 'sollamas-gen2',
+    DE: 'Sollamas',
+    ME: 'sollamas',
+  },
+  Pigv3gFWLWJL8QwrFBkdZLe1RYzNJTSJPGEUNVimJjh: {
+    SA: 'piggysolgang',
+    DE: 'Piggy%20Sol%20Gang',
+    ME: 'piggy_sol_gang',
+  },
+  paFcJbYqJB3tqmjHecd32R4wSi84Ub1TgBBmx1HnYG9: {
+    SA: 'fancyfrenchies',
+    DE: 'Fancy%20Frenchies',
+    ME: 'fancy_frenchies',
+  },
+  '6FeayTkQHQXhX4x7qcN6UWPommVLQQBAbCdQYCodejAh': {
+    SA: 'babyapes',
+    DE: 'BabyApes',
+    ME: 'babyapes',
+  },
+  GLDnp93WqcWPsTnCiTQkM2DMPURY4hq2pttmUTfrdCN3: {
+    SA: 'cyberpharmacist',
+    ME: 'cyber_pharmacy',
+  },
+  ALNcW6QDNf7H4iNiTM3FD16LZ4zMGyEeCYQiE1AbCoXk: {
+    DE: 'SOLgods',
+    ME: 'solgods',
+  },
   // '': {
   //   SA: '',
   //   DE: '',

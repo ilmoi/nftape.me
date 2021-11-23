@@ -2,13 +2,11 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
 import './index.css';
-import VueHead from 'vue-head';
-// import VueGtag from 'vue-gtag';
+import VueGtag from 'vue-gtag';
 
 createApp(App)
   .use(router)
-  .use(VueHead)
-  // .use(VueGtag, {
-  //   config: { id: 'G-6MN98MZZPL' },
-  // })
+  .use(VueGtag, {
+    config: { id: 'G-8JYV600SF5' },
+  })
   .mount('#app');
