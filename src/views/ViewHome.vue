@@ -23,22 +23,24 @@
     <div v-else-if="nfts.length">
       <TheCurrencySlider class="mt-20" :currency="currency" @currency="handleNewCurrency"/>
 
-      <div>
-        <h1 class="mt-10 w500:text-xl">You've spent a total of
+      <div class="w500:text-xl">
+        <h1 class="mt-10">You've spent a total of
           <span class="text-rb-blue">{{ isSol ? '◎' : '$' }}{{ f(totalSpend) }}</span> on NFTs.
         </h1>
-        <h1 class="my-10 w500:text-xl">You've earned a total of
+        <h1 class="my-10">You've earned a total of
           <span class="text-rb-blue">{{ isSol ? '◎' : '$' }}{{ f(totalEarnings) }}</span> from NFTs.
         </h1>
-        <h1 class="my-10 w500:text-xl">Your total {{ neg(totalProfit) ? 'loss' : 'profit' }} is
+        <h1 class="my-10">Your total {{ neg(totalProfit) ? 'loss' : 'profit' }} is
           <span :class="neg(totalProfit) ? 'text-rb-pink' : 'text-rb-green'">{{ isSol ? '◎' : '$' }}{{ f(totalProfit) }}</span>.
         </h1>
-        <h1 class="my-10 w500:text-xl">You've paperhanded a total of
-          <span :class="neg(totalPaperhanded) ? 'text-rb-green' : 'text-rb-pink'">{{ isSol ? '◎' : '$' }}{{ f(totalPaperhanded) }}</span> (via {{paperSales}} sales).
+        <h1 class="my-10 ">You've paperhanded a total of
+          <span :class="neg(totalPaperhanded) ? 'text-rb-green' : 'text-rb-pink'">{{ isSol ? '◎' : '$' }}{{ f(totalPaperhanded) }}</span>.
         </h1>
-        <h1 class="mb-20 w500:text-xl">You're diamondhanding a total of
-          <span :class="neg(totalDiamondhanded) ? 'text-rb-pink' : 'text-rb-green'">{{ isSol ? '◎' : '$' }}{{ f(totalDiamondhanded) }}</span> (via {{diamondNFTs}} NFTs).
+        <!--<h1 class="mb-10">(via {{paperSales}} sales)</h1>-->
+        <h1 class="mb-20">You're diamondhanding a total of
+          <span :class="neg(totalDiamondhanded) ? 'text-rb-pink' : 'text-rb-green'">{{ isSol ? '◎' : '$' }}{{ f(totalDiamondhanded) }}</span>.
         </h1>
+        <!--<h1 class="mb-20">(via {{diamondNFTs}} NFTs)</h1>-->
       </div>
 
       <div class="mb-5 flex flex-col w700:flex-row justify-center">
