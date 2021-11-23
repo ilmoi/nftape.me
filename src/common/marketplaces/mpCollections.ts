@@ -179,6 +179,9 @@ export const collections = {
     DE: 'SOLgods',
     ME: 'solgods',
   },
+  BEjfuTRQbHhvG9CgK2hTS1mRHCMyLvDAPDk5mScgkmWg: {
+    ME: 'noiaducks',
+  },
   // '': {
   //   SA: '',
   //   DE: '',
