@@ -228,12 +228,16 @@ export const collections = {
   '9NTiGTSLgigzksHxPhihKtSRzDsrFjJACYQw8b57V5ZC': {
     ME: 'sockpass',
   },
-  'HjaeGbWfBAYuYyTk9hDK79jquYMTJ6pgrjKnsBogHhQu': {
+  HjaeGbWfBAYuYyTk9hDK79jquYMTJ6pgrjKnsBogHhQu: {
     ME: 'nifty_nanas',
   },
   '3kvCxLjviJHWZKjjTRFzz69KfqX7MKbe6R6r2JvrcqZZ': {
     ME: 'solparasites',
-  }
+  },
+  Hv3kURiwHKfGAq2a5jkHpC5mJsm95eKgi86WanEkZm3z: {
+    DE: 'Mechs%20of%20Solana',
+    ME: 'mechs_of_solana',
+  },
   // '': {
   //   SA: '',
   //   DE: '',
