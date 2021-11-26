@@ -182,15 +182,33 @@ export const collections = {
   BEjfuTRQbHhvG9CgK2hTS1mRHCMyLvDAPDk5mScgkmWg: {
     ME: 'noiaducks',
   },
+  // solslugs 1000 developer slugs
   '54hCCX4fFgCiYoUAR11Yroi2vvMZVVHi4ak5TT98FQD8': {
     SA: 'solanaslugs',
     DE: 'Sol%20Slugs',
     ME: 'sol_slugs',
   },
+  // solslugs 9000 mint slugs
   CeYRttSvWZ6SP4QWK4CxVc4GbWtC7eJmvgqv86zLnGQ8: {
     SA: 'solanaslugs',
     DE: 'Sol%20Slugs',
     ME: 'sol_slugs',
+  },
+  // Artificial Irrelevants Wave 1
+  '5eJxPuWVd2UW4KuLN6e2CHDbULYLG5qcHVTy9eSwaKZM': {
+    ME: 'artificial_irrelevants',
+  },
+  // Artificial Irrelevants Wave 2
+  '6ZAtbFKWgob5aaL3BDmULXYtuhhbFdsvKb62onZ6D7Aw': {
+    ME: 'artificial_irrelevants',
+  },
+  // Artificial Irrelevants Wave 3
+  HymzbDjZqS3d2P41qPhxPNqCSwAtQjxrXAXWV5UbVEUf: {
+    ME: 'artificial_irrelevants',
+  },
+  // Artificial Irrelevants Wave 4
+  '13w2evak8StGZgbT71ihcnrLo18XM4BcRBNBUDnEae1V': {
+    ME: 'artificial_irrelevants',
   },
   // '': {
   //   SA: '',
