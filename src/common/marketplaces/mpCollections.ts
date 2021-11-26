@@ -218,6 +218,10 @@ export const collections = {
     DE: 'Solana%20Souls',
     ME: 'solana_souls',
   },
+  '7x3XbrhveeGUUgGXjbym5rGLo1xxaenwfgmX5ZSnte3t': {
+    DE: 'Sollyfish',
+    ME: 'sollyfish',
+  }
   // '': {
   //   SA: '',
   //   DE: '',
