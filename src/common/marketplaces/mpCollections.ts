@@ -231,6 +231,9 @@ export const collections = {
   'HjaeGbWfBAYuYyTk9hDK79jquYMTJ6pgrjKnsBogHhQu': {
     ME: 'nifty_nanas',
   },
+  '3kvCxLjviJHWZKjjTRFzz69KfqX7MKbe6R6r2JvrcqZZ': {
+    ME: 'solparasites',
+  }
   // '': {
   //   SA: '',
   //   DE: '',
