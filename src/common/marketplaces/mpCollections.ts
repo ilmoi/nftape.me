@@ -240,7 +240,10 @@ export const collections = {
   },
   CFK3q7FPsTbHvN1CFrJvcC7vTDc2b7BeCeqGwaxun35p: {
     ME: 'mutated_monkes',
-  }
+  },
+  '8iwkSPrV7CfwxJAw7FFHESyg5Av2hF7MTn6BAyGcwJwW': {
+    ME: 'cyber_trolls',
+  },
   // '': {
   //   SA: '',
   //   DE: '',
