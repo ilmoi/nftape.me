@@ -210,6 +210,9 @@ export const collections = {
   '13w2evak8StGZgbT71ihcnrLo18XM4BcRBNBUDnEae1V': {
     ME: 'artificial_irrelevants',
   },
+  '3s2AdZJHj5UUKWQzPi8cZ5p4FXkoxZtyLD5L8hGt9bH6': {
+    DE: 'solcapys',
+  }
   // '': {
   //   SA: '',
   //   DE: '',
