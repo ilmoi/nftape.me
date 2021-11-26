@@ -238,6 +238,9 @@ export const collections = {
     DE: 'Mechs%20of%20Solana',
     ME: 'mechs_of_solana',
   },
+  CFK3q7FPsTbHvN1CFrJvcC7vTDc2b7BeCeqGwaxun35p: {
+    ME: 'mutated_monkes',
+  }
   // '': {
   //   SA: '',
   //   DE: '',
