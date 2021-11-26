@@ -247,6 +247,9 @@ export const collections = {
   '7Mbd6NHqUdPV6B3bnDYnJ9D23zpmVtMS5mPvSrQvZX4Q': {
     ME: 'sealz',
   },
+  '9NmVeZjZ3v3PiT5bcdL8MmMBJJBeYvBoKqC1PwWQSKgR': {
+    ME: 'eyeballz',
+  },
   // '': {
   //   SA: '',
   //   DE: '',
