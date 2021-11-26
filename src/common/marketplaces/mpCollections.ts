@@ -227,7 +227,10 @@ export const collections = {
   },
   '9NTiGTSLgigzksHxPhihKtSRzDsrFjJACYQw8b57V5ZC': {
     ME: 'sockpass',
-  }
+  },
+  'HjaeGbWfBAYuYyTk9hDK79jquYMTJ6pgrjKnsBogHhQu': {
+    ME: 'nifty_nanas',
+  },
   // '': {
   //   SA: '',
   //   DE: '',
