@@ -63,6 +63,8 @@ Steps to follow:
     ME: 'magic eden slug goes here',
   },
 ```
+3. Please run `yarn test`. There's only one test, and it checks to make sure you didn't make a typo. It does that by actually trying to fetch the data from marketplaces, and making sure no request times out.
+
 Where do you get the first creator's address?
 - Get your token's mint and open it in explorer, eg [Degen Ape 9161](https://explorer.solana.com/address/GUFMMLQ2tAaf4aLgzSvFQLvQhKD2jY22XmGZuPLEwvM3)
 - Click on "creators", then copy the FIRST address (has to be the FIRST!)
