@@ -182,6 +182,16 @@ export const collections = {
   BEjfuTRQbHhvG9CgK2hTS1mRHCMyLvDAPDk5mScgkmWg: {
     ME: 'noiaducks',
   },
+  '54hCCX4fFgCiYoUAR11Yroi2vvMZVVHi4ak5TT98FQD8': {
+    SA: 'solanaslugs',
+    DE: 'Sol%20Slugs',
+    ME: 'sol_slugs',
+  },
+  CeYRttSvWZ6SP4QWK4CxVc4GbWtC7eJmvgqv86zLnGQ8: {
+    SA: 'solanaslugs',
+    DE: 'Sol%20Slugs',
+    ME: 'sol_slugs',
+  },
   // '': {
   //   SA: '',
   //   DE: '',
