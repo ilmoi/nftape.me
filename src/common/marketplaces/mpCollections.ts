@@ -244,6 +244,9 @@ export const collections = {
   '8iwkSPrV7CfwxJAw7FFHESyg5Av2hF7MTn6BAyGcwJwW': {
     ME: 'cyber_trolls',
   },
+  '7Mbd6NHqUdPV6B3bnDYnJ9D23zpmVtMS5mPvSrQvZX4Q': {
+    ME: 'sealz',
+  },
   // '': {
   //   SA: '',
   //   DE: '',
