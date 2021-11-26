@@ -224,6 +224,9 @@ export const collections = {
   },
   AsbhrsY4posEBmZ8vyAooKtpvyJoWQWTqsSnnZpDmChn: {
     ME: 'taiyo_robotics',
+  },
+  '9NTiGTSLgigzksHxPhihKtSRzDsrFjJACYQw8b57V5ZC': {
+    ME: 'sockpass',
   }
   // '': {
   //   SA: '',
