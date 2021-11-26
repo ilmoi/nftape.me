@@ -221,6 +221,9 @@ export const collections = {
   '7x3XbrhveeGUUgGXjbym5rGLo1xxaenwfgmX5ZSnte3t': {
     DE: 'Sollyfish',
     ME: 'sollyfish',
+  },
+  AsbhrsY4posEBmZ8vyAooKtpvyJoWQWTqsSnnZpDmChn: {
+    ME: 'taiyo_robotics',
   }
   // '': {
   //   SA: '',
