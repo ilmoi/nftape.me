@@ -212,7 +212,12 @@ export const collections = {
   },
   '3s2AdZJHj5UUKWQzPi8cZ5p4FXkoxZtyLD5L8hGt9bH6': {
     DE: 'solcapys',
-  }
+  },
+  '9doSyLpnDtAB4R1CVmKjwqUWP6oJ8huB1SSJksthYPS': {
+    SA: 'solsouls',
+    DE: 'Solana%20Souls',
+    ME: 'solana_souls',
+  },
   // '': {
   //   SA: '',
   //   DE: '',
