@@ -182,6 +182,74 @@ export const collections = {
   BEjfuTRQbHhvG9CgK2hTS1mRHCMyLvDAPDk5mScgkmWg: {
     ME: 'noiaducks',
   },
+  // solslugs 1000 developer slugs
+  '54hCCX4fFgCiYoUAR11Yroi2vvMZVVHi4ak5TT98FQD8': {
+    SA: 'solanaslugs',
+    DE: 'Sol%20Slugs',
+    ME: 'sol_slugs',
+  },
+  // solslugs 9000 mint slugs
+  CeYRttSvWZ6SP4QWK4CxVc4GbWtC7eJmvgqv86zLnGQ8: {
+    SA: 'solanaslugs',
+    DE: 'Sol%20Slugs',
+    ME: 'sol_slugs',
+  },
+  // Artificial Irrelevants Wave 1
+  '5eJxPuWVd2UW4KuLN6e2CHDbULYLG5qcHVTy9eSwaKZM': {
+    ME: 'artificial_irrelevants',
+  },
+  // Artificial Irrelevants Wave 2
+  '6ZAtbFKWgob5aaL3BDmULXYtuhhbFdsvKb62onZ6D7Aw': {
+    ME: 'artificial_irrelevants',
+  },
+  // Artificial Irrelevants Wave 3
+  HymzbDjZqS3d2P41qPhxPNqCSwAtQjxrXAXWV5UbVEUf: {
+    ME: 'artificial_irrelevants',
+  },
+  // Artificial Irrelevants Wave 4
+  '13w2evak8StGZgbT71ihcnrLo18XM4BcRBNBUDnEae1V': {
+    ME: 'artificial_irrelevants',
+  },
+  '3s2AdZJHj5UUKWQzPi8cZ5p4FXkoxZtyLD5L8hGt9bH6': {
+    DE: 'solcapys',
+  },
+  '9doSyLpnDtAB4R1CVmKjwqUWP6oJ8huB1SSJksthYPS': {
+    SA: 'solsouls',
+    DE: 'Solana%20Souls',
+    ME: 'solana_souls',
+  },
+  '7x3XbrhveeGUUgGXjbym5rGLo1xxaenwfgmX5ZSnte3t': {
+    DE: 'Sollyfish',
+    ME: 'sollyfish',
+  },
+  AsbhrsY4posEBmZ8vyAooKtpvyJoWQWTqsSnnZpDmChn: {
+    ME: 'taiyo_robotics',
+  },
+  '9NTiGTSLgigzksHxPhihKtSRzDsrFjJACYQw8b57V5ZC': {
+    ME: 'sockpass',
+  },
+  HjaeGbWfBAYuYyTk9hDK79jquYMTJ6pgrjKnsBogHhQu: {
+    ME: 'nifty_nanas',
+  },
+  '3kvCxLjviJHWZKjjTRFzz69KfqX7MKbe6R6r2JvrcqZZ': {
+    ME: 'solparasites',
+  },
+  Hv3kURiwHKfGAq2a5jkHpC5mJsm95eKgi86WanEkZm3z: {
+    DE: 'Mechs%20of%20Solana',
+    ME: 'mechs_of_solana',
+  },
+  CFK3q7FPsTbHvN1CFrJvcC7vTDc2b7BeCeqGwaxun35p: {
+    ME: 'mutated_monkes',
+  },
+  '8iwkSPrV7CfwxJAw7FFHESyg5Av2hF7MTn6BAyGcwJwW': {
+    ME: 'cyber_trolls',
+  },
+  '7Mbd6NHqUdPV6B3bnDYnJ9D23zpmVtMS5mPvSrQvZX4Q': {
+    ME: 'sealz',
+  },
+  '9NmVeZjZ3v3PiT5bcdL8MmMBJJBeYvBoKqC1PwWQSKgR': {
+    ME: 'eyeballz',
+  },
   // '': {
   //   SA: '',
   //   DE: '',
