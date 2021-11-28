@@ -8,6 +8,14 @@ function extractIxData(tx: any): string {
 
 // --------------------------------------- mp identifiers
 
+function isSMBV2PurchaseTx(tx: any) {
+  const ixData = extractIxData(tx);
+  // check is calling the buy instruction
+  const ixNr = parseInt(ixData.substr(0, 2), 10);
+  console.log(ixNr);
+  return ixNr === 95;
+}
+
 function isSolSeaPurchaseTx(tx: any) {
   const ixData = extractIxData(tx);
   // check is calling the buy instruction
@@ -109,11 +117,19 @@ export function triageTxByExchange(tx: any) {
         return exchange;
       }
       break;
-    case 'GvQVaDNLV7zAPNx35FqWmgwuxa4B2h5tuuL73heqSf1C':
+    case 'GvQVaDNLV7zAPNx35FqWmgwuxa4B2h5tuuL73heqSf1C': // SMB v1 (pre offers)
       exchange = 'SMB marketplace';
       console.log(`tx ${sig} is ${exchange}`);
       // NOTE: this is NOT a mistake. The SMB market uses the same codebase as DE!
       if (isDigitalEyezPurchaseTx(tx)) {
+        return exchange;
+      }
+      break;
+    case 'J7RagMKwSD5zJSbRQZU56ypHUtux8LRDkUpAPSKH4WPp': // SMB v2 (post offers)
+      exchange = 'SMB v2 marketplace';
+      console.log(`tx ${sig} is ${exchange}`);
+      // NOTE: this is NOT a mistake. The SMB market uses the same codebase as DE!
+      if (isSMBV2PurchaseTx(tx)) {
         return exchange;
       }
       break;
