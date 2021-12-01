@@ -250,6 +250,10 @@ export const collections = {
   '9NmVeZjZ3v3PiT5bcdL8MmMBJJBeYvBoKqC1PwWQSKgR': {
     ME: 'eyeballz',
   },
+  '73WjzyLFg46VP2mUtY96pdVq9vnzGzyD62bR16SQ9ZaC': {
+    ME: 'turnt_up_tikis',
+  },
+  
   // '': {
   //   SA: '',
   //   DE: '',
