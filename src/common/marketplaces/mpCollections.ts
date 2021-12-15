@@ -12,14 +12,11 @@ export const collections = {
   DRGNjvBvnXNiQz9dTppGk1tAsVxtJsvhEmojEfBU3ezf: {
     ME: 'boryoku_dragonz',
   },
-  64tkPodY5e16hHMTk2gky4aGMcg6KDBejVVnAH1MPheL: {
+  '64tkPodY5e16hHMTk2gky4aGMcg6KDBejVVnAH1MPheL': {
     ME: 'dapper_ducks', 
   },
-  6cSjZRcDEjpRxHmqXGjJXzqCEs7cHgxiWseA9gzCeQp9: {
+  '6cSjZRcDEjpRxHmqXGjJXzqCEs7cHgxiWseA9gzCeQp9': {
     ME: 'astral_apes', 
-  },
-  DRGNjvBvnXNiQz9dTppGk1tAsVxtJsvhEmojEfBU3ezf: {
-    ME: 'boryoku_dragonz',
   },
   BHVPUojZvH2mWo5T6ZCJQnyqMTe4McHsXGSJutezTPGE: {
     SA: 'saibagang',
