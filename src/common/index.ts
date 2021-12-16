@@ -1,4 +1,4 @@
-import { Connection, LAMPORTS_PER_SOL, PublicKey } from '@solana/web3.js';
+import { Connection, LAMPORTS_PER_SOL, PublicKey, ConfirmedSignatureInfo } from '@solana/web3.js';
 import axios from 'axios';
 import { findSigner, okToFailAsync } from './util';
 import { INFTData } from '@/common/types';
@@ -61,16 +61,26 @@ export class NFTHandler {
     // (!) for some reason this works a lot fast with solana's own node
     const conn = new Connection('https://api.mainnet-beta.solana.com');
 
-    let txInfos = await conn.getSignaturesForAddress(new PublicKey(address));
-    console.log(`got ${txInfos.length} txs to process`);
+    let beforeSignature = undefined;
 
-    // todo temp for debugging
-    // txInfos = txInfos.splice(0, 200);
+    let sigs: string[] = [];
+
+    while (true) {
+      const signatures: ConfirmedSignatureInfo[] = await conn.getSignaturesForAddress(new PublicKey(address), { before: beforeSignature });
+
+      console.log(`got ${signatures.length} signatures to process`);
+
+      if (signatures.length === 0) {
+        break;
+      }
+
+      sigs = sigs.concat(signatures.map((s) => s.signature));
+
+      beforeSignature = signatures[signatures.length - 1].signature;
+    }
 
     // reverse the array, we want to start with historic transactions not other way around
-    txInfos = txInfos.reverse();
-
-    const sigs = txInfos.map((i) => i.signature);
+    sigs = sigs.reverse();
 
     let i = 1;
     while (true) {
@@ -97,7 +107,7 @@ export class NFTHandler {
         }
       });
     }
-    console.log(`Analyzed a total of ${txInfos.length} txs.`);
+    console.log(`Analyzed a total of ${sigs.length} signatures.`);
   }
 
   // --------------------------------------- get NFTs by owner
