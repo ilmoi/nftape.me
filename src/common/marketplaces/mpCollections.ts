@@ -15,6 +15,9 @@ export const collections = {
   '64tkPodY5e16hHMTk2gky4aGMcg6KDBejVVnAH1MPheL': {
     ME: 'dapper_ducks', 
   },
+  'JuD7r5n81vUWhDCTSp6Jkrep8gcAUSWutX7KHvA7Eqp': {
+    ME: 'neon_game', 
+  },
   '6cSjZRcDEjpRxHmqXGjJXzqCEs7cHgxiWseA9gzCeQp9': {
     ME: 'astral_apes', 
   },
