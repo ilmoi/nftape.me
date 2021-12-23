@@ -334,6 +334,15 @@ export const collections = {
   AQHikQMJ12wx8GsdHVRV779E6ki6GTqvv2zYxCQv2r9b: {
     ME: 'sol_buds',
   },
+  'GSL8C187aa1tcMfCmXo1dEY6vf8WRq5GZEx2xTWqPacm': {
+    ME: 'kaeru_kronicles_',
+  },
+  '6yiihVLMywrtdLFAwDdhxcLDiMQ9B9jvnFAZAayVj7Zg': {
+    ME: 'zillaz_nft',
+  },
+  'BW7m1wf9zP42SacnUMcw7Xb2tQA8dph3GFZ5HDuReKpf': {
+    ME: 'panthers_in_the_metaverse',
+  },
   // '': {
   //   SA: '',
   //   DE: '',
