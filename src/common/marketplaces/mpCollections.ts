@@ -5,8 +5,7 @@ export const collections = {
     DE: 'Degenerate%20Ape%20Academy',
     ME: 'degenerate_ape_academy',
   },
- 
-    "6zN3JSsjh4KkEYsLbfgR43TK1P5migXB5TdVwjYG33J7": {
+  "6zN3JSsjh4KkEYsLbfgR43TK1P5migXB5TdVwjYG33J7": {
     ME: 'bat_city_underground',
   },
   '9uBX3ASjxWvNBAD1xjbVaKA74mWGZys3RGSF7DdeDD3F': {
