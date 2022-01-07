@@ -346,6 +346,18 @@ export const collections = {
   'BW7m1wf9zP42SacnUMcw7Xb2tQA8dph3GFZ5HDuReKpf': {
     ME: 'panthers_in_the_metaverse',
   },
+  'CstvJBVkQKHFWS7tCHpKUAuh57fknEXsVQQHgv7XTqvq': {
+    ME: 'toon_wabbits'
+  },
+  '9W8Cji5e853VKrrRXk26CNYwNDC475UKjtSe6bmt8aSr': {
+    ME: 'wabbits'
+  },
+  'Ai8zx1jocBVtejc68swEYCK6r7DKpNwT8VcHec35jrWc': {
+    ME: 'famous_fox_dens'
+  },
+  'AA9JVMreqqpasj39Kjpi6Q271iB56Ah91ADg3PX8RFKR': {
+    ME: 'friendly_frog_social_club'
+  },
   // '': {
   //   SA: '',
   //   DE: '',
