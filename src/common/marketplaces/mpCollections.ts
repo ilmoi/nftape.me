@@ -355,7 +355,7 @@ export const collections = {
   'Ai8zx1jocBVtejc68swEYCK6r7DKpNwT8VcHec35jrWc': {
     ME: 'famous_fox_dens'
   },
-  'AA9JVMreqqpasj39Kjpi6Q271iB56Ah91ADg3PX8RFKR': {
+  'FWyHgKxuDwgRfJzLxuDBBdAiAc3daDyLnDubBstfasy8': {
     ME: 'friendly_frog_social_club'
   },
   // '': {
