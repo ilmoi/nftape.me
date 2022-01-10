@@ -346,6 +346,12 @@ export const collections = {
   'BW7m1wf9zP42SacnUMcw7Xb2tQA8dph3GFZ5HDuReKpf': {
     ME: 'panthers_in_the_metaverse',
   },
+  'APqqf49QdyEf1zDFjWJoXvmRvZtMRsdmRBFnTKcijtMw': {
+    ME: 'social_donkeys',
+  },
+  '2Gj6hep4qsUPY5JHPumqrQ9smFo4hFoEFDQpnaviRAB1': {
+    ME: 'angry_armadillos',
+  },
   'CstvJBVkQKHFWS7tCHpKUAuh57fknEXsVQQHgv7XTqvq': {
     ME: 'toon_wabbits'
   },
