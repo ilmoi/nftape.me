@@ -351,7 +351,19 @@ export const collections = {
   },
   '2Gj6hep4qsUPY5JHPumqrQ9smFo4hFoEFDQpnaviRAB1': {
     ME: 'angry_armadillos',
-  }
+  },
+  'CstvJBVkQKHFWS7tCHpKUAuh57fknEXsVQQHgv7XTqvq': {
+    ME: 'toon_wabbits'
+  },
+  '9W8Cji5e853VKrrRXk26CNYwNDC475UKjtSe6bmt8aSr': {
+    ME: 'wabbits'
+  },
+  'Ai8zx1jocBVtejc68swEYCK6r7DKpNwT8VcHec35jrWc': {
+    ME: 'famous_fox_dens'
+  },
+  'FWyHgKxuDwgRfJzLxuDBBdAiAc3daDyLnDubBstfasy8': {
+    ME: 'friendly_frog_social_club'
+  },
   // '': {
   //   SA: '',
   //   DE: '',
