@@ -59,14 +59,17 @@ export class NFTHandler {
 
   async getTxHistory(address: string) {
     // (!) for some reason this works a lot fast with solana's own node
-    const conn = new Connection('https://api.mainnet-beta.solana.com');
+    // const conn = new Connection('https://api.mainnet-beta.solana.com');
 
-    let beforeSignature = undefined;
+    let beforeSignature;
 
     let sigs: string[] = [];
 
     while (true) {
-      const signatures: ConfirmedSignatureInfo[] = await conn.getSignaturesForAddress(new PublicKey(address), { before: beforeSignature });
+      const signatures: ConfirmedSignatureInfo[] = await this.conn.getSignaturesForAddress(
+        new PublicKey(address),
+        { before: beforeSignature }
+      );
 
       console.log(`got ${signatures.length} signatures to process`);
 
@@ -84,14 +87,14 @@ export class NFTHandler {
 
     let i = 1;
     while (true) {
-      const sigsToProcess = sigs.splice(0, 220);
+      const sigsToProcess = sigs.splice(0, 200);
       if (!sigsToProcess.length) {
         console.log('no more sigs to process!');
         break;
       }
 
       // intentionally not parallelizing this - we're using the public node and this would lead to 429s
-      const txs = await conn.getParsedConfirmedTransactions(sigsToProcess);
+      const txs = await this.conn.getParsedConfirmedTransactions(sigsToProcess);
       console.log(`processing another ${sigsToProcess.length} sigs`);
       txs.forEach((tx) => {
         try {
