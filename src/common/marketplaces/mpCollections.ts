@@ -364,6 +364,9 @@ export const collections = {
   'FWyHgKxuDwgRfJzLxuDBBdAiAc3daDyLnDubBstfasy8': {
     ME: 'friendly_frog_social_club'
   },
+  'HcCV6yKm4Li2A84TRjnaWfXGPnB8cSAH5adAd9NNRKkL': {
+    ME: 'pixelbands'
+  }
   // '': {
   //   SA: '',
   //   DE: '',
