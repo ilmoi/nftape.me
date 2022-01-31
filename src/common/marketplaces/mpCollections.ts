@@ -375,7 +375,16 @@ export const collections = {
   },
   '2oFY3Y6E19mwMzZ1xqFHPfPoqH6nrDBbugNqDojSae9v': {
     ME: 'metafrog_business_club'
-  }
+  },
+  'BWWE1mrYNCZ2rapGiWhrURgqq9P2RHVCHnAeVHRoFsZv': {
+    ME: 'meekolony',
+  },
+  '76umLJH3kAEBTD1hpuD9494sJCSTFkkkaJav2ZGvRV3L': {
+    ME: 'kaizen_corps',
+  },
+  'GFQBHxuNcAwYwHtEpggMwbH5kwV6Ne4JowHbLVfsMC6C': {
+    ME: 'transdimensional_fox_federation',
+  },
   // '': {
   //   SA: '',
   //   DE: '',
