@@ -375,7 +375,10 @@ export const collections = {
   },
   '2oFY3Y6E19mwMzZ1xqFHPfPoqH6nrDBbugNqDojSae9v': {
     ME: 'metafrog_business_club'
-  }
+  },
+  'BWWE1mrYNCZ2rapGiWhrURgqq9P2RHVCHnAeVHRoFsZv': {
+    ME: 'meekolony',
+  },
   // '': {
   //   SA: '',
   //   DE: '',
