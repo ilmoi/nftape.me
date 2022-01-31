@@ -379,6 +379,12 @@ export const collections = {
   'BWWE1mrYNCZ2rapGiWhrURgqq9P2RHVCHnAeVHRoFsZv': {
     ME: 'meekolony',
   },
+  '76umLJH3kAEBTD1hpuD9494sJCSTFkkkaJav2ZGvRV3L': {
+    ME: 'kaizen_corps',
+  },
+  'GFQBHxuNcAwYwHtEpggMwbH5kwV6Ne4JowHbLVfsMC6C': {
+    ME: 'transdimensional_fox_federation',
+  },
   // '': {
   //   SA: '',
   //   DE: '',
