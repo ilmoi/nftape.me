@@ -387,7 +387,9 @@ export const collections = {
   },
   'JAoKDYgi9xSjV3QAGYCrQo36Lt7qMbQSSux3EKgvkdGd': {
     ME: 'wisecats',
-    
+  },
+  '2wtqpaZZArqYaja55wJ3Wp6gtitWAncG1FwabGV2yNwF': {
+    ME: 'oi_kattoi',
   },
   // '': {
   //   SA: '',
