@@ -385,6 +385,9 @@ export const collections = {
   'GFQBHxuNcAwYwHtEpggMwbH5kwV6Ne4JowHbLVfsMC6C': {
     ME: 'transdimensional_fox_federation',
   },
+  'JAoKDYgi9xSjV3QAGYCrQo36Lt7qMbQSSux3EKgvkdGd': {
+    ME: 'wisecats',
+  },
   '2wtqpaZZArqYaja55wJ3Wp6gtitWAncG1FwabGV2yNwF': {
     ME: 'oi_kattoi',
   },
