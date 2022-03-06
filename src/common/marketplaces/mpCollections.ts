@@ -391,6 +391,9 @@ export const collections = {
   '2wtqpaZZArqYaja55wJ3Wp6gtitWAncG1FwabGV2yNwF': {
     ME: 'oi_kattoi',
   },
+  'GbZajB8oAVn2CX7ebriVYqaCsdcwSpqDCtNcgC6LGn9P':{
+    ME: '6rings',
+  },
   // '': {
   //   SA: '',
   //   DE: '',
