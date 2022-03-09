@@ -5,7 +5,7 @@ export const collections = {
     DE: 'Degenerate%20Ape%20Academy',
     ME: 'degenerate_ape_academy',
   },
-  "6zN3JSsjh4KkEYsLbfgR43TK1P5migXB5TdVwjYG33J7": {
+  '6zN3JSsjh4KkEYsLbfgR43TK1P5migXB5TdVwjYG33J7': {
     ME: 'bat_city_underground',
   },
   '9uBX3ASjxWvNBAD1xjbVaKA74mWGZys3RGSF7DdeDD3F': {
@@ -16,13 +16,13 @@ export const collections = {
     ME: 'boryoku_dragonz',
   },
   '64tkPodY5e16hHMTk2gky4aGMcg6KDBejVVnAH1MPheL': {
-    ME: 'dapper_ducks', 
+    ME: 'dapper_ducks',
   },
-  'JuD7r5n81vUWhDCTSp6Jkrep8gcAUSWutX7KHvA7Eqp': {
-    ME: 'neon_game', 
+  JuD7r5n81vUWhDCTSp6Jkrep8gcAUSWutX7KHvA7Eqp: {
+    ME: 'neon_game',
   },
   '6cSjZRcDEjpRxHmqXGjJXzqCEs7cHgxiWseA9gzCeQp9': {
-    ME: 'astral_apes', 
+    ME: 'astral_apes',
   },
   BHVPUojZvH2mWo5T6ZCJQnyqMTe4McHsXGSJutezTPGE: {
     SA: 'saibagang',
@@ -246,11 +246,11 @@ export const collections = {
   '3kvCxLjviJHWZKjjTRFzz69KfqX7MKbe6R6r2JvrcqZZ': {
     ME: 'solparasites',
   },
-  'Hv3kURiwHKfGAq2a5jkHpC5mJsm95eKgi86WanEkZm3z': {
+  Hv3kURiwHKfGAq2a5jkHpC5mJsm95eKgi86WanEkZm3z: {
     DE: 'Mechs%20of%20Solana',
     ME: 'mechs_of_solana',
   },
-  'CFK3q7FPsTbHvN1CFrJvcC7vTDc2b7BeCeqGwaxun35p': {
+  CFK3q7FPsTbHvN1CFrJvcC7vTDc2b7BeCeqGwaxun35p: {
     ME: 'mutated_monkes',
   },
   '8iwkSPrV7CfwxJAw7FFHESyg5Av2hF7MTn6BAyGcwJwW': {
@@ -265,7 +265,7 @@ export const collections = {
   '73WjzyLFg46VP2mUtY96pdVq9vnzGzyD62bR16SQ9ZaC': {
     ME: 'turnt_up_tikis',
   },
-  'AckmxWkrU46w3WAkQvdfkWfCD2FovMacsCwP9AE8py1': {
+  AckmxWkrU46w3WAkQvdfkWfCD2FovMacsCwP9AE8py1: {
     DE: 'Mysterious%20Pharaohs',
     ME: 'mysterious_pharaohs',
   },
@@ -273,20 +273,20 @@ export const collections = {
     DE: 'PixTapes',
     ME: 'pixtapes',
   },
-  'Cgyv8t6xpZhfoBLG6TP2n7QknWG3EV6GZN6m6NWpKL4w': {
+  Cgyv8t6xpZhfoBLG6TP2n7QknWG3EV6GZN6m6NWpKL4w: {
     ME: 'thugmonkez',
   },
   '3CXFS3TCU9WK7yKf4XppaKXzZfcw3qcwjRUXwRaHVi5o': {
     SA: 'rowdyrex',
     ME: 'rowdyrex',
   },
-  'EZPAFz3qZqZPDp3TUh8B3kep6hNaw8HGuwUPgeek1qnE': {
+  EZPAFz3qZqZPDp3TUh8B3kep6hNaw8HGuwUPgeek1qnE: {
     ME: 'solluminati',
   },
-  'BZFCMLBpE5MCbxRjX4DeJWNXiMWDiokL634Mrkcg3F4d': {
+  BZFCMLBpE5MCbxRjX4DeJWNXiMWDiokL634Mrkcg3F4d: {
     ME: 'solluminati_the_eye',
   },
-  'HAKuJqXppGRdatCt1J7vqfkaZGxV6BRjQezLY9xwrsXs': {
+  HAKuJqXppGRdatCt1J7vqfkaZGxV6BRjQezLY9xwrsXs: {
     SA: 'nakedmeerkatsbeachclub',
     DE: 'Naked%20Meerkats%20Beach%20Club',
     ME: 'naked_meerkats_beach_club',
@@ -301,7 +301,7 @@ export const collections = {
     DE: 'Bounty%20Hunter%20Space%20Guild',
     ME: 'bounty_hunter_space_guild',
   },
-  'JDiH6y747npqHRjBGTej6aRAhfCTCb6txhPEZaX15ZTD': {
+  JDiH6y747npqHRjBGTej6aRAhfCTCb6txhPEZaX15ZTD: {
     SA: 'neopets',
     ME: 'neopets_metaverse',
   },
@@ -312,84 +312,90 @@ export const collections = {
   '67VDEgntJddky8tzcZaw3mAWg4DGhToJxPywnFH32jti': {
     ME: 'nyan_heroes_participation_token',
   },
-  'HdK6JJJQsmSG5RBHZdGAXxa6hX4VK4imANiwkwixxHqF': {
+  HdK6JJJQsmSG5RBHZdGAXxa6hX4VK4imANiwkwixxHqF: {
     SA: 'ratbastardlabs',
     ME: 'rat_bastards',
   },
-  'A4rwG5u9yGmeHsnxhkXzyzAcT2fouR9nyvWExMvNePmL': {
+  A4rwG5u9yGmeHsnxhkXzyzAcT2fouR9nyvWExMvNePmL: {
     ME: 'a_basic_ape',
   },
-  'H4K521DFe81raG4j1rRvRbBbFmiXy8QDm76aLARYkyy7': {
+  H4K521DFe81raG4j1rRvRbBbFmiXy8QDm76aLARYkyy7: {
     ME: 'solnoodles',
   },
-  'Hvq6K3BvaBZFQyYYoc3gxwh4ahFWvbLVuTp6UWgfXfMT': {
+  Hvq6K3BvaBZFQyYYoc3gxwh4ahFWvbLVuTp6UWgfXfMT: {
     ME: 'pixel_racers',
   },
-  'EooVZi3jFaEKF9SWq6kmepG57eeHeNTt83z57wGonXsZ': {
+  EooVZi3jFaEKF9SWq6kmepG57eeHeNTt83z57wGonXsZ: {
     ME: 'sol_bongs',
   },
-  'R6Ur7i1zLYKoAgw1Xa5asCtPDsf8Qiap9jdhEiU1Eow': {
+  R6Ur7i1zLYKoAgw1Xa5asCtPDsf8Qiap9jdhEiU1Eow: {
     ME: 'arabpunkz',
   },
   '7RCBr3ZQ8yhY4jHpFFo3Kmh7MnaCPi1bFuUgXUB9WURf': {
     ME: 'stoned_ape_crew',
   },
-  'AQHikQMJ12wx8GsdHVRV779E6ki6GTqvv2zYxCQv2r9b': {
+  AQHikQMJ12wx8GsdHVRV779E6ki6GTqvv2zYxCQv2r9b: {
     ME: 'sol_buds',
   },
-  'GSL8C187aa1tcMfCmXo1dEY6vf8WRq5GZEx2xTWqPacm': {
+  GSL8C187aa1tcMfCmXo1dEY6vf8WRq5GZEx2xTWqPacm: {
     ME: 'kaeru_kronicles_',
   },
   '6yiihVLMywrtdLFAwDdhxcLDiMQ9B9jvnFAZAayVj7Zg': {
     ME: 'zillaz_nft',
   },
-  'BW7m1wf9zP42SacnUMcw7Xb2tQA8dph3GFZ5HDuReKpf': {
+  BW7m1wf9zP42SacnUMcw7Xb2tQA8dph3GFZ5HDuReKpf: {
     ME: 'panthers_in_the_metaverse',
   },
-  'APqqf49QdyEf1zDFjWJoXvmRvZtMRsdmRBFnTKcijtMw': {
+  APqqf49QdyEf1zDFjWJoXvmRvZtMRsdmRBFnTKcijtMw: {
     ME: 'social_donkeys',
   },
   '2Gj6hep4qsUPY5JHPumqrQ9smFo4hFoEFDQpnaviRAB1': {
     ME: 'angry_armadillos',
   },
-  'CstvJBVkQKHFWS7tCHpKUAuh57fknEXsVQQHgv7XTqvq': {
-    ME: 'toon_wabbits'
+  CstvJBVkQKHFWS7tCHpKUAuh57fknEXsVQQHgv7XTqvq: {
+    ME: 'toon_wabbits',
   },
   '9W8Cji5e853VKrrRXk26CNYwNDC475UKjtSe6bmt8aSr': {
-    ME: 'wabbits'
+    ME: 'wabbits',
   },
-  'Ai8zx1jocBVtejc68swEYCK6r7DKpNwT8VcHec35jrWc': {
-    ME: 'famous_fox_dens'
+  Ai8zx1jocBVtejc68swEYCK6r7DKpNwT8VcHec35jrWc: {
+    ME: 'famous_fox_dens',
   },
-  'FWyHgKxuDwgRfJzLxuDBBdAiAc3daDyLnDubBstfasy8': {
-    ME: 'friendly_frog_social_club'
+  FWyHgKxuDwgRfJzLxuDBBdAiAc3daDyLnDubBstfasy8: {
+    ME: 'friendly_frog_social_club',
   },
-  'HcCV6yKm4Li2A84TRjnaWfXGPnB8cSAH5adAd9NNRKkL': {
-    ME: 'pixelbands'
+  HcCV6yKm4Li2A84TRjnaWfXGPnB8cSAH5adAd9NNRKkL: {
+    ME: 'pixelbands',
   },
   '9rZsyjWmPN6AnkG3tfvbQbvrS5KX5k2ZgXxQgq7f8x46': {
-    ME: 'chalk_bored_ape_syndicate'
+    ME: 'chalk_bored_ape_syndicate',
   },
   '2eiLRitxxdq2GLJHP13q4XKXNTHHP7xt1goLXTUHEgnp': {
-    ME: 'solluminati'
+    ME: 'solluminati',
   },
   '2oFY3Y6E19mwMzZ1xqFHPfPoqH6nrDBbugNqDojSae9v': {
-    ME: 'metafrog_business_club'
+    ME: 'metafrog_business_club',
   },
-  'BWWE1mrYNCZ2rapGiWhrURgqq9P2RHVCHnAeVHRoFsZv': {
+  BWWE1mrYNCZ2rapGiWhrURgqq9P2RHVCHnAeVHRoFsZv: {
     ME: 'meekolony',
   },
   '76umLJH3kAEBTD1hpuD9494sJCSTFkkkaJav2ZGvRV3L': {
     ME: 'kaizen_corps',
   },
-  'GFQBHxuNcAwYwHtEpggMwbH5kwV6Ne4JowHbLVfsMC6C': {
+  GFQBHxuNcAwYwHtEpggMwbH5kwV6Ne4JowHbLVfsMC6C: {
     ME: 'transdimensional_fox_federation',
   },
-  'JAoKDYgi9xSjV3QAGYCrQo36Lt7qMbQSSux3EKgvkdGd': {
+  JAoKDYgi9xSjV3QAGYCrQo36Lt7qMbQSSux3EKgvkdGd: {
     ME: 'wisecats',
   },
   '2wtqpaZZArqYaja55wJ3Wp6gtitWAncG1FwabGV2yNwF': {
     ME: 'oi_kattoi',
+  },
+  D26eJbnwuW5daqtUYK6bXZW4ybxif5VAkkBS1hopiAZe: {
+    ME: 'solana_money_boys',
+  },
+  '7dMqL5nwjvSMH6T9yjghLuFkiPN5Pe7y14msSQoS8p95': {
+    ME: 'babyyodanft',
   },
   // '': {
   //   SA: '',
