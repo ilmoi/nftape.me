@@ -397,6 +397,12 @@ export const collections = {
   'HTsPQeFWHonNy55xYzz1dpdhHBtwCSCoX19iuuJTjGz5': {
     ME: 'fearless_bulls_club',
   },
+  'Dw73TsHMG8fgT7smeAobwcTZZeJ491NWAKQ1NSiRbJug': {
+    ME: 'yaku_corp',
+  },
+  '8VdA1t8m5gMyYLHV2ZPzk1nw82qmZSYmrQGbuwzcHmRR': {
+    ME: 'yaku_corp_capsulex',
+  },
   // '': {
   //   SA: '',
   //   DE: '',
