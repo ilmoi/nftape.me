@@ -391,6 +391,12 @@ export const collections = {
   '2wtqpaZZArqYaja55wJ3Wp6gtitWAncG1FwabGV2yNwF': {
     ME: 'oi_kattoi',
   },
+  'FQCrdEfDTLUQtz3V7sqKr6g6twSEr6hSdAcwnLRx4j4W': {
+    ME: 'tech_folk',
+  },
+  'HTsPQeFWHonNy55xYzz1dpdhHBtwCSCoX19iuuJTjGz5': {
+    ME: 'fearless_bulls_club',
+  },
   // '': {
   //   SA: '',
   //   DE: '',
