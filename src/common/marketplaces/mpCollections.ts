@@ -391,11 +391,16 @@ export const collections = {
   '2wtqpaZZArqYaja55wJ3Wp6gtitWAncG1FwabGV2yNwF': {
     ME: 'oi_kattoi',
   },
-  D26eJbnwuW5daqtUYK6bXZW4ybxif5VAkkBS1hopiAZe: {
+  '6VrHf4xmhQUMYQtFEUUo6ftUp8soqa81auAuzDhLTtNL': {
     ME: 'solana_money_boys',
   },
-  '7dMqL5nwjvSMH6T9yjghLuFkiPN5Pe7y14msSQoS8p95': {
+  '6sxRtat4ahHwuNWUBb2VkrPzkQWpUkHgihY8eZTXY3xy': {
     ME: 'babyyodanft',
+  },
+  HuAiZg55P557gdjr5jkq79YdMe9sbdHuPj5UN21XuSyK: {
+    SA: 'voxpunksclub',
+    DE: 'Vox%20Punks%20Club',
+    ME: 'voxpunksclub',
   },
   // '': {
   //   SA: '',
