@@ -99,6 +99,9 @@ export const collections = {
     DE: 'Famous%20Fox%20Federation',
     ME: 'famous_fox_federation',
   },
+  A3YoUrpRZNMNvPAS7cpVQtYtF9iW5vdXcR4qTfanNL5j: {
+    ME: 'almost_famous_pandas',
+  },
   DnP3GRVqtR9vjxMZH4PcFuGZ4ZqhbNqoGzJuTrHACK6f: {
     SA: 'grimsyndicate',
     DE: 'Grim%20Syndicate',
