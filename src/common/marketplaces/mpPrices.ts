@@ -29,11 +29,19 @@ async function fetchDigitalEyezPrices(collection: string) {
 async function fetchMagicEdenPrices(collection: string) {
   const collectionName = (collections as any)[collection].ME;
   if (!collectionName) return;
-  const apiLink = 'https://api-mainnet.magiceden.io/rpc';
-  const link = `${apiLink}/getListedNFTsByQuery?q=%7B%22$match%22:%7B%22collectionSymbol%22:%22${collectionName}%22%7D,%22$sort%22:%7B%22takerAmount%22:1,%22createdAt%22:-1%7D,%22$skip%22:0,%22$limit%22:20%7D`;
+
+  console.log('fetching floor for', collectionName);
+
+  const apiLink = 'https://api-mainnet.magiceden.dev/v2';
+  const link = `${apiLink}/collections/${collectionName}/stats`;
   const { data } = await axios.get(link);
-  // console.log(data)
-  return data.results.map((d: any) => d.price);
+  return [data.floorPrice / LAMPORTS_PER_SOL];
+
+  // OLD
+  // const apiLink = 'https://api-mainnet.magiceden.io/rpc';
+  // const link = `${apiLink}/getListedNFTsByQuery?q=%7B%22$match%22:%7B%22collectionSymbol%22:%22${collectionName}%22%7D,%22$sort%22:%7B%22takerAmount%22:1,%22createdAt%22:-1%7D,%22$skip%22:0,%22$limit%22:20%7D`;
+  // const { data } = await axios.get(link);
+  // return data.results.map((d: any) => d.price);
 }
 
 // --------------------------------------- calc
@@ -71,8 +79,9 @@ function calcStats(prices: number[]): IStats {
 export async function fetchAndCalcStats(creator: string) {
   const prices: number[] = [];
   const responses = await Promise.all([
-    okToFailAsync(fetchSolanartPrices, [creator]),
-    okToFailAsync(fetchDigitalEyezPrices, [creator]),
+    // OLD, now only ME relevant
+    // okToFailAsync(fetchSolanartPrices, [creator]),
+    // okToFailAsync(fetchDigitalEyezPrices, [creator]),
     okToFailAsync(fetchMagicEdenPrices, [creator]),
   ]);
   responses.forEach((r) => {
