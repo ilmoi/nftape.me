@@ -99,6 +99,21 @@ export const collections = {
     DE: 'Famous%20Fox%20Federation',
     ME: 'famous_fox_federation',
   },
+  A3YoUrpRZNMNvPAS7cpVQtYtF9iW5vdXcR4qTfanNL5j: {
+    ME: 'almost_famous_pandas',
+  },
+  DKLgbeqnhM9JvVTimzhbHjJpyLhB5WBuMD45HUhrngQ3: {
+    ME: 'ghostguys_metaforge',
+  },
+  A95wMowgtj5RgKyVLfrUqgJKR6LvocuWrZZpqjuxsziW: {
+    ME: 'pitch_black_pandas',
+  },
+  "8m2b8ar9BNZErJQgSBwY3eCe73yR4k9qHUxxGffxyw2d": {
+    ME: 'blocksmith_labs',
+  },
+  "6ALSbyHmEoAipobMGG1yNQsgFEoYxyiBZVAy5spMPuPB": {
+    ME: 'drippies',
+  },
   DnP3GRVqtR9vjxMZH4PcFuGZ4ZqhbNqoGzJuTrHACK6f: {
     SA: 'grimsyndicate',
     DE: 'Grim%20Syndicate',
