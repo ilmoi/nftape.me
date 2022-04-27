@@ -391,6 +391,10 @@ export const collections = {
   '2wtqpaZZArqYaja55wJ3Wp6gtitWAncG1FwabGV2yNwF': {
     ME: 'oi_kattoi',
   },
+  '5v3tpTWZmn8JCzTFVE3eZLLQhhqSLLmTcRR2DZ8Gx2JX': {
+    SA: 'serumsurfers',
+    ME: 'serum_surfers',
+  },
   // '': {
   //   SA: '',
   //   DE: '',
