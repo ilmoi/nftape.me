@@ -56,6 +56,13 @@ function isMagicEdenPurchaseTx(tx: any) {
   return ixNr === 438;
 }
 
+function isMagicEdenV2PurchaseTx(tx: any) {
+  const ixData = extractIxData(tx);
+  // check is calling the buy instruction
+  const ixNr = parseInt(ixData.substr(0, 3), 10);
+  return ixNr === 254;
+}
+
 function isSolanartPurchaseTx(tx: any) {
   const ixData = extractIxData(tx);
   // check is calling the buy instruction
@@ -86,6 +93,14 @@ export function triageTxByExchange(tx: any) {
       exchange = 'MagicEden';
       console.log(`tx ${sig} is ${exchange}`);
       if (isMagicEdenPurchaseTx(tx)) {
+        return exchange;
+      }
+      break;
+    case 'M2mx93ekt1fmXSVkTrUL9xVFHkmME8HTUi5Cyc5aF7K':
+      exchange = 'MagicEdenV2';
+      console.log(`tx ${sig} is ${exchange}`);
+
+      if (isMagicEdenV2PurchaseTx(tx)) {
         return exchange;
       }
       break;
