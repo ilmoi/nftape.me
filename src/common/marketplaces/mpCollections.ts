@@ -391,6 +391,9 @@ export const collections = {
   '2wtqpaZZArqYaja55wJ3Wp6gtitWAncG1FwabGV2yNwF': {
     ME: 'oi_kattoi',
   },
+   "PUFFgnKKhQ23vp8uSPwdzrUhEr7WpLmjM85NB1FQgpb": {
+    SA: 'stoned_ape_crew',
+  },
   // '': {
   //   SA: '',
   //   DE: '',
